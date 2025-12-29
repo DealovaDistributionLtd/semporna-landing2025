@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>仙本那行程价格 / Semporna Tours Pricing</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:#f6fbfc;color:#0e2a33;line-height:1.75;margin:0;padding:0;}
+h1{text-align:center;margin:40px 0;color:#00c2d1;}
+table{width:95%;margin:20px auto;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.08);}
+th,td{padding:14px;text-align:left;border-bottom:1px solid #ddd;}
+th{background:#00c2d1;color:#fff;}
+tr:hover{background:rgba(0,188,212,0.08);cursor:pointer;}
+</style>
+</head>
+<body>
+
+<h1>行程价格 / Pricing</h1>
+
+<table id="pricingTable">
+  <thead>
+    <tr>
+      <th class="cn">行程 / 套餐</th>
+      <th class="en hidden">Package / Trip</th>
+      <th class="cn">价格 (人民币)</th>
+      <th class="en hidden">Price (CNY)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-package="1N / 2 潜水 DSD (Bum Bum Island)">
+      <td class="cn">1N / 2 潜水 DSD (Bum Bum Island)</td>
+      <td class="en hidden">1N / 2 Dive DSD (Bum Bum Island)</td>
+      <td>￥1,014.48</td>
+      <td class="en hidden">￥1,014.48</td>
+    </tr>
+    <tr data-package="1N / 3 潜水 DSD 日游">
+      <td class="cn">1N / 3 潜水 DSD 日游</td>
+      <td class="en hidden">1N / 3 Dive DSD Day Trip</td>
+      <td>￥1,187.89</td>
+      <td class="en hidden">￥1,187.89</td>
+    </tr>
+    <!-- Add the rest of your packages the same way -->
+  </tbody>
+</table>
+
+<script>
+// Make rows clickable to start WeChat chat
+const wechatID = "Deso89"; // Replace with your WeChat ID
+document.querySelectorAll("#pricingTable tbody tr").forEach(row=>{
+  row.addEventListener("click", ()=>{
+    const pkg = row.getAttribute("data-package");
+    alert(`打开 WeChat 与 ${wechatID} 聊天并咨询套餐: ${pkg}`);
+    // Mobile only WeChat deep link
+    window.location.href = `weixin://dl/chat?username=${wechatID}`;
+  });
+});
+</script>
+
+</body>
+</html>
