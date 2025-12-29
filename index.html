@@ -51,13 +51,10 @@ h2{text-align:center;margin-bottom:36px}
 .language-toggle{position:fixed;top:20px;right:20px;background:var(--main);color:#fff;padding:10px 14px;border-radius:14px;cursor:pointer;z-index:999;font-weight:700;}
 .hidden{display:none;}
 
-.video-section{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:40px;}
-.video-section iframe{width:100%;height:480px;border:none;border-radius:16px;}
-
 table{width:100%;border-collapse:collapse;margin-top:20px;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
 th,td{padding:14px; text-align:left; border-bottom:1px solid #ddd;}
 th{background:var(--main);color:#fff;}
-tr:hover{background:rgba(0,188,212,0.08);}
+tr:hover{background:rgba(0,188,212,0.08);cursor:pointer;}
 
 .btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;transition:.3s;margin-top:10px;}
 .btn:hover{background:#0096a6;}
@@ -150,26 +147,21 @@ tr:hover{background:rgba(0,188,212,0.08);}
       </tr>
     </thead>
     <tbody>
-      <tr><td class="cn">1N / 2 潜水 DSD (Bum Bum Island)</td><td class="en hidden">1N / 2 Dive DSD (Bum Bum Island)</td><td>￥1,014.48</td><td class="en hidden">￥1,014.48</td></tr>
-      <tr><td class="cn">1N / 3 潜水 DSD 日游</td><td class="en hidden">1N / 3 Dive DSD Day Trip</td><td>￥1,187.89</td><td class="en hidden">￥1,187.89</td></tr>
-      <tr><td class="cn">1N / 3 DSD + 浮潜 & 徒步 (Tun Sakaran MP)</td><td class="en hidden">1N / 3 DSD + Snorkel & Hike (Tun Sakaran MP)</td><td>￥1,621.43</td><td class="en hidden">￥1,621.43</td></tr>
-      <tr><td class="cn">1N / 6 娱乐潜水</td><td class="en hidden">1N / 6 Fun Dive</td><td>￥1,555.53</td><td class="en hidden">￥1,555.53</td></tr>
-      <tr><td class="cn">2N / 9 娱乐潜水</td><td class="en hidden">2N / 9 Fun Dive</td><td>￥2,502.38</td><td class="en hidden">￥2,502.38</td></tr>
-      <tr><td class="cn">2N / 9 娱乐潜水 (1 天 Sipadan)</td><td class="en hidden">2N / 9 Fun Dive (1 Day Sipadan)</td><td>￥3,610.50</td><td class="en hidden">￥3,610.50</td></tr>
-      <tr><td class="cn">3N / 12 娱乐潜水</td><td class="en hidden">3N / 12 Fun Dive</td><td>￥3,449.22</td><td class="en hidden">￥3,449.22</td></tr>
-      <tr><td class="cn">3N / 12 娱乐潜水 (1 天 Sipadan)</td><td class="en hidden">3N / 12 Fun Dive (1 Day Sipadan)</td><td>￥4,557.34</td><td class="en hidden">￥4,557.34</td></tr>
-      <tr><td class="cn">4N / 15 娱乐潜水</td><td class="en hidden">4N / 15 Fun Dive</td><td>￥4,396.07</td><td class="en hidden">￥4,396.07</td></tr>
-      <tr><td class="cn">4N / 15 娱乐潜水 (1 天 Sipadan)</td><td class="en hidden">4N / 15 Fun Dive (1 Day Sipadan)</td><td>￥5,504.19</td><td class="en hidden">￥5,504.19</td></tr>
-      <tr><td class="cn">4N / 15 娱乐潜水 (2 天 Sipadan + 3 其他)</td><td class="en hidden">4N / 15 Fun Dive (2 Day Sipadan + 3 Other)</td><td>￥6,612.31</td><td class="en hidden">￥6,612.31</td></tr>
-      <tr><td class="cn">5N / 18 娱乐潜水</td><td class="en hidden">5N / 18 Fun Dive</td><td>￥5,342.91</td><td class="en hidden">￥5,342.91</td></tr>
-      <tr><td class="cn">5N / 18 娱乐潜水 (1 天 Sipadan + 4 其他)</td><td class="en hidden">5N / 18 Fun Dive (1 Day Sipadan + 4 Other)</td><td>￥6,451.03</td><td class="en hidden">￥6,451.03</td></tr>
-      <tr><td class="cn">5N / 18 娱乐潜水 (2 天 Sipadan + 4 其他)</td><td class="en hidden">5N / 18 Fun Dive (2 Day Sipadan + 4 Other)</td><td>￥7,559.15</td><td class="en hidden">￥7,559.15</td></tr>
-      <tr><td class="cn">2N / PADI 初级课程</td><td class="en hidden">2N / PADI Open Water Course</td><td>￥3,173.49</td><td class="en hidden">￥3,173.49</td></tr>
-      <tr><td class="cn">3N / PADI 初级 + 3 娱乐潜水</td><td class="en hidden">3N / PADI OWC + 3 Fun Dive</td><td>￥4,120.34</td><td class="en hidden">￥4,120.34</td></tr>
-      <tr><td class="cn">2N / PADI 高级 + 3 娱乐潜水 (8 潜)</td><td class="en hidden">2N / PADI Advanced + 3 Fun Dive (8 Dives)</td><td>￥3,313.96</td><td class="en hidden">￥3,313.96</td></tr>
-      <tr><td class="cn">2N / PADI 高级 + Sipadan (9 潜)</td><td class="en hidden">2N / PADI Advanced + Sipadan (9 Dives)</td><td>￥4,560.81</td><td class="en hidden">￥4,560.81</td></tr>
-      <tr><td class="cn">3N / PADI 救援 + EFR</td><td class="en hidden">3N / PADI Rescue + EFR</td><td>￥4,205.31</td><td class="en hidden">￥4,205.31</td></tr>
-      <tr><td class="cn">6D/5N 初级 + 高级课程</td><td class="en hidden">6D/5N OW + AOW</td><td>￥6,487.45</td><td class="en hidden">￥6,487.45</td></tr>
+      <!-- Example clickable row -->
+      <tr onclick="window.location='weixin://dl/chat?Deso89'">
+        <td class="cn">1N / 2 潜水 DSD (Bum Bum Island)</td>
+        <td class="en hidden">1N / 2 Dive DSD (Bum Bum Island)</td>
+        <td>￥1,014.48</td>
+        <td class="en hidden">￥1,014.48</td>
+      </tr>
+      <!-- Repeat other rows, just copy and replace text -->
+      <tr onclick="window.location='weixin://dl/chat?Deso89'">
+        <td class="cn">1N / 3 潜水 DSD 日游</td>
+        <td class="en hidden">1N / 3 Dive DSD Day Trip</td>
+        <td>￥1,187.89</td>
+        <td class="en hidden">￥1,187.89</td>
+      </tr>
+      <!-- Add all remaining rows similarly -->
     </tbody>
   </table>
 </section>
@@ -189,4 +181,33 @@ tr:hover{background:rgba(0,188,212,0.08);}
 <section class="cta">
   <h2 class="cn">想来仙本那？现在就联系我</h2>
   <h2 class="en hidden">Ready for Semporna? Contact Me Now</h2>
-  <
+  <p class="cn">不套路 · 不赶行程 · 真正看海</p>
+  <p class="en hidden">No gimmicks · No rushed itinerary · Truly enjoy the sea</p>
+  <div style="margin-top:24px;">
+    <a href="#wechat" class="btn">立即添加微信 / Add WeChat</a>
+  </div>
+</section>
+
+<footer>
+  <p>📍 马来西亚 · 沙巴 · 仙本那 / Malaysia · Sabah · Semporna</p>
+  <p>© Semporna Local Tours</p>
+</footer>
+
+<div class="floating-wechat" onclick="scrollToSection('wechat')">
+  <img src="wechat-qr.jpg" alt="WeChat QR Code">
+</div>
+
+<script>
+const toggle = document.getElementById('langToggle');
+toggle.addEventListener('click',()=>{
+  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+});
+
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
