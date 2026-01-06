@@ -13,39 +13,54 @@
   --radius:16px;
   --shadow:0 16px 34px rgba(0,0,0,.08);
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
-a{text-decoration:none;color:inherit}
+a{text-decoration:none;color:inherit;}
+img{width:100%;display:block;}
 header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
 nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
 nav b{color:var(--main);font-size:1.15rem;font-weight:700;}
-nav a{margin-left:18px;font-weight:600;cursor:pointer}
+nav a{margin-left:18px;font-weight:600;cursor:pointer;}
 
-.carousel{position:relative;overflow:hidden;max-height:85vh;}
-.carousel img{width:100%;height:65vh;object-fit:cover;opacity:0;transition:opacity 0.8s ease;}
-.carousel img.active{opacity:1;}
+/* Hero */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+.hero img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-2;}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65));z-index:-1;}
+.hero-content{max-width:900px;padding:20px;}
+.hero h1{font-size:clamp(2.3rem,5vw,3.3rem);margin-bottom:14px;}
+.hero p{font-size:1.2rem;opacity:.95;}
 
+/* Section Titles */
 .section-title{text-align:center;margin:50px 0 24px;font-size:2rem;font-weight:700;color:var(--main);}
 
+/* Services Cards */
 .grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
 .card{background:var(--card);padding:30px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;transition:.35s;}
 .card:hover{transform:translateY(-10px);}
 
+/* Gallery carousel */
+.carousel{position:relative;overflow:hidden;margin-bottom:50px;}
+.carousel img{width:100%;height:65vh;object-fit:cover;opacity:0;transition:opacity 0.8s ease;}
+.carousel img.active{opacity:1;}
+
+/* Gallery thumbnails */
 .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:40px;}
 .gallery img{height:150px;object-fit:cover;border-radius:14px;}
 
+/* Floating WeChat */
+.floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;}
+.floating-wechat img{width:72px;height:72px;border-radius:16px;box-shadow:var(--shadow);}
+
+/* WeChat modal */
 .wechat-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;justify-content:center;align-items:center;}
 .wechat-modal img{max-width:260px;border-radius:20px;box-shadow:var(--shadow);}
 .wechat-modal.active{display:flex;}
 
-.floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;}
-.floating-wechat img{width:72px;height:72px;border-radius:16px;box-shadow:var(--shadow);}
-
-.language-toggle{position:fixed;top:20px;right:20px;background:var(--main);color:#fff;padding:10px 14px;border-radius:14px;cursor:pointer;z-index:999;font-weight:700;}
-
+/* Buttons */
 .btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;transition:.3s;margin-top:10px;}
 .btn:hover{background:#0096a6;}
 
+.language-toggle{position:fixed;top:20px;right:20px;background:var(--main);color:#fff;padding:10px 14px;border-radius:14px;cursor:pointer;z-index:999;font-weight:700;}
 .hidden{display:none;}
 </style>
 </head>
@@ -60,20 +75,24 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
       <a onclick="scrollToSection('services')">项目 / Services</a>
       <a onclick="scrollToSection('gallery')">实拍 / Gallery</a>
       <a onclick="scrollToSection('videos')">视频 / Videos</a>
+      <a onclick="scrollToSection('pricing')">价格 / Pricing</a>
       <a onclick="scrollToSection('wechat')">微信 / WeChat</a>
     </div>
   </nav>
 </header>
 
-<!-- ===== Slideshow ===== -->
-<div class="carousel" id="carousel">
-  <img src="https://images.pexels.com/photos/462024/pexels-photo-462024.jpeg" class="active">
-  <img src="https://images.pexels.com/photos/3683059/pexels-photo-3683059.jpeg">
-  <img src="https://images.pexels.com/photos/1460677/pexels-photo-1460677.jpeg">
-  <img src="https://images.pexels.com/photos/5755318/pexels-photo-5755318.jpeg">
-  <img src="https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg">
-</div>
+<!-- Hero Section -->
+<section class="hero">
+  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna Island">
+  <div class="hero-content">
+    <h1 class="cn">第一次来仙本那，就该这样玩</h1>
+    <h1 class="en hidden">First Time in Semporna? Play Like This!</h1>
+    <p class="cn">跳岛游 · 深潜 · PADI 潜水课程<br>果冻海 × 世界级潜点 × 当地专业向导</p>
+    <p class="en hidden">Island Hopping · Deep Diving · PADI Courses<br>Jelly-like waters × World-class dive sites × Local certified guides</p>
+  </div>
+</section>
 
+<!-- Services Section -->
 <section id="services">
   <h2 class="section-title cn">我们提供的体验</h2>
   <h2 class="section-title en hidden">Our Experiences</h2>
@@ -87,8 +106,8 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
     <div class="card">
       <h3 class="cn">🤿 深潜体验</h3>
       <h3 class="en hidden">🤿 Deep Diving</h3>
-      <p class="cn">世界级潜点，珊瑚礁、海龟与丰富海洋生态。2</p>
-      <p class="en hidden">World-class dive sites with coral reefs, turtles & marine biodiversity.3</p>
+      <p class="cn">世界级潜点，珊瑚礁、海龟与丰富海洋生态。</p>
+      <p class="en hidden">World-class dive sites with coral reefs, turtles & marine biodiversity.</p>
     </div>
     <div class="card">
       <h3 class="cn">🎓 PADI 潜水课程</h3>
@@ -99,11 +118,17 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
   </div>
 </section>
 
-<!-- ===== Gallery ===== -->
+<!-- Gallery Carousel Section -->
 <section id="gallery">
   <h2 class="section-title cn">实拍 · Semporna Diving & Islands</h2>
   <h2 class="section-title en hidden">Real Semporna Photos</h2>
-  <div class="gallery">
+  <div class="carousel" id="carousel">
+    <!-- 20 Images of Semporna islands/diving -->
+    <img src="https://images.pexels.com/photos/462024/pexels-photo-462024.jpeg" class="active">
+    <img src="https://images.pexels.com/photos/3683059/pexels-photo-3683059.jpeg">
+    <img src="https://images.pexels.com/photos/1460677/pexels-photo-1460677.jpeg">
+    <img src="https://images.pexels.com/photos/5755318/pexels-photo-5755318.jpeg">
+    <img src="https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg">
     <img src="https://images.pexels.com/photos/2907219/pexels-photo-2907219.jpeg">
     <img src="https://images.pexels.com/photos/3683062/pexels-photo-3683062.jpeg">
     <img src="https://images.pexels.com/photos/1450283/pexels-photo-1450283.jpeg">
@@ -112,9 +137,17 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
     <img src="https://images.pexels.com/photos/1877946/pexels-photo-1877946.jpeg">
     <img src="https://images.pexels.com/photos/4002744/pexels-photo-4002744.jpeg">
     <img src="https://images.pexels.com/photos/2611011/pexels-photo-2611011.jpeg">
+    <img src="https://images.pexels.com/photos/3850342/pexels-photo-3850342.jpeg">
+    <img src="https://images.pexels.com/photos/3637311/pexels-photo-3637311.jpeg">
+    <img src="https://images.pexels.com/photos/1463620/pexels-photo-1463620.jpeg">
+    <img src="https://images.pexels.com/photos/289698/pexels-photo-289698.jpeg">
+    <img src="https://images.pexels.com/photos/21787/pexels-photo.jpg">
+    <img src="https://images.pexels.com/photos/3156381/pexels-photo-3156381.jpeg">
+    <img src="https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg">
   </div>
 </section>
 
+<!-- Videos Section -->
 <section id="videos">
   <h2 class="section-title cn">精彩视频 / TikTok & 小红书</h2>
   <h2 class="section-title en hidden">Exciting Videos</h2>
@@ -124,6 +157,7 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
   </div>
 </section>
 
+<!-- WeChat Section -->
 <section id="wechat">
   <h2 class="section-title cn">添加微信 · 咨询行程</h2>
   <h2 class="section-title en hidden">Add WeChat · Inquire Tours</h2>
@@ -134,6 +168,7 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta">
   <div style="text-align:center;margin:60px 0;">
     <a href="pricing.html" class="btn">查看价格 / See Pricing</a><br>
@@ -146,10 +181,12 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
   <p>© Semporna Local Tours</p>
 </footer>
 
+<!-- Floating WeChat -->
 <div class="floating-wechat" onclick="toggleWeChat()">
   <img src="wechat-qr.jpg" alt="WeChat QR">
 </div>
 
+<!-- WeChat Modal -->
 <div class="wechat-modal" id="wechatModal">
   <img src="wechat-qr.jpg" alt="WeChat QR">
 </div>
