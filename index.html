@@ -4,210 +4,134 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>仙本那跳岛游 & Semporna Tours</title>
-<meta name="description" content="仙本那跳岛游、深潜体验、PADI 潜水课程及价格表。当地向导，小团出海，安全专业，果冻海美到不真实。">
+<meta name="description" content="仙本那跳岛游、深潜体验、PADI 潜水课程。当地向导，小团出海，安全专业，果冻海美到不真实。">
+
 <style>
 :root{
   --main:#00c2d1;
   --bg:#f6fbfc;
   --card:#fff;
-  --radius:16px;
+  --radius:18px;
   --shadow:0 16px 34px rgba(0,0,0,.08);
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;}
 a{text-decoration:none;color:inherit}
-img{width:100%;display:block}
-header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
+header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.06);}
 nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
-nav b{color:var(--main);font-size:1.1rem;font-weight:700;}
+nav b{color:var(--main);font-size:1.2rem;font-weight:700;}
 nav a{margin-left:18px;font-weight:600;cursor:pointer;}
-
-.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
-.hero img{position:absolute;inset:0;height:100%;object-fit:cover;z-index:-2;}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65));z-index:-1;}
-.hero-content{max-width:900px;padding:20px;animation:fadeUp 1s ease;}
-.hero h1{font-size:clamp(2.3rem,5vw,3.3rem);margin-bottom:14px;}
-.hero p{font-size:1.2rem;opacity:.95;}
-
-section{max-width:1100px;margin:auto;padding:80px 20px;}
-h2{text-align:center;margin-bottom:36px}
-
-.grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-.card{background:var(--card);padding:30px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;transition:.35s;}
-.card:hover{transform:translateY(-10px);}
-
-.gallery{position:relative;overflow:hidden;border-radius:16px;box-shadow:var(--shadow);max-width:100%;height:300px;}
-.gallery img{width:100%;height:100%;object-fit:cover;display:none;}
-.gallery img.active{display:block;}
-.gallery-controls{position:absolute;width:100%;top:50%;transform:translateY(-50%);display:flex;justify-content:space-between;padding:0 10px;}
-.gallery-controls span{background:rgba(0,0,0,0.4);color:#fff;padding:8px 12px;border-radius:50%;cursor:pointer;font-size:18px;user-select:none;}
-
-.wechat-box{max-width:520px;margin:0 auto;background:#fff;padding:34px;border-radius:24px;box-shadow:var(--shadow);text-align:center;position:relative;}
-.wechat-box img{max-width:240px;margin:18px auto;border-radius:20px;}
-.wechat-box strong{display:block;font-size:1.2rem;margin-top:10px;}
-
-.cta{background:linear-gradient(135deg,#00c2d1,#0096a6);color:#fff;text-align:center;border-radius:26px;padding:90px 20px;}
-
-.floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;transition:0.3s;}
-.floating-wechat img{width:70px;height:70px;border-radius:16px;box-shadow:var(--shadow);}
-
-.language-toggle{position:fixed;top:20px;right:20px;background:var(--main);color:#fff;padding:10px 14px;border-radius:14px;cursor:pointer;z-index:999;font-weight:700;}
-.hidden{display:none;}
-
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;transition:.3s;margin-top:10px;}
+.hero{position:relative;min-height:70vh;width:100%;overflow:hidden;}
+.slide{width:100%;height:70vh;object-fit:cover;}
+.gallery-section{padding:60px 20px;}
+h2{text-align:center;margin-bottom:30px;font-weight:700;}
+.slideshow-container{position:relative;max-width:1100px;margin:auto;}
+.dot-container{text-align:center;margin-top:14px;}
+.dot{height:12px;width:12px;margin:0 5px;background:#bbb;border-radius:50%;display:inline-block;cursor:pointer;}
+.active-dot{background:var(--main);}
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 24px;border-radius:26px;transition:.3s;margin:10px;}
 .btn:hover{background:#0096a6;}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;}
+.floating-wechat img{width:70px;height:70px;border-radius:14px;box-shadow:var(--shadow);}
+#wechatOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:1000;}
+#wechatOverlay img{width:260px;border-radius:16px;}
+@media (max-width:600px){.slide{height:50vh;}nav b{font-size:1rem;}nav a{margin-left:12px;font-size:0.9rem;}}
 </style>
 </head>
-<body>
 
-<div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
+<body>
 
 <header>
   <nav>
     <b>仙本那 · 海岛之旅 / Semporna Tours</b>
     <div>
-      <a onclick="scrollToSection('services')">项目 / Services</a>
       <a onclick="scrollToSection('gallery')">实拍 / Gallery</a>
-      <a onclick="scrollToSection('videos')">视频 / Videos</a>
+      <a href="pricing.html">价格 / Pricing</a>
       <a onclick="scrollToSection('wechat')">微信 / WeChat</a>
-      <a onclick="scrollToSection('pricing')">价格 / Pricing</a>
     </div>
   </nav>
 </header>
 
+<!-- Slideshow -->
 <section class="hero">
-  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna Island">
-  <div class="hero-content">
-    <h1 class="cn">第一次来仙本那，就该这样玩</h1>
-    <h1 class="en hidden">First Time in Semporna? Play Like This!</h1>
-    <p class="cn">跳岛游 · 深潜 · PADI 潜水课程<br>果冻海 × 世界级潜点 × 当地专业向导</p>
-    <p class="en hidden">Island Hopping · Deep Diving · PADI Courses<br>Jelly-like waters × World-class dive sites × Local certified guides</p>
+  <div class="slideshow-container" id="slideshow">
+    <img class="slide" src="https://images.unsplash.com/photo-1553074285-12aa1757f24b?auto=format&fit=crop&w=1200&q=80">
+    <img class="slide" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" style="display:none;">
+    <img class="slide" src="https://images.unsplash.com/photo-1507486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=80" style="display:none;">
+    <img class="slide" src="https://images.unsplash.com/photo-1587502536263-3a0cfc8b1ee1?auto=format&fit=crop&w=1200&q=80" style="display:none;">
+  </div>
+  <div class="dot-container">
+    <span class="dot active-dot" onclick="showSlide(0)"></span>
+    <span class="dot" onclick="showSlide(1)"></span>
+    <span class="dot" onclick="showSlide(2)"></span>
+    <span class="dot" onclick="showSlide(3)"></span>
+  </div>
+
+  <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;">
+    <h1>第一次来仙本那，就该这样玩</h1>
+    <p>跳岛游 · 深潜 · PADI 潜水课程 × 世界级潜点</p>
+    <a href="pricing.html" class="btn">查看价格 / See Pricing</a>
   </div>
 </section>
 
-<section id="services">
-  <h2 class="cn">我们提供的体验</h2>
-  <h2 class="en hidden">Our Experiences</h2>
-  <div class="grid">
-    <div class="card">
-      <h3 class="cn">🏝️ 仙本那跳岛游</h3>
-      <h3 class="en hidden">🏝️ Semporna Island Hopping</h3>
-      <p class="cn">波德伦岛、曼达布安岛、诗巴丹外围岛屿，海水清到不真实。</p>
-      <p class="en hidden">Bohey Dulang, Mantabuan & Sibuan Islands with crystal-clear water.</p>
-    </div>
-    <div class="card">
-      <h3 class="cn">🤿 深潜体验</h3>
-      <h3 class="en hidden">🤿 Deep Diving</h3>
-      <p class="cn">世界潜水胜地，珊瑚、海龟、鱼群，资深潜导全程带领。</p>
-      <p class="en hidden">World-class dive sites, coral reefs, turtles, experienced dive masters.</p>
-    </div>
-    <div class="card">
-      <h3 class="cn">🎓 PADI 潜水课程</h3>
-      <h3 class="en hidden">🎓 PADI Courses</h3>
-      <p class="cn">零基础到进阶证照，小班教学，安全、专业、负责。</p>
-      <p class="en hidden">From beginner to advanced certification, small class, safe and professional.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Gallery Carousel -->
-<section id="gallery">
-  <h2 class="cn">真实 · 仙本那实拍</h2>
-  <h2 class="en hidden">Real Semporna Photos</h2>
-  <div class="gallery">
-    <img src="https://images.pexels.com/photos/462024/pexels-photo-462024.jpeg" class="active">
-    <img src="https://images.pexels.com/photos/3683059/pexels-photo-3683059.jpeg">
-    <img src="https://images.pexels.com/photos/1460677/pexels-photo-1460677.jpeg">
-    <img src="https://images.pexels.com/photos/5755318/pexels-photo-5755318.jpeg">
-    <img src="https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg">
-    <img src="https://images.pexels.com/photos/2907219/pexels-photo-2907219.jpeg">
-    <img src="https://images.pexels.com/photos/3683062/pexels-photo-3683062.jpeg">
-    <img src="https://images.pexels.com/photos/1450283/pexels-photo-1450283.jpeg">
-    <img src="https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg">
-    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg">
-    <img src="https://images.pexels.com/photos/1877946/pexels-photo-1877946.jpeg">
-    <img src="https://images.pexels.com/photos/4002744/pexels-photo-4002744.jpeg">
-    <img src="https://images.pexels.com/photos/2611011/pexels-photo-2611011.jpeg">
-    <img src="https://images.pexels.com/photos/1358512/pexels-photo-1358512.jpeg">
-    <img src="https://images.pexels.com/photos/3850202/pexels-photo-3850202.jpeg">
-    <img src="https://images.pexels.com/photos/3619783/pexels-photo-3619783.jpeg">
-    <img src="https://images.pexels.com/photos/1719639/pexels-photo-1719639.jpeg">
-    <img src="https://images.pexels.com/photos/2389881/pexels-photo-2389881.jpeg">
-    <img src="https://images.pexels.com/photos/1170929/pexels-photo-1170929.jpeg">
-    <img src="https://images.pexels.com/photos/2907230/pexels-photo-2907230.jpeg">
-  </div>
-  <div class="gallery-controls">
-    <span onclick="prevSlide()">&#10094;</span>
-    <span onclick="nextSlide()">&#10095;</span>
-  </div>
-</section>
-
-<section id="videos">
-  <h2 class="cn">精彩视频 / TikTok & 小红书</h2>
-  <h2 class="en hidden">Exciting Videos / TikTok & Redbook</h2>
-  <div style="text-align:center; margin-top:20px;">
-    <a class="btn" href="https://www.tiktok.com/@deso__89" target="_blank">查看 TikTok / TikTok</a><br>
-    <a class="btn" href="https://xhslink.com/m/2nU4fzy4Tf" target="_blank">查看小红书 / Redbook</a>
+<!-- Image Gallery -->
+<section id="gallery" class="gallery-section">
+  <h2>真实 · 仙本那实拍 / Real Semporna Photos</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+    <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg">
+    <img src="https://mediaim.expedia.com/destination/1/1fae69e907143c28cc0ea9771f67f041.jpg">
+    <img src="https://www.molon.de/galleries/Malaysia/Sabah/Islands/15248-Sipadan.jpg" alt="Sipadan dive site">
+    <img src="https://www.molon.de/galleries/Malaysia/Sabah/Islands/15234-Mabul.jpg" alt="Mabul island crystal water">
+    <img src="https://www.molon.de/galleries/Malaysia/Sabah/Islands/15236-Kapalai.jpg" alt="Kapalai diving reef">
+    <img src="https://www.molon.de/galleries/Malaysia/Sabah/Islands/15240-Mataking.jpg" alt="Mataking island Semporna">
   </div>
 </section>
 
 <section id="wechat">
-  <h2 class="cn">添加微信 · 咨询行程</h2>
-  <h2 class="en hidden">Add WeChat · Inquire Tours</h2>
-  <div class="wechat-box">
-    <p class="cn">扫码添加微信，获取行程建议 / 套餐 / 出海时间</p>
-    <p class="en hidden">Scan to add WeChat for itinerary advice / packages / trip times</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR Code">
-    <strong>教练 Deso_89</strong>
-    <p style="opacity:.75">仙本那 · 当地向导 / Semporna · Local Guide</p>
+  <div style="text-align:center; padding:40px 0;">
+    <h2>添加微信 · 咨询行程</h2>
+    <button class="btn" onclick="showWechat()">显示微信二维码 / Show WeChat QR</button>
   </div>
 </section>
 
-<footer style="text-align:center; padding:20px;">
+<footer style="text-align:center;padding:20px;">
   <p>📍 马来西亚 · 沙巴 · 仙本那 / Malaysia · Sabah · Semporna</p>
   <p>© Semporna Local Tours</p>
 </footer>
 
-<div class="floating-wechat" onclick="toggleWeChat()">
+<!-- Floating WeChat -->
+<div class="floating-wechat" onclick="showWechat()">
+  <img src="wechat-qr.jpg" alt="WeChat QR">
+</div>
+
+<div id="wechatOverlay" onclick="hideWechat()">
   <img src="wechat-qr.jpg" alt="WeChat QR Code">
 </div>
 
 <script>
-const toggle = document.getElementById('langToggle');
-toggle.addEventListener('click',()=>{
-  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
-  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
-});
-
-// Floating WeChat toggle
-function toggleWeChat(){
-  const box = document.querySelector('.wechat-box');
-  box.classList.toggle('hidden');
-}
-
-// Gallery carousel logic
 let slideIndex = 0;
-const slides = document.querySelectorAll('.gallery img');
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
 function showSlide(n){
-  slides.forEach(s=>s.classList.remove('active'));
-  slides[n].classList.add('active');
+  slides.forEach((s,i)=>s.style.display = (i===n ? 'block':'none'));
+  dots.forEach((d,i)=>d.classList.toggle('active-dot', i===n));
+  slideIndex = n;
 }
-function nextSlide(){
-  slideIndex=(slideIndex+1)%slides.length;
+function autoSlides(){
+  slideIndex = (slideIndex+1) % slides.length;
   showSlide(slideIndex);
+  setTimeout(autoSlides,5000);
 }
-function prevSlide(){
-  slideIndex=(slideIndex-1+slides.length)%slides.length;
-  showSlide(slideIndex);
-}
-// Auto slide every 2.5s
-setInterval(nextSlide,2500);
+autoSlides();
 
-// Smooth scroll
 function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+}
+function showWechat(){
+  document.getElementById('wechatOverlay').style.display='flex';
+}
+function hideWechat(){
+  document.getElementById('wechatOverlay').style.display='none';
 }
 </script>
 
