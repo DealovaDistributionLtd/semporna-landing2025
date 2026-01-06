@@ -30,8 +30,6 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
 .hero-content{position:relative;z-index:2;max-width:900px;padding:20px;animation:fadeUp 1s ease;}
 .hero-content h1{font-size:clamp(2.3rem,5vw,3.3rem);margin-bottom:14px;}
 .hero-content p{font-size:1.2rem;opacity:.95;}
-
-/* Buttons for manual navigation */
 .hero-nav{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 20px;z-index:3;}
 .hero-nav button{background:rgba(0,0,0,0.4);border:none;color:#fff;font-size:2rem;padding:6px 12px;border-radius:50%;cursor:pointer;transition:0.3s;}
 .hero-nav button:hover{background:rgba(0,0,0,0.6);}
@@ -46,7 +44,7 @@ h2{text-align:center;margin-bottom:36px}
 .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
 .gallery img{height:200px;border-radius:16px;object-fit:cover;}
 
-.wechat-box{max-width:520px;margin:0 auto;background:#fff;padding:34px;border-radius:24px;box-shadow:var(--shadow);text-align:center;position:relative;display:none;}
+.wechat-box{max-width:520px;margin:0 auto;background:#fff;padding:34px;border-radius:24px;box-shadow:var(--shadow);text-align:center;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);display:none;z-index:999;}
 .wechat-box img{max-width:240px;margin:18px auto;border-radius:20px;}
 .wechat-box strong{display:block;font-size:1.2rem;margin-top:10px;}
 
@@ -101,7 +99,81 @@ h2{text-align:center;margin-bottom:36px}
   </div>
 </section>
 
-<!-- Services, Gallery, Videos, WeChat sections remain the same -->
+<section id="services">
+  <h2 class="cn">我们提供的体验</h2>
+  <h2 class="en hidden">Our Experiences</h2>
+  <div class="grid">
+    <div class="card">
+      <h3 class="cn">🏝️ 仙本那跳岛游</h3>
+      <h3 class="en hidden">🏝️ Semporna Island Hopping</h3>
+      <p class="cn">波德伦岛、曼达布安岛、诗巴丹外围岛屿，海水清到不真实。</p>
+      <p class="en hidden">Bohey Dulang, Mantabuan & Sibuan Islands with crystal-clear water.</p>
+    </div>
+    <div class="card">
+      <h3 class="cn">🤿 深潜体验</h3>
+      <h3 class="en hidden">🤿 Deep Diving</h3>
+      <p class="cn">世界潜水胜地，珊瑚、海龟、鱼群，资深潜导全程带领。</p>
+      <p class="en hidden">World-class dive sites, coral reefs, turtles, experienced dive masters.</p>
+    </div>
+    <div class="card">
+      <h3 class="cn">🎓 PADI 潜水课程</h3>
+      <h3 class="en hidden">🎓 PADI Courses</h3>
+      <p class="cn">零基础到进阶证照，小班教学，安全、专业、负责。</p>
+      <p class="en hidden">From beginner to advanced certification, small class, safe and professional.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2 class="cn">真实 · 仙本那实拍</h2>
+  <h2 class="en hidden">Real Semporna Photos</h2>
+  <div class="gallery">
+    <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna 1">
+    <img src="https://mediaim.expedia.com/destination/1/1fae69e907143c28cc0ea9771f67f041.jpg" alt="Semporna 2">
+    <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg" alt="Semporna 3">
+    <img src="https://mediaim.expedia.com/destination/1/1b6f37e11a7e3f8e6786e7f02b6f92f7.jpg" alt="Semporna 4">
+  </div>
+</section>
+
+<section id="videos">
+  <h2 class="cn">精彩视频 / TikTok & 小红书</h2>
+  <h2 class="en hidden">Exciting Videos / TikTok & Redbook</h2>
+  <div style="text-align:center; margin-top:20px;">
+    <a class="btn" href="https://www.tiktok.com/@deso__89" target="_blank">查看 TikTok / TikTok</a><br>
+    <a class="btn" href="https://xhslink.com/m/2nU4fzy4Tf" target="_blank">查看小红书 / Redbook</a>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="cn">想来仙本那？现在就联系我</h2>
+  <h2 class="en hidden">Ready for Semporna? Contact Me Now</h2>
+  <p class="cn">不套路 · 不赶行程 · 真正看海</p>
+  <p class="en hidden">No gimmicks · No rushed itinerary · Truly enjoy the sea</p>
+  <div style="margin-top:24px;">
+    <a href="pricing.html" class="btn">查看价格 / See Pricing</a>
+    <a class="btn" onclick="toggleWeChat()">立即添加微信 / Add WeChat</a>
+  </div>
+</section>
+
+<section id="wechat">
+  <div class="wechat-box" id="wechatBox">
+    <p class="cn">扫码添加微信，获取行程建议 / 套餐 / 出海时间</p>
+    <p class="en hidden">Scan to add WeChat for itinerary advice / packages / trip times</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR Code">
+    <strong>教练 Deso_89</strong>
+    <p style="opacity:.75">仙本那 · 当地向导 / Semporna · Local Guide</p>
+    <button class="btn" onclick="toggleWeChat()">关闭</button>
+  </div>
+</section>
+
+<div class="floating-wechat" onclick="toggleWeChat()">
+  <img src="wechat-qr.jpg" alt="WeChat QR Code">
+</div>
+
+<footer style="text-align:center; padding:20px;">
+  <p>📍 马来西亚 · 沙巴 · 仙本那 / Malaysia · Sabah · Semporna</p>
+  <p>© Semporna Local Tours</p>
+</footer>
 
 <script>
 /* Language toggle */
@@ -119,25 +191,16 @@ function scrollToSection(id){
 /* Hero slideshow */
 const slides = document.querySelectorAll('.hero-slide');
 let currentSlide = 0;
-
-function showSlide(index){
-  slides.forEach((slide,i)=>{
-    slide.classList.toggle('active', i===index);
-  });
-}
-
-function nextSlide(){
-  currentSlide = (currentSlide+1)%slides.length;
-  showSlide(currentSlide);
-}
-
-function prevSlide(){
-  currentSlide = (currentSlide-1+slides.length)%slides.length;
-  showSlide(currentSlide);
-}
-
-/* Auto slide every 5 seconds */
+function showSlide(index){slides.forEach((slide,i)=>{slide.classList.toggle('active', i===index);});}
+function nextSlide(){currentSlide = (currentSlide+1)%slides.length; showSlide(currentSlide);}
+function prevSlide(){currentSlide = (currentSlide-1+slides.length)%slides.length; showSlide(currentSlide);}
 setInterval(nextSlide,5000);
+
+/* WeChat toggle */
+function toggleWeChat(){
+  const box = document.getElementById('wechatBox');
+  box.style.display = box.style.display === 'block' ? 'none' : 'block';
+}
 </script>
 
 </body>
