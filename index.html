@@ -22,18 +22,15 @@ nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:
 nav b{color:var(--main);font-size:1.1rem}
 nav a{margin-left:18px;font-weight:600;cursor:pointer}
 
-/* Hero Slideshow */
-.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;}
-.hero-slide{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;opacity:0;transition:opacity 1s ease;}
-.hero-slide.active{opacity:1;}
+/* Hero */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+.hero img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-2;}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65));z-index:-1;}
-.hero-content{position:relative;z-index:2;max-width:900px;padding:20px;animation:fadeUp 1s ease;}
+.hero-content{max-width:900px;padding:20px;animation:fadeUp 1s ease;}
 .hero-content h1{font-size:clamp(2.3rem,5vw,3.3rem);margin-bottom:14px;}
 .hero-content p{font-size:1.2rem;opacity:.95;}
-.hero-nav{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 20px;z-index:3;}
-.hero-nav button{background:rgba(0,0,0,0.4);border:none;color:#fff;font-size:2rem;padding:6px 12px;border-radius:50%;cursor:pointer;transition:0.3s;}
-.hero-nav button:hover{background:rgba(0,0,0,0.6);}
 
+/* Sections */
 section{max-width:1100px;margin:auto;padding:80px 20px;}
 h2{text-align:center;margin-bottom:36px}
 
@@ -41,8 +38,13 @@ h2{text-align:center;margin-bottom:36px}
 .card{background:var(--card);padding:30px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;transition:.35s;}
 .card:hover{transform:translateY(-10px);}
 
-.gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
-.gallery img{height:200px;border-radius:16px;object-fit:cover;}
+/* Gallery Slideshow */
+.gallery-slideshow{position:relative;max-width:900px;margin:auto;border-radius:16px;overflow:hidden;}
+.gallery-slide{display:none;width:100%;height:400px;object-fit:cover;border-radius:16px;}
+.gallery-slide.active{display:block;}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 10px;z-index:2;}
+.gallery-nav button{background:rgba(0,0,0,0.4);border:none;color:#fff;font-size:2rem;padding:6px 12px;border-radius:50%;cursor:pointer;transition:0.3s;}
+.gallery-nav button:hover{background:rgba(0,0,0,0.6);}
 
 .wechat-box{max-width:520px;margin:0 auto;background:#fff;padding:34px;border-radius:24px;box-shadow:var(--shadow);text-align:center;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);display:none;z-index:999;}
 .wechat-box img{max-width:240px;margin:18px auto;border-radius:20px;}
@@ -60,6 +62,7 @@ h2{text-align:center;margin-bottom:36px}
 .btn:hover{background:#0096a6;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@media(max-width:600px){.gallery-slide{height:250px;}}
 </style>
 </head>
 <body>
@@ -79,23 +82,12 @@ h2{text-align:center;margin-bottom:36px}
 </header>
 
 <section class="hero">
-  <!-- Slides -->
-  <img class="hero-slide active" src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna 1">
-  <img class="hero-slide" src="https://mediaim.expedia.com/destination/1/1fae69e907143c28cc0ea9771f67f041.jpg" alt="Semporna 2">
-  <img class="hero-slide" src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg" alt="Semporna 3">
-  <img class="hero-slide" src="https://mediaim.expedia.com/destination/1/1b6f37e11a7e3f8e6786e7f02b6f92f7.jpg" alt="Semporna 4">
-
+  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna">
   <div class="hero-content">
     <h1 class="cn">第一次来仙本那，就该这样玩</h1>
     <h1 class="en hidden">First Time in Semporna? Play Like This!</h1>
     <p class="cn">跳岛游 · 深潜 · PADI 潜水课程<br>果冻海 × 世界级潜点 × 当地专业向导</p>
     <p class="en hidden">Island Hopping · Deep Diving · PADI Courses<br>Jelly-like waters × World-class dive sites × Local certified guides</p>
-  </div>
-
-  <!-- Manual navigation -->
-  <div class="hero-nav">
-    <button onclick="prevSlide()">❮</button>
-    <button onclick="nextSlide()">❯</button>
   </div>
 </section>
 
@@ -125,13 +117,18 @@ h2{text-align:center;margin-bottom:36px}
 </section>
 
 <section id="gallery">
-  <h2 class="cn">真实 · 仙本那实拍</h2>
-  <h2 class="en hidden">Real Semporna Photos</h2>
-  <div class="gallery">
-    <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna 1">
-    <img src="https://mediaim.expedia.com/destination/1/1fae69e907143c28cc0ea9771f67f041.jpg" alt="Semporna 2">
-    <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg" alt="Semporna 3">
-    <img src="https://mediaim.expedia.com/destination/1/1b6f37e11a7e3f8e6786e7f02b6f92f7.jpg" alt="Semporna 4">
+  <h2 class="cn">真实 · 仙本那潜水实拍</h2>
+  <h2 class="en hidden">Real Semporna Diving Photos</h2>
+
+  <div class="gallery-slideshow">
+    <img class="gallery-slide active" src="https://mediaim.expedia.com/destination/1/1fae69e907143c28cc0ea9771f67f041.jpg" alt="Diving 1">
+    <img class="gallery-slide" src="https://mediaim.expedia.com/destination/1/1b6f37e11a7e3f8e6786e7f02b6f92f7.jpg" alt="Diving 2">
+    <img class="gallery-slide" src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg" alt="Diving 3">
+    <img class="gallery-slide" src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Diving 4">
+    <div class="gallery-nav">
+      <button onclick="prevGallery()">❮</button>
+      <button onclick="nextGallery()">❯</button>
+    </div>
   </div>
 </section>
 
@@ -188,13 +185,13 @@ function scrollToSection(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-/* Hero slideshow */
-const slides = document.querySelectorAll('.hero-slide');
-let currentSlide = 0;
-function showSlide(index){slides.forEach((slide,i)=>{slide.classList.toggle('active', i===index);});}
-function nextSlide(){currentSlide = (currentSlide+1)%slides.length; showSlide(currentSlide);}
-function prevSlide(){currentSlide = (currentSlide-1+slides.length)%slides.length; showSlide(currentSlide);}
-setInterval(nextSlide,5000);
+/* Gallery slideshow */
+const gallerySlides = document.querySelectorAll('.gallery-slide');
+let currentGallery = 0;
+function showGallery(index){gallerySlides.forEach((slide,i)=>{slide.classList.toggle('active', i===index);});}
+function nextGallery(){currentGallery = (currentGallery+1)%gallerySlides.length; showGallery(currentGallery);}
+function prevGallery(){currentGallery = (currentGallery-1+gallerySlides.length)%gallerySlides.length; showGallery(currentGallery);}
+setInterval(nextGallery,5000);
 
 /* WeChat toggle */
 function toggleWeChat(){
