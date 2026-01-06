@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>仙本那行程价格 / Semporna Pricing</title>
-
 <style>
 :root{
   --main:#00c2d1;
@@ -15,153 +14,139 @@
 }
 body{
   font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;
-  margin:0;background:var(--bg);color:#0e2a33;
+  margin:0;padding:0;background:var(--bg);color:#0e2a33;
 }
-.hidden{display:none}
-
-/* Language */
 .language-toggle{
   position:fixed;top:20px;right:20px;
-  background:var(--main);color:#fff;padding:10px 14px;
-  border-radius:14px;cursor:pointer;z-index:999;font-weight:700;
+  background:var(--main);color:#fff;padding:10px 14px;border-radius:14px;
+  cursor:pointer;z-index:999;font-weight:700;
 }
-
-/* Hero */
 .hero{position:relative;min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;margin-bottom:40px;}
 .hero img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-2;}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65));z-index:-1;}
-.hero-content{padding:20px}
-
-/* Table */
-h2{text-align:center;margin:40px 0 20px}
+.hero-content{max-width:900px;padding:20px;}
+.hero-content h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:10px;}
+.hero-content p{font-size:1.2rem;opacity:.95;}
+h2{max-width:1100px;margin:40px auto 20px;text-align:center;}
 table{
-  width:100%;max-width:1100px;margin:0 auto 40px;
-  background:#fff;border-radius:16px;overflow:hidden;
-  box-shadow:var(--shadow);border-collapse:collapse;
+  width:100%;border-collapse:collapse;margin:0 auto 40px auto;max-width:1100px;
+  background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
 }
-th,td{padding:14px;border-bottom:1px solid #ddd}
-th{background:var(--main);color:#fff}
-tr:hover{background:rgba(0,188,212,.08);cursor:pointer}
-
-/* Button */
-.btn{
-  display:block;width:max-content;margin:30px auto;
-  background:var(--main);color:#fff;font-weight:700;
-  padding:12px 26px;border-radius:24px;text-decoration:none;
-}
-.btn:hover{background:#0096a6}
-
-/* Floating WeChat */
-.floating-wechat{
-  position:fixed;bottom:20px;right:20px;
-  z-index:999;cursor:pointer;
-}
-.floating-wechat img{
-  width:70px;height:70px;border-radius:16px;
-  box-shadow:var(--shadow);
-}
-
-/* QR MODAL */
-.modal{
-  position:fixed;inset:0;background:rgba(0,0,0,.6);
-  display:flex;align-items:center;justify-content:center;
-  z-index:1000;
-}
-.modal-box{
-  background:#fff;padding:30px;border-radius:20px;
-  text-align:center;max-width:320px;
-}
-.modal-box img{
-  width:220px;border-radius:16px;margin:10px 0;
-}
-.close{
-  position:absolute;top:15px;right:20px;
-  font-size:22px;cursor:pointer;
-}
-.note{
-  max-width:1100px;margin:0 auto 60px;
-  font-style:italic;color:#555;text-align:center;
-}
+th,td{padding:14px;text-align:left;border-bottom:1px solid #ddd;}
+th{background:var(--main);color:#fff;}
+tr:hover{background:rgba(0,188,212,0.08);cursor:pointer;}
+a.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;text-decoration:none;transition:.3s;margin:20px auto;display:block;text-align:center;}
+a.btn:hover{background:#0096a6;}
+.note{max-width:1100px;margin:auto;margin-bottom:60px;padding:10px 20px;font-style:italic;color:#555;}
+.floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;transition:0.3s;}
+.floating-wechat img{width:70px;height:70px;border-radius:16px;box-shadow:var(--shadow);}
+#wechatPopup{display:none;position:fixed;bottom:100px;right:20px;background:#fff;padding:20px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.15);z-index:1000;text-align:center;}
+#wechatPopup img{max-width:200px;border-radius:16px;}
+#wechatPopup button{margin-top:10px;padding:6px 12px;border:none;background:#00c2d1;color:#fff;border-radius:12px;cursor:pointer;}
+.hidden{display:none;}
 </style>
 </head>
-
 <body>
 
 <div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
 
 <section class="hero">
-  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg">
+  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna">
   <div class="hero-content">
     <h1 class="cn">仙本那行程价格一览</h1>
     <h1 class="en hidden">Semporna Tour Prices</h1>
-    <p class="cn">点击套餐即可微信咨询</p>
-    <p class="en hidden">Click a package to consult via WeChat</p>
+    <p class="cn">点击价格即可添加微信咨询，获取更多行程信息和出海时间</p>
+    <p class="en hidden">Click a price to add WeChat and get itinerary details and trip times</p>
   </div>
 </section>
 
-<h2>DSD - 深潜体验</h2>
+<h2 class="cn">DSD - 深潜体验 / Deep Diving</h2>
+<h2 class="en hidden">DSD - Deep Diving</h2>
 <table>
-<tbody>
-<tr onclick="openQR()"><td>1N / 2 潜水 DSD</td><td>￥1,014.48</td></tr>
-<tr onclick="openQR()"><td>1N / 3 潜水 DSD</td><td>￥1,187.89</td></tr>
-<tr onclick="openQR()"><td>1N / 3 DSD + 浮潜</td><td>￥1,621.43</td></tr>
-</tbody>
+  <thead>
+    <tr>
+      <th class="cn">行程 / 套餐</th>
+      <th class="en hidden">Package / Trip</th>
+      <th>价格 / Price (CNY)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr onclick="showWeChat()"><td>1N / 2 潜水 DSD (Bum Bum Island)</td><td>1N / 2 Dive DSD (Bum Bum Island)</td><td>￥1,014.48</td></tr>
+    <tr onclick="showWeChat()"><td>1N / 3 潜水 DSD 日游</td><td>1N / 3 Dive DSD Day Trip</td><td>￥1,187.89</td></tr>
+    <tr onclick="showWeChat()"><td>1N / 3 DSD + 浮潜 & 徒步 (Tun Sakaran MP)</td><td>1N / 3 DSD + Snorkel & Hike (Tun Sakaran MP)</td><td>￥1,621.43</td></tr>
+  </tbody>
 </table>
 
-<h2>Fun Dive 娱乐潜水</h2>
+<h2 class="cn">Fun Dive 娱乐潜水 / Fun Dive</h2>
+<h2 class="en hidden">Fun Dive</h2>
 <table>
-<tbody>
-<tr onclick="openQR()"><td>3N / 12 娱乐潜水</td><td>￥3,449.22</td></tr>
-<tr onclick="openQR()"><td>5N / 18 娱乐潜水</td><td>￥5,342.91</td></tr>
-</tbody>
+  <thead>
+    <tr>
+      <th class="cn">行程 / 套餐</th>
+      <th class="en hidden">Package / Trip</th>
+      <th>价格 / Price (CNY)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr onclick="showWeChat()"><td>1N / 6 娱乐潜水</td><td>1N / 6 Fun Dive</td><td>￥1,555.53</td></tr>
+    <tr onclick="showWeChat()"><td>2N / 9 娱乐潜水</td><td>2N / 9 Fun Dive</td><td>￥2,502.38</td></tr>
+    <tr onclick="showWeChat()"><td>2N / 9 娱乐潜水 (1 天 Sipadan)</td><td>2N / 9 Fun Dive (1 Day Sipadan)</td><td>￥3,610.50</td></tr>
+  </tbody>
 </table>
 
-<h2>PADI 潜水课程</h2>
+<h2 class="cn">PADI Courses 潜水课程</h2>
+<h2 class="en hidden">PADI Courses</h2>
 <table>
-<tbody>
-<tr onclick="openQR()"><td>PADI Open Water</td><td>￥3,173.49</td></tr>
-<tr onclick="openQR()"><td>OW + AOW</td><td>￥6,487.45</td></tr>
-</tbody>
+  <thead>
+    <tr>
+      <th class="cn">行程 / 套餐</th>
+      <th class="en hidden">Package / Trip</th>
+      <th>价格 / Price (CNY)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr onclick="showWeChat()"><td>2N / PADI 初级课程</td><td>2N / PADI Open Water Course</td><td>￥3,173.49</td></tr>
+    <tr onclick="showWeChat()"><td>3N / PADI 初级 + 3 娱乐潜水</td><td>3N / PADI OWC + 3 Fun Dive</td><td>￥4,120.34</td></tr>
+  </tbody>
 </table>
 
 <div class="note">
-<p class="cn">备注：所有行程包含餐饮与住宿</p>
-<p class="en hidden">Note: All packages include meals & accommodation</p>
+  <p class="cn">备注：所有行程包含餐饮和住宿</p>
+  <p class="en hidden">Note: All packages include meals and accommodation</p>
 </div>
 
 <a href="index.html" class="btn">返回首页 / Back to Home</a>
 
-<!-- FLOATING BUTTON -->
-<div class="floating-wechat" onclick="openQR()">
-  <img src="wechat-qr.jpg">
+<!-- Floating WeChat Button -->
+<div class="floating-wechat" id="wechatBtn">
+  <img src="wechat-qr.jpg" alt="WeChat QR Code">
 </div>
 
-<!-- QR MODAL -->
-<div class="modal hidden" id="qrModal" onclick="closeQR(event)">
-  <div class="modal-box">
-    <div class="close" onclick="closeQR()">✕</div>
-    <h3>微信扫码咨询</h3>
-    <img src="wechat-qr.jpg">
-    <p>WeChat ID: <b>Deso_89</b></p>
-  </div>
+<!-- WeChat Popup -->
+<div id="wechatPopup">
+  <img src="wechat-qr.jpg" alt="WeChat QR">
+  <p>教练 Deso_89</p>
+  <button id="closeWeChat">关闭 / Close</button>
 </div>
 
 <script>
-/* Language toggle */
-document.getElementById('langToggle').onclick=()=>{
-  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'))
-  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'))
-}
+// Language toggle
+const toggle = document.getElementById('langToggle');
+toggle.addEventListener('click', ()=>{
+  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+});
 
-/* QR modal */
-function openQR(){
-  document.getElementById('qrModal').classList.remove('hidden')
-}
-function closeQR(e){
-  if(!e || e.target.id==="qrModal"){
-    document.getElementById('qrModal').classList.add('hidden')
-  }
-}
+// Floating WeChat toggle
+const btn = document.getElementById('wechatBtn');
+const popup = document.getElementById('wechatPopup');
+const closeBtn = document.getElementById('closeWeChat');
+
+btn.addEventListener('click', ()=>{ popup.style.display = 'block'; });
+closeBtn.addEventListener('click', ()=>{ popup.style.display = 'none'; });
+
+// Show popup when clicking table row
+function showWeChat(){ popup.style.display = 'block'; }
 </script>
 
 </body>
