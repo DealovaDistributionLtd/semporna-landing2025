@@ -1,80 +1,30 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>仙本那海岛 / Semporna Tours</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-<div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
-
 <header>
-  <nav>
-    <b>仙本那 · 海岛 / Semporna Tours</b>
-    <div>
+  <nav class="nav-container">
+    <b class="logo">Semporna · 仙本那</b>
+
+    <div class="nav-links">
       <a href="index.html">首页 / Home</a>
-      <a href="pricing.html">行程价格 / Pricing</a>
+      <a href="pricing.html">价格 / Pricing</a>
       <a href="accommodation.html">住宿 / Accommodation</a>
       <a href="gallery.html">图库 / Gallery</a>
-      <a href="reviews.html">客户评价 / Reviews</a>
-      <a href="about.html">关于我们 / About</a>
-      <a href="faq.html">常见问题 / FAQ</a>
+      <a href="island-hopping.html">跳岛游 / Island</a>
+      <a href="diving.html">潜水 / Diving</a>
       <a href="contact.html">联系 / Contact</a>
+      <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
+
+    <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
+
+  <div class="mobile-menu hidden" id="mobileMenu">
+    <a href="index.html">首页 / Home</a>
+    <a href="pricing.html">价格 / Pricing</a>
+    <a href="accommodation.html">住宿 / Accommodation</a>
+    <a href="gallery.html">图库 / Gallery</a>
+    <a href="island-hopping.html">跳岛游 / Island</a>
+    <a href="diving.html">潜水 / Diving</a>
+    <a href="contact.html">联系 / Contact</a>
+
+    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
+  </div>
 </header>
-
-<section class="hero">
-  <img src="images/hero.jpg" alt="Semporna">
-  <div class="hero-content">
-    <h1 class="cn">探索仙本那的美丽海岛</h1>
-    <h1 class="en hidden">Explore the Beautiful Semporna Islands</h1>
-    <p class="cn">潜水、浮潜、岛屿跳跃、舒适住宿</p>
-    <p class="en hidden">Diving, snorkeling, island hopping & comfortable stays</p>
-  </div>
-</section>
-
-<section class="grid">
-  <div class="card">
-    <h3 class="cn">行程价格 / Tours</h3>
-    <h3 class="en hidden">Tours & Pricing</h3>
-    <p class="cn">查看潜水和岛屿行程价格</p>
-    <p class="en hidden">See diving & island-hopping tour prices</p>
-    <a href="pricing.html" class="btn">查看行程 / View Tours</a>
-  </div>
-
-  <div class="card">
-    <h3 class="cn">住宿 / Accommodation</h3>
-    <h3 class="en hidden">Accommodation</h3>
-    <p class="cn">舒适房间，水上别墅及海景房</p>
-    <p class="en hidden">Comfortable rooms, overwater villas & ocean-view rooms</p>
-    <a href="accommodation.html" class="btn">查看房型 / View Rooms</a>
-  </div>
-
-  <div class="card">
-    <h3 class="cn">图库 / Gallery</h3>
-    <h3 class="en hidden">Gallery</h3>
-    <p class="cn">潜水、海景和岛屿图片</p>
-    <p class="en hidden">Photos of diving, islands & ocean views</p>
-    <a href="gallery.html" class="btn">查看图库 / View Gallery</a>
-  </div>
-</section>
-
-<div class="floating-wechat" onclick="openWechat()">
-  <img src="images/wechat-icon.png" alt="WeChat">
-</div>
-
-<div id="wechatPopup" class="wechat-popup">
-  <div class="wechat-box">
-    <p>扫码添加微信，获取行程建议 / Scan to add WeChat</p>
-    <img src="images/wechat-qr.jpg" alt="WeChat QR Code">
-    <strong>教练 Deso_89</strong><br>
-    <button onclick="closeWechat()">关闭 / Close</button>
-  </div>
-</div>
-
-<script src="js/main.js"></script>
-</body>
-</html>
