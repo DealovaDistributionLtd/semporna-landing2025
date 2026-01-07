@@ -6,8 +6,8 @@
     <title>常见问题 | FAQ - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Page-Specific Styles for FAQ */
-        section { max-width: 900px; margin: auto; padding: 60px 20px; }
+        /* FAQ 页面专用样式 */
+        section.faq-container { max-width: 900px; margin: auto; padding: 60px 20px; }
         
         .faq-item {
             background: #fff;
@@ -17,14 +17,13 @@
             overflow: hidden;
         }
 
-        /* HTML5 Native Accordion Styles */
         details { width: 100%; }
         
         summary {
             padding: 20px;
             font-weight: 700;
             cursor: pointer;
-            list-style: none; /* Hides default triangle */
+            list-style: none;
             position: relative;
             display: flex;
             justify-content: space-between;
@@ -32,12 +31,10 @@
             color: #0e2a33;
         }
 
-        /* Custom Plus/Minus Icon */
         summary::after {
             content: '+';
             font-size: 1.5rem;
             color: var(--main);
-            font-weight: 400;
             transition: 0.3s;
         }
         
@@ -66,7 +63,9 @@
 
 <header>
     <nav class="nav-container">
-        <b class="logo">Semporna Tours</b>
+        <a href="index.html" class="logo-box">
+            <img src="images/logo.jpg" alt="Semporna Tours Logo" class="site-logo">
+        </a>
         <div class="nav-links">
             <a href="index.html">首页 / Home</a>
             <a href="pricing.html">价格 / Pricing</a>
@@ -74,7 +73,7 @@
             <a href="gallery.html">相册 / Gallery</a>
             <a href="reviews.html">评价 / Reviews</a>
             <a href="about.html">关于 / About</a>
-            <a href="faq.html" class="active">常见问题 / FAQ</a>
+            <a href="faq.html" class="active">FAQ</a>
             <a href="contact.html">联系 / Contact</a>
             <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
         </div>
@@ -86,25 +85,24 @@
         <a href="pricing.html">价格 / Pricing</a>
         <a href="accommodation.html">住宿 / Accommodation</a>
         <a href="gallery.html">相册 / Gallery</a>
-        <a href="reviews.html">评价 / Reviews</a>
-        <a href="about.html">关于 / About</a>
-        <a href="faq.html" class="active">常见问题 / FAQ</a>
+        <a href="faq.html" class="active">FAQ</a>
         <a href="contact.html">联系 / Contact</a>
         <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
 </header>
 
 <section class="hero">
-    <img src="https://images.unsplash.com/photo-1540206395-e8f80bb78c0d" alt="FAQ Hero">
+    <img src="images/diving.jpg" alt="Semporna FAQ" style="opacity: 0.5;">
     <div class="hero-content">
         <h1 class="cn">解答您的疑惑</h1>
         <h1 class="en hidden">Answering Your Questions</h1>
-        <p class="cn">关于预订、行程、安全与支付</p>
-        <p class="en hidden">About Booking, Itinerary, Safety & Payment</p>
+        <p class="cn">12年仙本那地接经验，为您排除万难</p>
+        <p class="en hidden">12 years of experience to guide you through Semporna</p>
     </div>
 </section>
 
-<section>
+<section class="faq-container">
+    
     <div class="faq-item">
         <details>
             <summary>
@@ -112,8 +110,8 @@
                 <span class="en hidden">How to book? How far in advance?</span>
             </summary>
             <div class="answer">
-                <p class="cn">您可以直接添加我的微信 (Deso_89) 进行咨询和预订。对于普通跳岛游，建议提前 3-5 天预订；如果您计划在旺季（7月-9月）出行或需要预订诗巴丹（Sipadan）名额，建议至少提前 1 个月联系我们。</p>
-                <p class="en hidden">You can contact me directly via WeChat (Deso_89). For island hopping, 3-5 days in advance is fine. For peak season (July-Sept) or Sipadan permits, please book at least 1 month in advance.</p>
+                <p class="cn">直接添加微信 <strong>Deso_89</strong> 即可咨询预订。普通跳岛游建议提前 1 周；诗巴丹或旺季住宿建议提前 1-2 个月。</p>
+                <p class="en hidden">Add WeChat <strong>Deso_89</strong> to book. 1 week ahead for islands; 1-2 months for Sipadan or peak season stays.</p>
             </div>
         </details>
     </div>
@@ -121,12 +119,12 @@
     <div class="faq-item">
         <details>
             <summary>
-                <span class="cn">不会游泳可以参加体验深潜吗？</span>
+                <span class="cn">不会游泳可以参加体验深潜（DSD）吗？</span>
                 <span class="en hidden">Can I dive if I don't know how to swim?</span>
             </summary>
             <div class="answer">
-                <p class="cn">当然可以！我们的 DSD（体验深潜）课程专门为零基础客人设计。会有专业教练一对一全程带领您下潜，您只需要放松并保持呼吸即可。安全是我们最重要的考量。</p>
-                <p class="en hidden">Absolutely! Our DSD (Discovery Scuba Diving) is designed for non-swimmers. A professional instructor will guide you 1-on-1 the entire time. You just need to relax and breathe.</p>
+                <p class="cn">完全可以！体验深潜由教练一对一全程带飞，你只需负责呼吸和欣赏美景。我们会提供浮力背心，确保安全。</p>
+                <p class="en hidden">Yes! Discovery Scuba Diving (DSD) is 1-on-1 with a coach. We provide buoyancy vests to keep you safe and floating.</p>
             </div>
         </details>
     </div>
@@ -134,12 +132,12 @@
     <div class="faq-item">
         <details>
             <summary>
-                <span class="cn">支持什么付款方式？</span>
-                <span class="en hidden">What payment methods are accepted?</span>
+                <span class="cn">一个人去仙本那，可以拼船吗？</span>
+                <span class="en hidden">Can I join if I'm traveling solo?</span>
             </summary>
             <div class="answer">
-                <p class="cn">我们支持支付宝 (Alipay)、微信支付 (WeChat Pay) 以及马来西亚银行转账 (Maybank)。也可以在抵达时支付部分现金（马币）。</p>
-                <p class="en hidden">We accept Alipay, WeChat Pay, and Maybank transfers. Partial cash payment (MYR) upon arrival is also accepted.</p>
+                <p class="cn">当然！我们所有的跳岛游都可以接受一人预订，我们会安排您与其他优秀的旅行者同船，非常适合交朋友。</p>
+                <p class="en hidden">Of course! All our island hopping tours accept solo bookings. We will group you with other travelers.</p>
             </div>
         </details>
     </div>
@@ -147,12 +145,12 @@
     <div class="faq-item">
         <details>
             <summary>
-                <span class="cn">接送机服务包含在内吗？</span>
-                <span class="en hidden">Are airport transfers included?</span>
+                <span class="cn">下雨天行程会取消吗？</span>
+                <span class="en hidden">Will tours be cancelled if it rains?</span>
             </summary>
             <div class="answer">
-                <p class="cn">我们的部分多日潜水/住宿套餐包含接送机。如果您预订的是单日行程，我们可以协助安排拼车或包车服务（需额外付费，拼车约 RM25/人）。</p>
-                <p class="en hidden">Transfers are included in some multi-day packages. For single-day tours, we can arrange shared vans (approx RM25/pax) or private cars for an extra fee.</p>
+                <p class="cn">如果是阵雨，行程通常照常进行。只有当海事局发布风浪预警导致禁航时，我们才会取消并为您退款或延期。</p>
+                <p class="en hidden">Tropical rain is brief; tours usually proceed. We only cancel and refund if the Marine Department issues a safety warning.</p>
             </div>
         </details>
     </div>
@@ -160,20 +158,46 @@
     <div class="faq-item">
         <details>
             <summary>
-                <span class="cn">为什么诗巴丹（Sipadan）需要提前预订？</span>
-                <span class="en hidden">Why book Sipadan in advance?</span>
+                <span class="cn">我怕晕船怎么办？</span>
+                <span class="en hidden">What if I get seasick?</span>
             </summary>
             <div class="answer">
-                <p class="cn">诗巴丹是世界级保护区，每天限制 120 个入岛名额。名额非常抢手，通常需要提前 1-2 个月抢订。我们作为本地代理，有渠道协助您获取名额，但请务必尽早确认。</p>
-                <p class="en hidden">Sipadan is a protected area limited to 120 divers per day. Permits sell out fast, often 1-2 months ahead. We can help secure permits, but early confirmation is essential.</p>
+                <p class="cn">建议您在登船前 30 分钟服用晕船药。我们船上也会备有急救箱，我们的向导会随时关注您的状态。</p>
+                <p class="en hidden">We recommend taking seasick pills 30 mins before boarding. Our staff are trained to assist if you feel unwell.</p>
             </div>
         </details>
     </div>
-    
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">适合老人和小孩参加吗？</span>
+                <span class="en hidden">Is it suitable for children and seniors?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">非常适合！我们会根据家庭成员的体力调整节奏。浮潜时向导会重点照顾小朋友，确保全家都能享受海洋的乐趣。</p>
+                <p class="en hidden">Very suitable! We adjust the pace for families, and our guides pay extra attention to children during snorkeling.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">行程包含保险吗？</span>
+                <span class="en hidden">Is insurance included?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">我们包含基本的出海意外保险。但我们强烈建议您在出发前购买涵盖高风险运动（如潜水）的个人境外旅游险。</p>
+                <p class="en hidden">Basic boat trip insurance is included, but we strongly advise buying personal travel insurance that covers diving.</p>
+            </div>
+        </details>
+    </div>
+
     <div style="text-align: center; margin-top: 40px;">
-        <button class="btn-about" onclick="openWechat()" style="background: var(--main); color: #fff; padding: 12px 30px; border:none; border-radius:30px; cursor:pointer;">
-            <span class="cn">还有其他问题？微信问我</span>
-            <span class="en hidden">More Questions? Chat on WeChat</span>
+        <button onclick="openWechat()" style="background: var(--main); color: #fff; padding: 15px 40px; border:none; border-radius:30px; cursor:pointer; font-weight:700;">
+            <span class="cn">还有其他问题？直接微信问我</span>
+            <span class="en hidden">Got More Questions? Chat on WeChat</span>
         </button>
     </div>
 </section>
@@ -183,14 +207,14 @@
 </footer>
 
 <div class="floating-wechat" onclick="openWechat()">
-    <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670044.png" alt="WeChat">
 </div>
 
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
         <p class="cn">扫码添加微信</p>
-        <p class="en hidden">Scan WeChat</p>
-        <img src="wechat-qr.jpg" alt="WeChat QR">
+        <p class="en hidden">Scan to Add WeChat</p>
+        <img src="images/wechat-qr.jpg" alt="WeChat QR">
         <br><strong>Deso_89</strong><br>
         <button onclick="closeWechat()" style="background:#666; color:#fff; border:none; padding:10px 20px; border-radius:20px; margin-top:10px; cursor:pointer;">
             <span class="cn">关闭</span><span class="en hidden">Close</span>
