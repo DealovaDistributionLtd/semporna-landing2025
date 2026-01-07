@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>联系 / Contact</title>
+<title>联系 / Contact | Semporna Tours</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,8 +11,6 @@
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
-
-    <!-- Desktop Menu -->
     <div class="nav-links">
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
@@ -24,12 +22,8 @@
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
-    <!-- Mobile Hamburger -->
     <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
-
-  <!-- Mobile Menu -->
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
@@ -39,37 +33,45 @@
     <a href="about.html">关于我们 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
     <a href="contact.html">联系 / Contact</a>
-
-    <!-- Language toggle always LAST -->
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
+<section>
+  <h2 class="cn">联系我们</h2>
+  <h2 class="en hidden">Contact Us</h2>
 
-<section class="hero">
-  <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1">
-  <div class="hero-content">
-    <h1 class="cn">联系我们</h1>
-    <h1 class="en hidden">Contact Us</h1>
+  <div class="grid">
+    <div class="card">
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="姓名 / Name" required style="width:100%;padding:12px;margin-bottom:12px;border-radius:12px;border:1px solid #ccc;">
+        <input type="email" name="email" placeholder="邮箱 / Email" required style="width:100%;padding:12px;margin-bottom:12px;border-radius:12px;border:1px solid #ccc;">
+        <textarea name="message" placeholder="留言 / Message" required style="width:100%;padding:12px;margin-bottom:12px;border-radius:12px;border:1px solid #ccc;"></textarea>
+        <button type="submit" class="btn">发送 / Send</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3 class="cn">我们的地址</h3>
+      <h3 class="en hidden">Our Location</h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 
-<section class="grid">
-  <div class="card">
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email">
-      <textarea placeholder="Message"></textarea>
-      <button class="btn">Send</button>
-    </form>
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat">
+</div>
+
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p>扫码添加微信咨询 / Add WeChat</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
   </div>
+</div>
 
-  <div class="card">
-    <img src="images/map.jpg" alt="Map" style="width:100%;border-radius:16px;">
-  </div>
-</section>
-
-<!-- WECHAT -->
-
+<script src="js/main.js" defer></script>
 </body>
 </html>
