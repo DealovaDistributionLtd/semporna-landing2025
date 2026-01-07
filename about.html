@@ -4,77 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>关于我们 | About Us - Semporna Tours</title>
+<link rel="stylesheet" href="style.css">
 <style>
-:root{
-  --main:#00c2d1;
-  --bg:#f6fbfc;
-  --card:#fff;
-  --radius:16px;
-  --shadow:0 16px 34px rgba(0,0,0,.08);
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
-a{text-decoration:none;color:inherit}
-img{width:100%;display:block}
+  /* Page-Specific Layout for About Content */
+  section { max-width: 1000px; margin: auto; padding: 60px 20px; }
+  .profile-flex { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; margin-bottom: 60px; }
+  .profile-img { flex: 1; min-width: 300px; }
+  .profile-img img { border-radius: var(--radius); box-shadow: var(--shadow); min-height: 400px; object-fit: cover; }
+  .profile-text { flex: 1; min-width: 300px; }
+  .stats-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align: center; margin-top: 40px; }
+  .stat-card { background: var(--card); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-bottom: 4px solid var(--main); }
+  .stat-card h4 { font-size: 2.5rem; color: var(--main); margin: 0; }
+  .btn-about { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 30px; transition: .3s; cursor: pointer; border: none; text-align: center; }
 
-/* HEADER / NAV */
-header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
-.nav-container{
-  max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
-}
-.nav-container b.logo{color:var(--main);font-size:1.3rem;}
-.nav-links{display:flex;gap:15px;align-items:center;}
-.nav-links a, .nav-links button{
-  font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;transition: 0.2s;
-}
-.nav-links a:hover, .nav-links a.active{color:var(--main);}
-.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;margin-left:5px;}
-
-/* Mobile Hamburger */
-.hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
-.mobile-menu{
-  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
-  display:flex;flex-direction:column;padding:20px;z-index:100;
-}
-.mobile-menu a, .mobile-menu button{
-  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
-}
-.hidden{display:none !important;}
-
-/* Hero */
-.hero{position:relative;min-height:35vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;overflow: hidden;}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity: 0.6;}
-.hero-content{position:relative; z-index: 2; max-width:900px;padding:20px; animation:fadeUp 1s ease;}
-
-/* About Content */
-section{max-width:1000px;margin:auto;padding:60px 20px;}
-.profile-flex{display:flex; gap:40px; align-items:center; flex-wrap:wrap; margin-bottom:60px;}
-.profile-img{flex:1; min-width:300px;}
-.profile-img img{border-radius:var(--radius); box-shadow:var(--shadow); min-height: 400px; object-fit: cover;}
-.profile-text{flex:1; min-width:300px;}
-
-.stats-grid{display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); text-align:center; margin-top:40px;}
-.stat-card{background:var(--card); padding:30px; border-radius:var(--radius); box-shadow:var(--shadow); border-bottom: 4px solid var(--main);}
-.stat-card h4{font-size:2.5rem; color:var(--main); margin:0;}
-
-/* Floating WeChat Icon */
-.floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
-.floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
-.floating-wechat:hover{transform: scale(1.1);}
-
-/* WeChat Popup */
-.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:1000;}
-.wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:350px;}
-.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin-bottom:15px;}
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;cursor:pointer;border:none; text-align: center;}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-
-@media(max-width:992px){
-  .nav-links{display:none;}
-  .hamburger{display:block;}
-  .profile-flex{flex-direction:column; text-align:center;}
-}
+  @media(max-width: 992px) {
+    .profile-flex { flex-direction: column; text-align: center; }
+  }
 </style>
 </head>
 <body>
@@ -86,6 +31,7 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
       <a href="accommodation.html">住宿 / Accommodation</a>
+      <a href="island-hopping.html">跳岛 / Island Hopping</a>
       <a href="gallery.html">相册 / Gallery</a>
       <a href="reviews.html">评价 / Reviews</a>
       <a href="about.html" class="active">关于 / About</a>
@@ -100,6 +46,7 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
     <a href="accommodation.html">住宿 / Accommodation</a>
+    <a href="island-hopping.html">跳岛 / Island Hopping</a>
     <a href="gallery.html">相册 / Gallery</a>
     <a href="reviews.html">评价 / Reviews</a>
     <a href="about.html" class="active">关于 / About</a>
@@ -127,12 +74,12 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
     <div class="profile-text">
       <h2 class="cn">你好，我是教练 Deso_89</h2>
       <h2 class="en hidden">Hi, I'm Coach Deso_89</h2>
-      <p class="cn">拥有**超过 12 年**的仙本那当地带团与潜水教学经验。我在这里出生、长大，对这片海域的每一个潜点、每一处洋流都了如指掌。</p>
-      <p class="en hidden">With **over 12 years** of experience in Semporna local tours and dive instruction, I know every dive site and current in these waters like the back of my hand.</p>
+      <p class="cn">拥有超过 12 年的仙本那当地带团与潜水教学经验。我在这里出生、长大，对这片海域的每一个潜点、每一处洋流都了如指掌。</p>
+      <p class="en hidden">With over 12 years of experience in Semporna local tours and dive instruction, I know every dive site and current in these waters like the back of my hand.</p>
       <p class="cn">我们的团队拒绝廉价团的走马观花。无论您是零基础的体验潜水，还是追求极致的诗巴丹深潜，我们都能确保您在最安全的前提下，看到最震撼的海底景观。</p>
       <p class="en hidden">Our team rejects the rushed pace of budget tours. Whether you are a total beginner or a pro seeking the depths of Sipadan, we ensure you see the most stunning sights with absolute safety.</p>
       <div style="margin-top: 30px;">
-        <button class="btn" onclick="openWechat()">
+        <button class="btn-about" onclick="openWechat()">
           <span class="cn">立即微信沟通</span>
           <span class="en hidden">Chat with Me</span>
         </button>
@@ -147,7 +94,7 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
       <p class="en hidden">Years Experience</p>
     </div>
     <div class="stat-card">
-      <h4>100+</h4>
+      <h4>5000+</h4>
       <p class="cn">接待游客</p>
       <p class="en hidden">Satisfied Guests</p>
     </div>
@@ -171,30 +118,12 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
   <div class="wechat-box">
     <p class="cn">扫码添加微信，与 12 年经验教练对话</p>
     <p class="en hidden">Add WeChat & chat with 12-year expert coach</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR" onerror="this.alt='QR Code Placeholder'">
+    <img src="wechat-qr.jpg" alt="WeChat QR">
     <br><strong>Coach Deso_89</strong><br>
-    <button onclick="closeWechat()" class="btn" style="width:100%; margin-top:15px;">关闭 / Close</button>
+    <button onclick="closeWechat()">关闭 / Close</button>
   </div>
 </div>
 
-<script>
-// Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
-
-// WeChat Logic
-const popup = document.getElementById('wechatPopup');
-function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
-function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
-
-// Language Switch
-function toggleLang() {
-  document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
-}
-document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
-document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>
