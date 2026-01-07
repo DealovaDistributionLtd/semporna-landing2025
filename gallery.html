@@ -44,7 +44,7 @@
 <header>
     <nav class="nav-container">
         <a href="index.html" class="logo-box">
-            <img src="images/logo.jpg" alt="Semporna Tours Logo" class="site-logo">
+            <img src="images/logo.png" alt="Semporna Tours Logo" class="site-logo">
         </a>
         <div class="nav-links">
             <a href="index.html">首页 / Home</a>
@@ -77,20 +77,28 @@
 </div>
 
 <div class="gallery-grid" id="galleryGrid">
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/IMG-20251209-WA0019.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/IMG-20251205-WA0029.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/IMG-20251205-WA0025.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/IMG-20251205-WA0020.jpg"></div>
+    
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/diving1.jpg"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/diving2.jpg"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/diving3.jpg"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/diving4.jpg"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/IMG-20251209-WA0019.jpg"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/IMG-20251205-WA0025.jpg"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/IMG-20251205-WA0020.jpg"></div>
 
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9392f1f5019394dd1d654120_534811.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9418d64501941b6475e034a0_144557.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a97ad823d0197aec033d73f77_153709.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a97ad823d0197aec033d73f77_488649.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9392f1f5019394dd1d654120_613304.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a9392f1f5019394dd1d654120_449246.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a9392f1f5019394dd1d654120_534811.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a9418d64501941b6475e034a0_144557.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a97ad823d0197aec033d73f77_153709.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a97ad823d0197aec033d73f77_488649.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a9392f1f5019394dd1d654120_613304.jpg"></div>
 
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/hero-gallery.jpg"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/islands/dji-20250303073420-0194-d_orig.jpg"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/islands/dji-20241120095919-0020-d_orig.jpg"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/islands/semporna1.jpg"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/islands/semporna2.jpg"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/islands/semporna4.jpg"></div>
+
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -105,11 +113,9 @@
 <script src="main.js"></script>
 <script>
     function filterGallery(category, btn) {
-        // Update Active Button
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Filter Photos
         const items = document.querySelectorAll('.photo-item');
         items.forEach(item => {
             if (category === 'all' || item.classList.contains(category)) {
@@ -125,12 +131,12 @@
         const img = document.getElementById('lightbox-img');
         img.src = el.querySelector('img').src;
         lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Stop scrolling
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
-        document.body.style.overflow = ''; // Resume scrolling
+        document.body.style.overflow = '';
     }
 </script>
 
