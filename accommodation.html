@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>仙本那住宿推荐 · Semporna Accommodation</title>
-
+<title>仙本那住宿 / Semporna Accommodation</title>
 <style>
 :root{
   --main:#00c2d1;
@@ -13,85 +12,163 @@
   --radius:16px;
   --shadow:0 16px 34px rgba(0,0,0,.08);
 }
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial;background:var(--bg);}
-a{text-decoration:none;color:inherit}
-img{width:100%;display:block;border-radius:16px}
-
-header{position:sticky;top:0;background:#fff;z-index:99;box-shadow:0 6px 18px rgba(0,0,0,.05);}
-nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
-nav b{color:var(--main)}
-nav a{margin-left:18px;font-weight:600}
-
-section{max-width:1100px;margin:auto;padding:70px 20px}
-h1,h2{text-align:center}
-
-.grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-.card{background:#fff;padding:20px;border-radius:16px;box-shadow:var(--shadow)}
-
-.floating-wechat{
-  position:fixed;bottom:20px;right:20px;z-index:999;
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;
+  margin:0;padding:0;background:var(--bg);color:#0e2a33;
 }
-.floating-wechat img{
-  width:64px;height:64px;border-radius:50%;
-  box-shadow:var(--shadow);
+.language-toggle{
+  position:fixed;top:20px;right:20px;
+  background:var(--main);color:#fff;padding:10px 14px;border-radius:14px;
+  cursor:pointer;z-index:999;font-weight:700;
 }
+header{
+  position:sticky;top:0;background:#fff;z-index:99;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+nav{
+  max-width:1100px;margin:auto;padding:14px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+nav b{color:var(--main);font-size:1.1rem}
+nav a{margin-left:18px;font-weight:600;cursor:pointer;}
+
+.hero{position:relative;min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;margin-bottom:40px;}
+.hero img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-2;}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65));z-index:-1;}
+.hero-content{max-width:900px;padding:20px;}
+.hero-content h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:10px;}
+.hero-content p{font-size:1.2rem;opacity:.95;}
+
+section{max-width:1100px;margin:auto;padding:40px 20px;}
+h2{text-align:center;margin-bottom:36px;}
+
+.grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s;}
+.card:hover{transform:translateY(-8px);}
+.card h3{margin-bottom:12px;color:var(--main);}
+.card ul{padding-left:20px;}
+.card li{margin-bottom:6px;line-height:1.5;}
+
+a.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;text-decoration:none;transition:.3s;margin-top:12px;}
+a.btn:hover{background:#0096a6;}
+
+.floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;transition:0.3s;}
+.floating-wechat img{width:70px;height:70px;border-radius:16px;box-shadow:var(--shadow);}
+
+/* WeChat popup */
+.wechat-popup{
+  position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;justify-content:center;align-items:center;z-index:1000;display:none;
+}
+.wechat-popup .wechat-box{
+  background:#fff;padding:30px;border-radius:24px;text-align:center;max-width:400px;position:relative;
+}
+.wechat-popup .wechat-box img{max-width:220px;border-radius:16px;margin:0 auto 12px;}
+.wechat-popup .wechat-box button{
+  background:var(--main);color:#fff;border:none;padding:10px 20px;border-radius:24px;margin-top:12px;cursor:pointer;
+}
+.wechat-popup .wechat-box button:hover{background:#0096a6;}
+
+.hidden{display:none;}
 </style>
 </head>
-
 <body>
+
+<div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
 
 <header>
   <nav>
-    <b>仙本那住宿 · Semporna Stay</b>
+    <b>仙本那 · 住宿 / Semporna Accommodation</b>
     <div>
-      <a href="index.html">返回首页 / Home</a>
-      <a href="pricing.html">价格 / Pricing</a>
+      <a href="index.html">首页 / Home</a>
+      <a href="pricing.html">行程价格 / Pricing</a>
     </div>
   </nav>
 </header>
 
-<section>
-  <h1 class="cn">精选住宿推荐</h1>
-  <h1 class="en hidden">Recommended Accommodations</h1>
-
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2017/04/semporna-resort.jpg">
-      <h3>🌊 海景度假村</h3>
-      <p>适合情侣、蜜月、度假放松。海上日落，非常安静。</p>
-    </div>
-
-    <div class="card">
-      <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2016/11/semporna-hotel.jpg">
-      <h3>🏨 镇上酒店</h3>
-      <p>交通方便，靠近码头与餐厅，性价比高。</p>
-    </div>
-
-    <div class="card">
-      <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/08/semporna-diving-lodge.jpg">
-      <h3>🤿 潜水度假屋</h3>
-      <p>潜水员最爱，早出海、晚休息，效率最高。</p>
-    </div>
-
-    <div class="card">
-      <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2018/06/mabul-island-resort.jpg">
-      <h3>🏝️ 离岛住宿</h3>
-      <p>马布岛 / 卡帕莱风格，真正住在海上。</p>
-    </div>
-
+<section class="hero">
+  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna Accommodation">
+  <div class="hero-content">
+    <h1 class="cn">舒适住宿选择</h1>
+    <h1 class="en hidden">Comfortable Accommodation Options</h1>
+    <p class="cn">不同房型，满足预算与海景需求</p>
+    <p class="en hidden">Various room types to fit your budget and ocean-view preference</p>
   </div>
 </section>
 
-<footer style="text-align:center;padding:20px">
-  📍 Sabah · Semporna ｜ 住宿可微信咨询
-</footer>
+<section id="rooms">
+  <div class="grid">
+    <div class="card">
+      <h3 class="cn">Ocean View Room</h3>
+      <h3 class="en hidden">Ocean View Room</h3>
+      <ul>
+        <li>Overwater private room, 1× Queen bed</li>
+        <li>Air-conditioning & fan</li>
+        <li>Private bathroom with Western toilet & cold shower</li>
+        <li>Ocean-view balcony</li>
+        <li>Bedding & towels provided</li>
+      </ul>
+      <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
+    </div>
 
-<div class="floating-wechat" onclick="location.href='index.html#wechat'">
+    <div class="card">
+      <h3 class="cn">Detached Overwater Room</h3>
+      <h3 class="en hidden">Detached Overwater Room</h3>
+      <ul>
+        <li>Overwater private room, 1× Queen bed</li>
+        <li>Air-conditioning</li>
+        <li>Private bathroom with Western toilet & cold shower</li>
+        <li>No balcony or view</li>
+        <li>Direct access to shared deck with sun chairs, hammocks & ocean views</li>
+        <li>Bedding & towels provided</li>
+      </ul>
+      <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
+    </div>
+
+    <div class="card">
+      <h3 class="cn">Ocean View Twin Room</h3>
+      <h3 class="en hidden">Ocean View Twin Room</h3>
+      <ul>
+        <li>Overwater private room, 2× Single beds</li>
+        <li>Air-conditioning & fan</li>
+        <li>Private bathroom with Western toilet & cold shower</li>
+        <li>Ocean-view balcony</li>
+        <li>Views of Bohey Dulang Island & Tun Sakaran Marine Park</li>
+        <li>Bedding & towels provided</li>
+      </ul>
+      <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- Floating WeChat Button -->
+<div class="floating-wechat" onclick="openWechat()">
   <img src="wechat-icon.png" alt="WeChat">
 </div>
 
+<!-- WeChat Popup -->
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p>扫码添加微信，获取房型详情与预订信息 / Scan to add WeChat for room details & booking</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR Code">
+    <strong>教练 Deso_89</strong>
+    <br>
+    <button onclick="closeWechat()">关闭 / Close</button>
+  </div>
+</div>
+
+<script>
+// Language toggle
+const toggle = document.getElementById('langToggle');
+toggle.addEventListener('click', ()=>{
+  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+});
+
+// WeChat popup functions
+const popup = document.getElementById('wechatPopup');
+function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
+function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
+</script>
+
 </body>
 </html>
-
