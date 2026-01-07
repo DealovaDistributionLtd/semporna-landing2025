@@ -3,37 +3,62 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>相册实拍 | Gallery - Semporna Tours</title>
+    <title>相册更新中 | Gallery Under Maintenance - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .filter-container { text-align:center; padding:40px 20px 20px; }
+        /* Maintenance Section Styles */
+        .maintenance-container {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: #f9f9f9;
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .maintenance-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .maintenance-container h2 {
+            color: var(--main);
+            margin-bottom: 15px;
+        }
+
+        .maintenance-container p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--main);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Keep existing filter styles but hide grid for now */
+        .filter-container { text-align:center; padding:20px; opacity: 0.5; pointer-events: none; }
         .filter-btn {
             background:#fff; border:2px solid var(--main); color:var(--main); padding:8px 20px; 
-            border-radius:24px; cursor:pointer; font-weight:700; margin:5px; transition:0.3s;
+            border-radius:24px; margin:5px; font-weight:700;
         }
-        .filter-btn.active, .filter-btn:hover { background:var(--main); color:#fff; }
-
-        .gallery-grid {
-            max-width: 1200px; margin: auto; padding: 0 20px 80px;
-            columns: 3 250px; column-gap: 20px;
-        }
-        .photo-item {
-            margin-bottom: 20px; break-inside: avoid; border-radius: var(--radius); 
-            overflow: hidden; box-shadow: var(--shadow); background: #fff; transition: 0.3s;
-            cursor: pointer;
-        }
-        .photo-item:hover { transform: scale(1.02); }
-        .photo-item img { width: 100%; height: auto; display: block; }
-
-        .lightbox {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.95);
-            display: none; justify-content: center; align-items: center;
-            z-index: 2000; padding: 20px;
-        }
-        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; }
-
-        @media(max-width:992px) { .gallery-grid { columns: 2 200px; } }
     </style>
 </head>
 <body>
@@ -70,77 +95,40 @@
 </header>
 
 <div class="filter-container">
-    <button class="filter-btn active" onclick="filterGallery('all', this)">
+    <button class="filter-btn">
         <span class="cn">全部</span><span class="en hidden">All</span>
     </button>
-    <button class="filter-btn" onclick="filterGallery('diving', this)">
+    <button class="filter-btn">
         <span class="cn">潜水</span><span class="en hidden">Diving</span>
     </button>
-    <button class="filter-btn" onclick="filterGallery('islands', this)">
+    <button class="filter-btn">
         <span class="cn">跳岛</span><span class="en hidden">Islands</span>
     </button>
-    <button class="filter-btn" onclick="filterGallery('rooms', this)">
+    <button class="filter-btn">
         <span class="cn">住宿</span><span class="en hidden">Stay</span>
     </button>
 </div>
 
-<div class="gallery-grid" id="galleryGrid">
+<main class="maintenance-container">
+    <div class="loader"></div>
+    <div class="maintenance-icon">📸</div>
     
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/IMG-20251205-WA0020.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/IMG-20251205-WA0025.jpg"></div>
-
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/IMG-20251205-WA0029.jpg"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/IMG-20251209-WA0019.jpg"></div>
-
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9392f1f5019394dd1d654120_534811.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9392f1f5019394dd1d654120_613304.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a97ad823d0197aec033d73f77_153709.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a97ad823d0197aec033d73f77_488649.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a97ad823d0197aec033d73f77_577868.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9418d64501941b6475e034a0_144557.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9418d64501941b6475e034a0_43838.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9418d64501941b6475e034a0_455578.jpg"></div>
-
-</div>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="">
-</div>
+    <h2 class="cn">相册正在整理中...</h2>
+    <h2 class="en hidden">Gallery Updating...</h2>
+    
+    <p class="cn">我们正在同步最新的客片与海底美景，请稍后再来！<br>您可以添加微信获取实时照片。</p>
+    <p class="en hidden">We are currently uploading our latest guest photos and underwater shots. Please check back soon!<br>Add us on WeChat for live updates.</p>
+    
+    <a href="index.html" class="card-btn" style="text-decoration: none; display: inline-block;">
+        <span class="cn">返回首页</span><span class="en hidden">Back to Home</span>
+    </a>
+</main>
 
 <footer style="text-align:center; padding:40px 20px; background: #eee;">
     <p>© Semporna Tours - Coach Deso_89</p>
 </footer>
 
 <script src="main.js"></script>
-<script>
-    function filterGallery(category, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const items = document.querySelectorAll('.photo-item');
-        items.forEach(item => {
-            if (category === 'all' || item.classList.contains(category)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    }
 
-    function openLightbox(el) {
-        const lightbox = document.getElementById('lightbox');
-        const img = document.getElementById('lightbox-img');
-        img.src = el.querySelector('img').src;
-        lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-        document.getElementById('lightbox').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-</script>
 </body>
 </html>
