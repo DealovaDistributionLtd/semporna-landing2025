@@ -19,7 +19,7 @@
         }
         .photo-item {
             margin-bottom: 20px; break-inside: avoid; border-radius: var(--radius); 
-            overflow: hidden; box-shadow: var(--shadow); background: #f0f0f0; transition: 0.3s;
+            overflow: hidden; box-shadow: var(--shadow); background: #eee; transition: 0.3s;
             cursor: pointer;
         }
         .photo-item:hover { transform: scale(1.02); }
@@ -30,7 +30,7 @@
             display: none; justify-content: center; align-items: center;
             z-index: 2000; padding: 20px;
         }
-        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; border: 2px solid #fff; }
+        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
         .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; }
 
         @media(max-width:992px) { .gallery-grid { columns: 2 200px; } }
@@ -58,12 +58,12 @@
 </header>
 
 <section class="hero">
-    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200" alt="Semporna Gallery">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200" alt="Semporna Hero">
     <div class="hero-content">
-        <h1 class="cn">每一张照片，都是真实景色</h1>
-        <h1 class="en hidden">Real Semporna, Through Our Lens</h1>
-        <p class="cn">来自 12 年带团实拍记录</p>
-        <p class="en hidden">Real shots from 12 years of guiding</p>
+        <h1 class="cn">真实拍摄，美景直击</h1>
+        <h1 class="en hidden">Real Shots, Pure Beauty</h1>
+        <p class="cn">12年带团实录：记录最真实的仙本那蓝</p>
+        <p class="en hidden">12 years of memories: Capturing the true Semporna blue</p>
     </div>
 </section>
 
@@ -83,44 +83,46 @@
 </div>
 
 <div class="gallery-grid" id="galleryGrid">
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=600" alt="Diving 1"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1682687982501-1e58ab814714?auto=format&fit=crop&q=80&w=600" alt="Diving 2"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&q=80&w=600" alt="Diving 3"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1665403423456-978601633513?auto=format&fit=crop&q=80&w=600" alt="Diving 4"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1629236200213-9a367252272e?auto=format&fit=crop&q=80&w=600" alt="Diving 5"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1629236200171-89772186847c?auto=format&fit=crop&q=80&w=600" alt="Diving 6"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&q=80&w=600" alt="Diving 7"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&q=80&w=600" alt="Diving 8"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1502791451862-7bd8c1df43a7?auto=format&fit=crop&q=80&w=600" alt="Diving 9"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6?auto=format&fit=crop&q=80&w=600" alt="Diving 10"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1682687982501-1e58ab814714?q=80&w=600"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=600"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1566433333-333333333333?q=80&w=600" onerror="this.src='https://images.unsplash.com/photo-1582967702999-731303cc4511?q=80&w=600'"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1629236200213-9a367252272e?q=80&w=600"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?q=80&w=600"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=600"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1502791451862-7bd8c1df43a7?q=80&w=600"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1665403423456-978601633513?q=80&w=600"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1629236200171-89772186847c?q=80&w=600"></div>
 
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600" alt="Island 1"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&q=80&w=600" alt="Island 2"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&q=80&w=600" alt="Island 3"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg" alt="Island 4"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1520116467521-812fb2f64708?auto=format&fit=crop&q=80&w=600" alt="Island 5"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&q=80&w=600" alt="Island 6"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&q=80&w=600" alt="Island 7"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1506929113614-bb40127df248?auto=format&fit=crop&q=80&w=600" alt="Island 8"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1528353518104-db048bcd81c3?auto=format&fit=crop&q=80&w=600" alt="Island 9"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1530948990335-1eb93cbe6430?auto=format&fit=crop&q=80&w=600" alt="Island 10"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?q=80&w=600"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=600"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6?q=80&w=600"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1520116467521-812fb2f64708?q=80&w=600"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=600"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?q=80&w=600"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1506929113614-bb40127df248?q=80&w=600"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1528353518104-db048bcd81c3?q=80&w=600"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1530948990335-1eb93cbe6430?q=80&w=600"></div>
 
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Room 1"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="8a80818a9418d64501941b6475e034a0_144557.jpg" alt="Room 2"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Room 3"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Room 4"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=600" alt="Room 5"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=600" alt="Room 6"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Room 7"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Room 8"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?auto=format&fit=crop&q=80&w=600" alt="Room 9"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1615460547269-ffc121964024?auto=format&fit=crop&q=80&w=600" alt="Room 10"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="8a80818a9392f1f5019394dd1d654120_449246.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="8a80818a9418d64501941b6475e034a0_144557.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=600"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=600"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=600"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?q=80&w=600"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?q=80&w=600"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1615460547269-ffc121964024?q=80&w=600"></div>
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-img" src="">
 </div>
+
+<footer style="text-align:center; padding:40px 20px; background: #eee;"><p>© Semporna Tours - Coach Deso_89</p></footer>
 
 <script src="main.js"></script>
 <script>
@@ -129,7 +131,11 @@
         btn.classList.add('active');
         const items = document.querySelectorAll('.photo-item');
         items.forEach(item => {
-            item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+            if (category === 'all' || item.classList.contains(category)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
         });
     }
 
@@ -145,15 +151,6 @@
         document.getElementById('lightbox').style.display = 'none';
         document.body.style.overflow = '';
     }
-
-    // Auto-filter based on URL (e.g., gallery.html#diving)
-    window.onload = () => {
-        const hash = window.location.hash.substring(1);
-        if(hash) {
-            const targetBtn = document.querySelector(`.filter-btn[onclick*="${hash}"]`);
-            if(targetBtn) filterGallery(hash, targetBtn);
-        }
-    };
 </script>
 </body>
 </html>
