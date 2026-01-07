@@ -1,22 +1,11 @@
-<script>
-/* Hamburger toggle */
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
+document.getElementById('hamburger').onclick = ()=>{
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+};
 
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
-});
-
-/* Language toggle */
-function setupLangToggle(id){
-  const btn = document.getElementById(id);
-  if(!btn) return;
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.cn').forEach(el => el.classList.toggle('hidden'));
-    document.querySelectorAll('.en').forEach(el => el.classList.toggle('hidden'));
-  });
+function toggleLang(){
+  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
 }
 
-setupLangToggle('langToggleDesktop');
-setupLangToggle('langToggleMobile');
-</script>
+document.getElementById('langToggleDesktop')?.addEventListener('click', toggleLang);
+document.getElementById('langToggleMobile')?.addEventListener('click', toggleLang);
