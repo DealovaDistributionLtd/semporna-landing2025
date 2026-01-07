@@ -4,72 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>常见问题 | FAQ - Semporna Tours</title>
+<link rel="stylesheet" href="style.css">
 <style>
-:root{
-  --main:#00c2d1;
-  --bg:#f6fbfc;
-  --card:#fff;
-  --radius:16px;
-  --shadow:0 16px 34px rgba(0,0,0,.08);
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
-a{text-decoration:none;color:inherit}
-
-/* HEADER / NAV */
-header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
-.nav-container{
-  max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
-}
-.nav-container b.logo{color:var(--main);font-size:1.3rem;}
-.nav-links{display:flex;gap:15px;align-items:center;}
-.nav-links a, .nav-links button{
-  font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;transition: 0.2s;
-}
-.nav-links a:hover, .nav-links a.active{color:var(--main);}
-.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;margin-left:5px;}
-
-/* Mobile Hamburger */
-.hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
-.mobile-menu{
-  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
-  display:flex;flex-direction:column;padding:20px;z-index:100;
-}
-.mobile-menu a, .mobile-menu button{
-  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
-}
-.hidden{display:none !important;}
-
-/* Hero */
-.hero{position:relative;min-height:30vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;overflow: hidden;}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity: 0.6;}
-.hero-content{position:relative; z-index: 2; max-width:900px;padding:20px; animation:fadeUp 1s ease;}
-
-/* FAQ Styling */
-section{max-width:900px;margin:auto;padding:60px 20px;}
-.faq-item{background:var(--card);padding:25px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px;cursor:pointer;transition: 0.3s;}
-.faq-question{margin:0;color:var(--main);font-size:1.1rem;display:flex;justify-content:space-between;align-items:center;font-weight: 700;}
-.faq-answer{margin-top:15px;display:none;border-top:1px solid #eee;padding-top:15px;color:#555;}
-
-.cta-box{text-align:center; margin-top: 40px; padding: 40px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);}
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;cursor:pointer;border:none;}
-
-/* Floating WeChat Icon */
-.floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
-.floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
-.floating-wechat:hover{transform: scale(1.1);}
-
-/* WeChat Popup */
-.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:1000;}
-.wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:350px;}
-.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin-bottom:15px;}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-
-@media(max-width:992px){
-  .nav-links{display:none;}
-  .hamburger{display:block;}
-}
+  /* FAQ 页面专属样式 */
+  section{max-width:900px;margin:auto;padding:60px 20px;}
+  .faq-item{background:var(--card);padding:25px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px;cursor:pointer;transition: 0.3s;}
+  .faq-question{margin:0;color:var(--main);font-size:1.1rem;display:flex;justify-content:space-between;align-items:center;font-weight: 700;}
+  .faq-answer{margin-top:15px;display:none;border-top:1px solid #eee;padding-top:15px;color:#555;}
+  
+  .cta-box{text-align:center; margin-top: 40px; padding: 40px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);}
+  .btn-faq{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;cursor:pointer;border:none;}
 </style>
 </head>
 <body>
@@ -81,6 +25,7 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
       <a href="accommodation.html">住宿 / Accommodation</a>
+      <a href="island-hopping.html">跳岛 / Island Hopping</a>
       <a href="gallery.html">相册 / Gallery</a>
       <a href="reviews.html">评价 / Reviews</a>
       <a href="about.html">关于 / About</a>
@@ -95,6 +40,7 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
     <a href="accommodation.html">住宿 / Accommodation</a>
+    <a href="island-hopping.html">跳岛 / Island Hopping</a>
     <a href="gallery.html">相册 / Gallery</a>
     <a href="reviews.html">评价 / Reviews</a>
     <a href="about.html">关于 / About</a>
@@ -116,89 +62,60 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
 
 <section>
   <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">1. 仙本那最佳旅行月份？</span><span class="en hidden">1. Best months to visit?</span> <span>+</span></div>
+    <div class="faq-question">
+      <span class="cn">1. 仙本那最佳旅行月份？</span>
+      <span class="en hidden">1. Best months to visit?</span> 
+      <span>+</span>
+    </div>
     <div class="faq-answer">
-      <p class="cn">3月至10月是黄金季节。11月至2月虽有降雨，但仙本那不在台风带，海水依然清澈见底，行程极少取消。</p>
-      <p class="en hidden">March to October is the golden season. While Nov-Feb has more rain, Semporna is outside the typhoon belt, ensuring clear water and rare cancellations.</p>
+      <p class="cn">3月至10月是黄金季节。11月至2月虽有降雨，但仙本那不在台风带，海水依然清澈见底。</p>
+      <p class="en hidden">March to October is the golden season. While Nov-Feb has more rain, Semporna is outside the typhoon belt, ensuring clear water.</p>
     </div>
   </div>
 
   <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">2. 诗巴丹名额需要提前多久？</span><span class="en hidden">2. How early for Sipadan?</span> <span>+</span></div>
+    <div class="faq-question">
+      <span class="cn">2. 诗巴丹名额需要提前多久？</span>
+      <span class="en hidden">2. How early for Sipadan?</span> 
+      <span>+</span>
+    </div>
     <div class="faq-answer">
-      <p class="cn">诗巴丹每天名额非常有限，建议提前 1-2 个月预订。特别是旺季（7-9月）建议更早联系我们锁定名额。</p>
+      <p class="cn">诗巴丹名额有限，建议提前 1-2 个月预订。特别是旺季（7-9月）建议更早联系我们。</p>
       <p class="en hidden">Sipadan permits are strictly limited. We recommend booking 1-2 months in advance, especially during peak months (July-Sept).</p>
     </div>
   </div>
 
   <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">3. 潜水后可以立刻坐飞机吗？</span><span class="en hidden">3. Can I fly immediately after diving?</span> <span>+</span></div>
+    <div class="faq-question">
+      <span class="cn">3. 潜水后可以立刻坐飞机吗？</span>
+      <span class="en hidden">3. Can I fly immediately after diving?</span> 
+      <span>+</span>
+    </div>
     <div class="faq-answer">
-      <p class="cn">不行。为了您的安全，单次潜水后需等12小时，多次潜水（连潜）后需等18-24小时才能坐飞机。</p>
-      <p class="en hidden">No. For safety, wait 12 hours after a single dive and 18-24 hours after multiple consecutive dives before flying.</p>
+      <p class="cn">不行。单次潜水后需等12小时，多次潜水（连潜）后需等18-24小时才能坐飞机。</p>
+      <p class="en hidden">No. Wait 12 hours after a single dive and 18-24 hours after multiple dives before flying.</p>
     </div>
   </div>
 
   <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">4. 不会游泳能考潜水证吗？</span><span class="en hidden">4. Can non-swimmers get certified?</span> <span>+</span></div>
-    <div class="faq-answer">
-      <p class="cn">PADI OW课程要求能游泳200米。如果您完全不会游泳，我们强烈建议您参加 **DSD 体验潜水**，教练会全程带您。</p>
-      <p class="en hidden">PADI OW requires a 200m swim. If you cannot swim at all, we highly recommend **Discovery Scuba (DSD)** where an instructor guides you manually.</p>
+    <div class="faq-question">
+      <span class="cn">4. 不会游泳能考潜水证吗？</span>
+      <span class="en hidden">4. Can non-swimmers get certified?</span> 
+      <span>+</span>
     </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">5. 需要自带潜水装备吗？</span><span class="en hidden">5. Do I need my own gear?</span> <span>+</span></div>
     <div class="faq-answer">
-      <p class="cn">不需要。我们的套餐价格已包含全套专业装备租赁。如果您有洁癖，建议自带潜水服和咬嘴。</p>
-      <p class="en hidden">Not necessary. Our packages include full professional gear rental. You may bring your own wetsuit or mouthpiece if preferred.</p>
-    </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">6. 感冒了可以下水潜水吗？</span><span class="en hidden">6. Can I dive with a cold?</span> <span>+</span></div>
-    <div class="faq-answer">
-      <p class="cn">感冒会导致鼻塞，令耳压平衡非常困难，严重时可能损伤耳膜。建议康复后再开启潜水行程。</p>
-      <p class="en hidden">Colds cause congestion, making equalizing ear pressure painful or dangerous. It is best to dive only when fully healthy.</p>
-    </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">7. 小朋友可以参加吗？</span><span class="en hidden">7. Can children participate?</span> <span>+</span></div>
-    <div class="faq-answer">
-      <p class="cn">8岁以上可参加泡泡潜水，10岁以上可考青少年潜水证。跳岛游则适合所有年龄段的家庭出游。</p>
-      <p class="en hidden">Kids 8+ can try "Bubblemaker" dives; 10+ can get Junior certification. Island hopping is perfect for all ages.</p>
-    </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">8. 支持什么支付方式？</span><span class="en hidden">8. What payment methods?</span> <span>+</span></div>
-    <div class="faq-answer">
-      <p class="cn">支持微信、支付宝、马币现金或转账。预订需支付部分定金，余额可在到达仙本那后结算。</p>
-      <p class="en hidden">We accept WeChat, Alipay, MYR cash, or bank transfers. A deposit is required to secure your booking.</p>
-    </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">9. 镇上酒店与度假村水上屋如何选择？</span><span class="en hidden">9. Town hotel vs. Overwater villa?</span> <span>+</span></div>
-    <div class="faq-answer">
-      <p class="cn">**水上屋**是仙本那的精髓：阳台直接下海浮潜，清晨在海浪声中醒来看日出，体验极致的浪漫。如果您想感受真正的“果冻海”生活，水上屋是首选。</p>
-      <p class="en hidden">**Overwater villas** are the essence of Semporna: snorkel directly from your private balcony and wake up to a stunning sunrise. For a true "Jelly Sea" experience, this is the top choice.</p>
-    </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question"><span class="cn">10. 怎么确认最新行程？</span><span class="en hidden">10. How to confirm the schedule?</span> <span>+</span></div>
-    <div class="faq-answer">
-      <p class="cn">点击下方按钮或右下角图标，添加微信。我们会根据实时天气为您推荐最合适的路线。</p>
-      <p class="en hidden">Click the button below or the icon on the bottom right to add WeChat. We recommend routes based on real-time weather.</p>
+      <p class="cn">PADI OW要求能游泳200米。如果您完全不会游泳，我们建议参加 **DSD 体验潜水**。</p>
+      <p class="en hidden">PADI OW requires a 200m swim. If you can't swim, we recommend **Discovery Scuba (DSD)**.</p>
     </div>
   </div>
 
   <div class="cta-box">
     <h3 class="cn">还有疑问？直接联系我</h3>
     <h3 class="en hidden">More questions? Contact me</h3>
-    <button class="btn" onclick="openWechat()">立即添加微信 / Add WeChat</button>
+    <button class="btn-faq" onclick="openWechat()">
+      <span class="cn">立即添加微信</span>
+      <span class="en hidden">Add WeChat</span>
+    </button>
   </div>
 </section>
 
@@ -207,7 +124,7 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
 </footer>
 
 <div class="floating-wechat" onclick="openWechat()">
-  <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+  <img src="wechat-icon.png" alt="WeChat">
 </div>
 
 <div id="wechatPopup" class="wechat-popup">
@@ -216,35 +133,19 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
     <p class="en hidden">Scan to Add WeChat / Get Schedule</p>
     <img src="wechat-qr.jpg" alt="WeChat QR">
     <br><strong>Coach Deso_89</strong><br>
-    <button onclick="closeWechat()" class="btn" style="width:100%; margin-top:15px;">关闭 / Close</button>
+    <button onclick="closeWechat()">关闭 / Close</button>
   </div>
 </div>
 
+<script src="main.js"></script>
 <script>
-// Menu
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
-
-// FAQ Toggle
-function toggleFAQ(el){
-  const ans = el.querySelector('.faq-answer');
-  const isVisible = ans.style.display === 'block';
-  document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-  if(!isVisible) ans.style.display = 'block';
-}
-
-// WeChat Popup Logic
-const popup = document.getElementById('wechatPopup');
-function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
-function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
-
-// Language Switch Logic
-function toggleLang() {
-  document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
-}
-document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
-document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
+  // FAQ 专用切换逻辑 (不放在全局 main.js 避免冲突)
+  function toggleFAQ(el){
+    const ans = el.querySelector('.faq-answer');
+    const isVisible = ans.style.display === 'block';
+    document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+    if(!isVisible) ans.style.display = 'block';
+  }
 </script>
 
 </body>
