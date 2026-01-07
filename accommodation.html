@@ -49,6 +49,16 @@ h2{text-align:center;margin-bottom:36px;}
 .card ul{padding-left:20px;}
 .card li{margin-bottom:6px;line-height:1.5;}
 
+/* Slider */
+.slider{position:relative;overflow:hidden;border-radius:16px;margin-bottom:16px;}
+.slider img{width:100%;display:block;transition:.4s;}
+.slider .prev, .slider .next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,0.3);color:#fff;border:none;padding:6px 12px;border-radius:12px;cursor:pointer;
+}
+.slider .prev{left:10px;}
+.slider .next{right:10px;}
+
 a.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;text-decoration:none;transition:.3s;margin-top:12px;}
 a.btn:hover{background:#0096a6;}
 
@@ -97,7 +107,19 @@ a.btn:hover{background:#0096a6;}
 
 <section id="rooms">
   <div class="grid">
+    <!-- Ocean View Room -->
     <div class="card">
+      <div class="slider" data-images='[
+        "8a80818a9392f1f5019394dd1d654120_449246.jpg",
+        "8a80818a9392f1f5019394dd1d654120_534811.jpg",
+        "8a80818a9392f1f5019394dd1d654120_613304.jpg",
+        "8a80818a9392f1f5019394dd1d654120_695031.jpg",
+        "8a80818a9392f1f5019394dd1d654120_753631.jpg"
+      ]'>
+        <img src="8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Ocean View Room">
+        <button class="prev" onclick="prevSlide(this)">‹</button>
+        <button class="next" onclick="nextSlide(this)">›</button>
+      </div>
       <h3 class="cn">Ocean View Room</h3>
       <h3 class="en hidden">Ocean View Room</h3>
       <ul>
@@ -110,7 +132,18 @@ a.btn:hover{background:#0096a6;}
       <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
     </div>
 
+    <!-- Detached Overwater Room -->
     <div class="card">
+      <div class="slider" data-images='[
+        "8a80818a97ad823d0197aec033d73f77_153709.jpg",
+        "8a80818a97ad823d0197aec033d73f77_488649.jpg",
+        "8a80818a97ad823d0197aec033d73f77_577868.jpg",
+        "8a80818a97ad823d0197aec033d73f77_780031.jpg"
+      ]'>
+        <img src="8a80818a97ad823d0197aec033d73f77_153709.jpg" alt="Detached Overwater Room">
+        <button class="prev" onclick="prevSlide(this)">‹</button>
+        <button class="next" onclick="nextSlide(this)">›</button>
+      </div>
       <h3 class="cn">Detached Overwater Room</h3>
       <h3 class="en hidden">Detached Overwater Room</h3>
       <ul>
@@ -124,7 +157,19 @@ a.btn:hover{background:#0096a6;}
       <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
     </div>
 
+    <!-- Ocean View Twin Room -->
     <div class="card">
+      <div class="slider" data-images='[
+        "8a80818a9418d64501941b6475e034a0_144557.jpg",
+        "8a80818a9418d64501941b6475e034a0_43838.jpg",
+        "8a80818a9418d64501941b6475e034a0_455578.jpg",
+        "8a80818a9418d64501941b6475e034a0_513697.jpg",
+        "8a80818a9418d64501941b6475e034a0_712069.jpg"
+      ]'>
+        <img src="8a80818a9418d64501941b6475e034a0_144557.jpg" alt="Ocean View Twin Room">
+        <button class="prev" onclick="prevSlide(this)">‹</button>
+        <button class="next" onclick="nextSlide(this)">›</button>
+      </div>
       <h3 class="cn">Ocean View Twin Room</h3>
       <h3 class="en hidden">Ocean View Twin Room</h3>
       <ul>
@@ -164,10 +209,28 @@ toggle.addEventListener('click', ()=>{
   document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
 });
 
-// WeChat popup functions
+// WeChat popup
 const popup = document.getElementById('wechatPopup');
 function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
 function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
+
+// Slider functionality
+function nextSlide(button){
+  const slider = button.parentElement;
+  const images = JSON.parse(slider.dataset.images);
+  let img = slider.querySelector('img');
+  let currentIndex = images.indexOf(img.src.split('/').pop());
+  currentIndex = (currentIndex + 1) % images.length;
+  img.src = images[currentIndex];
+}
+function prevSlide(button){
+  const slider = button.parentElement;
+  const images = JSON.parse(slider.dataset.images);
+  let img = slider.querySelector('img');
+  let currentIndex = images.indexOf(img.src.split('/').pop());
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  img.src = images[currentIndex];
+}
 </script>
 
 </body>
