@@ -10,63 +10,71 @@
   --bg:#f6fbfc;
   --card:#fff;
   --radius:20px;
-  --shadow:0 20px 40px rgba(0,0,0,.06);
+  --shadow:0 16px 34px rgba(0,0,0,.08);
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
 a{text-decoration:none;color:inherit}
 
-/* HEADER / NAV - FIXED LOGIC */
-header{position:sticky;top:0;z-index:99;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 6px 18px rgba(0,0,0,.05);}
-.nav-container{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;}
+/* HEADER / NAV - FIXED */
+header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
+.nav-container{
+  max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
+}
 .nav-container b.logo{color:var(--main);font-size:1.3rem;}
 .nav-links{display:flex;gap:15px;align-items:center;}
-.nav-links a, .nav-links button{font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;transition: 0.2s;}
+.nav-links a, .nav-links button{
+  font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;transition: 0.2s;
+}
 .nav-links a:hover, .nav-links a.active{color:var(--main);}
-.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;}
+.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;margin-left:5px;}
 
-/* Mobile Hamburger */
+/* Mobile Menu Logic */
 .hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
 .mobile-menu{
   position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
   display:flex;flex-direction:column;padding:20px;z-index:100;
 }
-.mobile-menu a, .mobile-menu button{margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;}
+.mobile-menu a, .mobile-menu button{
+  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
+}
+.mobile-menu button.lang-btn{background:var(--main);color:#fff;padding:8px 12px;border-radius:12px;align-self: flex-start;}
 .hidden{display:none !important;}
 
 /* Hero */
 .hero{position:relative;min-height:35vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200'); background-size: cover; background-position: center;}
-.hero-content{max-width:900px;padding:20px; animation:fadeUp 1s ease;}
-.hero h1{font-size:clamp(1.8rem,5vw,2.8rem);margin-bottom:10px;}
+.hero h1{font-size:clamp(1.8rem,5vw,2.8rem);margin:0; animation:fadeUp 1s ease;}
 
 /* Stats Bar */
-.stats-bar{background:#fff; padding:30px; border-radius:var(--radius); box-shadow:var(--shadow); display:flex; justify-content:space-around; align-items:center; margin-top:-40px; position:relative; z-index:5; max-width:1000px; margin-left:auto; margin-right:auto; border: 1px solid #f0f0f0;}
+.stats-bar{background:#fff; padding:30px; border-radius:var(--radius); box-shadow:var(--shadow); display:flex; justify-content:space-around; align-items:center; margin-top:-40px; position:relative; z-index:5; max-width:1000px; margin: 0 auto; border: 1px solid #f0f0f0;}
 .stat-item{text-align:center;}
 .stat-item h4{font-size:1.8rem; margin:0; color:var(--main);}
 
-/* Reviews Section */
+/* Reviews */
 section{max-width:1100px;margin:auto;padding:60px 20px;}
 .review-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
-.review-card{background:var(--card);padding:35px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s; border-left: 5px solid transparent;}
+.review-card{background:var(--card);padding:35px;border-radius:var(--radius);box-shadow:var(--shadow);border-left: 5px solid transparent;transition:.3s;}
 .review-card:hover{transform:translateY(-5px); border-left-color: var(--main);}
 .stars{color: #ffcc00; font-size: 1rem; margin-bottom: 12px;}
-.review-card p{font-size: 1.05rem; color: #4a5568; margin-bottom: 20px; font-style: normal;}
-.user-info{border-top: 1px solid #f0f0f0; padding-top: 15px; font-weight: 700; color: var(--main);}
+.user-info{border-top: 1px solid #f0f0f0; padding-top: 15px; margin-top: 20px; font-weight: 700; color: var(--main);}
 
-/* Floating WeChat & Popup */
+/* WECHAT POPUP - RESTORED STRUCTURE */
+.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:1000;}
+.wechat-box{background:#fff;padding:40px;border-radius:24px;text-align:center;max-width:380px;position:relative;}
+.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin:0 auto 15px;display:block;}
+
+/* Floating WeChat */
 .floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
-.floating-wechat img{width:65px;height:65px;border-radius:18px;box-shadow:0 10px 25px rgba(0,194,209,0.3);}
-.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;justify-content:center;align-items:center;z-index:1000;}
-.wechat-box{background:#fff;padding:40px;border-radius:24px;text-align:center;max-width:380px;}
+.floating-wechat img{width:65px;height:65px;border-radius:18px;box-shadow:var(--shadow);}
 
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:14px 32px;border-radius:30px;transition:.3s;border:none;cursor:pointer;}
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 
 @media(max-width:992px){
   .nav-links{display:none;}
   .hamburger{display:block;}
-  .stats-bar{flex-direction:column; gap:20px; margin-left:20px; margin-right:20px;}
+  .stats-bar{flex-direction:column; gap:20px; margin: 0 20px;}
 }
 </style>
 </head>
@@ -86,7 +94,7 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu Switch">&#9776;</button>
+    <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
 
   <div class="mobile-menu hidden" id="mobileMenu">
@@ -104,10 +112,8 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
 
 <section class="hero">
   <div class="hero-content">
-    <h1 class="cn">来自真实的旅行心声</h1>
-    <h1 class="en hidden">Voices from Real Travelers</h1>
-    <p class="cn">12年坚持，只为换来您的一句“值得”</p>
-    <p class="en hidden">12 years of passion, all for your "worth it" moment</p>
+    <h1 class="cn">真实的旅行评价</h1>
+    <h1 class="en hidden">Real Travel Reviews</h1>
   </div>
 </section>
 
@@ -122,48 +128,31 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
   </div>
   <div class="stat-item">
     <h4>12年</h4>
-    <p class="cn">本地经验</p><p class="en hidden">Local Exp</p>
+    <p class="cn">本地经验</p><p class="en hidden">Local Experience</p>
   </div>
 </div>
 
 <section>
-  <h2 class="cn" style="text-align:center; margin-bottom:50px;">客人口碑 · 真实反馈</h2>
-  <h2 class="en hidden" style="text-align:center; margin-bottom:50px;">Real Feedback</h2>
-
   <div class="review-grid">
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p class="cn">“以前总觉得潜水很难，这次带我妈来体验，Deso教练全程一对一带着，老人一点都不害怕。看到海龟的那一刻，我妈开心的像个孩子，这钱花得值！”</p>
-      <p class="en hidden">"I used to think diving was hard, but I brought my mother this time. Coach Deso guided her 1-on-1 and she wasn't scared at all. Seeing her happy face when she saw the turtle was worth every penny!"</p>
+      <p class="cn">“Deso教练非常有耐心，特别是带老人深潜，全程一对一盯着，一点都不用担心。看到大海龟那一刻真的值了！”</p>
+      <p class="en hidden">"Coach Deso is so patient. He guided my parents 1-on-1 the whole time. Seeing the turtle was an unforgettable moment!"</p>
       <div class="user-info">@成都张女士 / Ms. Zhang</div>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p class="cn">“对比了好几家，最后选了Deso。没选错！没有那种购物套路，出海的小船很干净，午餐热乎乎的。特别是诗巴丹的名额，教练真的靠谱，圆梦了！”</p>
-      <p class="en hidden">"Compared several agencies and chose Deso. No regrets! No hidden tourist traps, the boat was clean, and lunch was warm. Most importantly, he secured the Sipadan permit for me!"</p>
-      <div class="user-info">@潜水爱好者小王 / Mr. Wang</div>
-    </div>
-
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="cn">“住的水上屋简直无敌，阳台直接跳水里浮潜。Deso帮忙安排的行程节奏特别好，不赶时间，下午就在露台吹海风，这才是真正的度假。”</p>
-      <p class="en hidden">"The overwater villa was unbeatable; jumped straight into the sea to snorkel. Deso arranged the pace perfectly—not rushed at all. Just chilling on the terrace in the afternoon sea breeze."</p>
-      <div class="user-info">@蜜月旅行Li & Chen</div>
-    </div>
-
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="cn">“我是来仙本那考AOW的，教练非常严格但也很有趣，纠正了我很多不规范动作。在这里考证不仅专业，景色也真的是天花板级别。”</p>
-      <p class="en hidden">"Came here for my AOW certification. The coach was strict but fun, correcting all my bad habits. Professional training with world-class underwater views."</p>
-      <div class="user-info">@林同学 / Student Lin</div>
+      <p class="cn">“对比了几家最后还是选了Deso。没选错！没有购物套路，船很干净，特别是诗巴丹名额真的帮我圆梦了。”</p>
+      <p class="en hidden">"Chose Deso after much research. No regrets! Clean boats, no tourist traps, and he got me that Sipadan permit!"</p>
+      <div class="user-info">@潜客小王 / Mr. Wang</div>
     </div>
   </div>
 
   <div style="text-align: center; margin-top: 60px;">
     <button class="btn" onclick="openWechat()">
-      <span class="cn">分享您的故事 / 咨询行程</span>
-      <span class="en hidden">Share Your Story / Inquire Now</span>
+      <span class="cn">咨询最新行程建议</span>
+      <span class="en hidden">Inquire Latest Itinerary</span>
     </button>
   </div>
 </section>
@@ -178,8 +167,8 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
 
 <div id="wechatPopup" class="wechat-popup">
   <div class="wechat-box">
-    <p class="cn">扫码添加微信分享您的评价<br>或咨询最新行程建议</p>
-    <p class="en hidden">Add WeChat to share your story<br>or get the latest itinerary advice</p>
+    <p class="cn">扫码添加微信分享评价<br>咨询行程建议</p>
+    <p class="en hidden">Add WeChat to share feedback<br>or inquire itinerary</p>
     <img src="wechat-qr.jpg" alt="WeChat QR">
     <br><strong>ID: Deso_89</strong><br>
     <button onclick="closeWechat()" class="btn" style="width: 100%; margin-top: 20px;">关闭 / Close</button>
@@ -192,17 +181,23 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
 
-// Lang logic
+// Language Switch
 function toggleLang() {
   document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
 }
 document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
 document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
 
-// WeChat Logic
+// WeChat Popup Logic
 const popup = document.getElementById('wechatPopup');
-function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
-function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
+function openWechat(){ 
+  popup.style.display='flex'; 
+  document.body.style.overflow='hidden'; 
+}
+function closeWechat(){ 
+  popup.style.display='none'; 
+  document.body.style.overflow=''; 
+}
 </script>
 
 </body>
