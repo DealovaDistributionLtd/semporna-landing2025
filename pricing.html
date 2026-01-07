@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>价格一览 | Semporna Pricing - Semporna Tours</title>
+<title>价格详情 | Semporna Pricing - Semporna Tours</title>
 <style>
 :root{
   --main:#00c2d1;
@@ -18,66 +18,38 @@ a{text-decoration:none;color:inherit}
 
 /* Header/Nav */
 header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
-.nav-container{
-  max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
-}
+.nav-container{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
 .nav-container b.logo{color:var(--main);font-size:1.3rem;}
 .nav-links{display:flex;gap:15px;align-items:center;}
-.nav-links a, .nav-links button{
-  font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;transition: 0.2s;
-}
-.nav-links a:hover, .nav-links a.active{color:var(--main);}
+.nav-links a, .nav-links button{font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;}
+.nav-links a.active{color:var(--main);}
 .nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;}
-
-/* Hamburger */
 .hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
 
-/* Mobile menu */
-.mobile-menu{
-  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
-  display:flex;flex-direction:column;padding:20px;
-}
-.mobile-menu a, .mobile-menu button{
-  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
-}
+.mobile-menu{position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);display:flex;flex-direction:column;padding:20px;z-index:100;}
 .hidden{display:none !important;}
 
 /* Hero */
-.hero{position:relative;min-height:30vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;}
+.hero{position:relative;min-height:35vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity: 0.6;}
 .hero-content{position:relative; z-index: 2; max-width:900px;padding:20px;}
 
 /* Tables */
 section{max-width:1100px;margin:auto;padding:40px 20px;}
-h2{margin:40px auto 20px; color: var(--main); border-left: 5px solid var(--main); padding-left: 15px;}
-table{
-  width:100%;border-collapse:collapse;margin-bottom:40px;
-  background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)
-}
+h2{margin:40px auto 20px; color: var(--main); border-left: 5px solid var(--main); padding-left: 15px; font-size: 1.5rem;}
+table{width:100%;border-collapse:collapse;margin-bottom:30px;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
 th,td{padding:16px;text-align:left;border-bottom:1px solid #eee;}
 th{background:var(--main);color:#fff;font-weight: 600;}
 tr:hover{background:rgba(0,188,212,0.03);cursor:pointer;}
 
-/* Highlights Grid */
-.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom: 40px;}
-.card{background:var(--card);padding:25px;border-radius:var(--radius);box-shadow:var(--shadow);border-top: 4px solid var(--main);}
-.card ul {padding-left: 20px; margin: 15px 0;}
+/* Surcharge Card */
+.surcharge-box{background:#fff; padding:25px; border-radius:var(--radius); box-shadow:var(--shadow); border: 1px dashed var(--main);}
+.surcharge-item{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #f0f0f0;}
+.surcharge-item:last-child{border-bottom:none;}
 
-/* Buttons */
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 24px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;}
-.btn:hover{background:#0096a6;transform:translateY(-2px);}
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 24px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;margin-top:20px;}
 
-/* WeChat Elements */
-.floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
-.floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
-.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:1000;display:none;}
-.wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:350px;}
-.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin-bottom:15px;}
-
-@media(max-width:992px){
-  .nav-links{display:none;}
-  .hamburger{display:block;}
-}
+@media(max-width:992px){ .nav-links{display:none;} .hamburger{display:block;} }
 </style>
 </head>
 <body>
@@ -101,12 +73,6 @@ tr:hover{background:rgba(0,188,212,0.03);cursor:pointer;}
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
-    <a href="accommodation.html">住宿 / Accommodation</a>
-    <a href="gallery.html">相册 / Gallery</a>
-    <a href="reviews.html">评价 / Reviews</a>
-    <a href="about.html">关于 / About</a>
-    <a href="faq.html">常见问题 / FAQ</a>
-    <a href="contact.html">联系 / Contact</a>
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
@@ -114,141 +80,97 @@ tr:hover{background:rgba(0,188,212,0.03);cursor:pointer;}
 <section class="hero">
   <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna">
   <div class="hero-content">
-    <h1 class="cn">行程价格一览</h1>
-    <h1 class="en hidden">Tour Pricing & Packages</h1>
-    <p class="cn">透明定价 · 包含餐饮住宿 · 点击项目咨询详情</p>
-    <p class="en hidden">Transparent Pricing · Includes Meals & Stay · Click to inquire</p>
+    <h1 class="cn">2026 仙本那最新价格表</h1>
+    <h1 class="en hidden">2026 Semporna Price List</h1>
+    <p class="cn">潜水课程 · 娱乐潜水 · 诗巴丹名额</p>
+    <p class="en hidden">Courses · Fun Dives · Sipadan Permits</p>
   </div>
 </section>
 
 <section>
-  <h2 class="cn">热门推荐套餐</h2>
-  <h2 class="en hidden">Popular Packages</h2>
-  <div class="grid">
-    <div class="card">
-      <h3 class="cn">🌟 潜水考证 AOW</h3>
-      <h3 class="en hidden">🌟 PADI Advanced (AOW)</h3>
-      <ul class="cn">
-        <li>价格：￥3,313.96</li>
-        <li>包含：2晚住宿、8次潜水、餐饮</li>
-        <li>适合：已持有 OW 证书的潜水员</li>
-      </ul>
-      <ul class="en hidden">
-        <li>Price: ￥3,313.96</li>
-        <li>Includes: 2N Stay, 8 Dives, Meals</li>
-        <li>Best for: Certified OW divers</li>
-      </ul>
-      <button onclick="openWechat()" class="btn">立即预订 / Book Now</button>
-    </div>
-
-    <div class="card">
-      <h3 class="cn">🐢 诗巴丹深潜之旅</h3>
-      <h3 class="en hidden">🐢 Sipadan Dive Trip</h3>
-      <ul class="cn">
-        <li>价格：￥3,610.50</li>
-        <li>包含：2晚住宿、9次潜水 (含1日诗巴丹)</li>
-        <li>亮点：世界顶级潜点，海龟风暴</li>
-      </ul>
-      <ul class="en hidden">
-        <li>Price: ￥3,610.50</li>
-        <li>Includes: 2N Stay, 9 Dives (1D Sipadan)</li>
-        <li>Highlights: World-class site, Sea turtles</li>
-      </ul>
-      <button onclick="openWechat()" class="btn">立即预订 / Book Now</button>
-    </div>
-  </div>
-
-  <h2 class="cn">DSD - 深潜体验</h2>
-  <h2 class="en hidden">DSD - Scuba Experience</h2>
+  <h2 class="cn">DSD 深潜体验 (无证)</h2>
+  <h2 class="en hidden">DSD Deep Diving (Unlicensed)</h2>
   <table>
-    <thead>
-      <tr>
-        <th>行程 / Package</th>
-        <th>价格 / Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr onclick="openWechat()">
-        <td><span class="cn">1N / 2 潜水 DSD (Bum Bum Island)</span><span class="en hidden">1N / 2 Dive DSD (Bum Bum Island)</span></td>
-        <td>￥1,014.48</td>
-      </tr>
-      <tr onclick="openWechat()">
-        <td><span class="cn">1N / 3 潜水 DSD 日游</span><span class="en hidden">1N / 3 Dive DSD Day Trip</span></td>
-        <td>￥1,187.89</td>
-      </tr>
-      <tr onclick="openWechat()">
-        <td><span class="cn">1N / 3 DSD + 浮潜 & 徒步 (敦沙卡兰)</span><span class="en hidden">1N / 3 DSD + Snorkel & Hike (Tun Sakaran)</span></td>
-        <td>￥1,621.43</td>
-      </tr>
+    <thead><tr><th>行程 / Package</th><th>价格 / Price</th></tr></thead>
+    <tbody onclick="openWechat()">
+      <tr><td>1N / 2 Dive DSD (Bum Bum Island)</td><td>￥1,006.89</td></tr>
+      <tr><td>1N / 3 Dive DSD Day Trip</td><td>￥1,179.01</td></tr>
+      <tr><td>1N / 3 DSD + Snorkel & Hike (Tun Sakaran MP)</td><td>￥1,609.31</td></tr>
     </tbody>
   </table>
 
-  <h2 class="cn">Fun Dive 娱乐潜水</h2>
-  <h2 class="en hidden">Fun Dive (Certified)</h2>
+  <h2 class="cn">Fun Dive 娱乐潜水 (持证)</h2>
+  <h2 class="en hidden">Fun Dive (Certified Divers)</h2>
   <table>
-    <thead>
-      <tr>
-        <th>行程 / Package</th>
-        <th>价格 / Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr onclick="openWechat()"><td>3N / 12 娱乐潜水</td><td>￥3,449.22</td></tr>
-      <tr onclick="openWechat()"><td>3N / 12 娱乐潜水 (含 1 天诗巴丹)</td><td>￥4,557.34</td></tr>
-      <tr onclick="openWechat()"><td>4N / 15 娱乐潜水 (含 2 天诗巴丹)</td><td>￥6,612.31</td></tr>
+    <thead><tr><th>行程 / Package</th><th>价格 / Price</th></tr></thead>
+    <tbody onclick="openWechat()">
+      <tr><td>1N / 6 Fun Dive</td><td>￥1,543.90</td></tr>
+      <tr><td>2N / 9 Fun Dive</td><td>￥2,483.67</td></tr>
+      <tr><td>2N / 9 Fun Dive (1 Day Sipadan)</td><td>￥3,583.50</td></tr>
+      <tr><td>3N / 12 Fun Dive</td><td>￥3,423.43</td></tr>
+      <tr><td>3N / 12 Fun Dive (1 Day Sipadan)</td><td>￥4,523.27</td></tr>
+      <tr><td>4N / 15 Fun Dive</td><td>￥4,363.20</td></tr>
+      <tr><td>4N / 15 Fun Dive (1 Day Sipadan)</td><td>￥5,463.03</td></tr>
+      <tr><td>4N / 15 Fun Dive (2 Day Sipadan + 3 Other)</td><td>￥6,562.87</td></tr>
+      <tr><td>5N / 18 Fun Dive</td><td>￥5,302.96</td></tr>
+      <tr><td>5N / 18 Fun Dive (1 Day Sipadan + 4 Other)</td><td>￥6,402.80</td></tr>
+      <tr><td>5N / 18 Fun Dive (2 Day Sipadan + 4 Other)</td><td>￥7,502.64</td></tr>
     </tbody>
   </table>
 
   <h2 class="cn">PADI 潜水课程</h2>
-  <h2 class="en hidden">PADI Courses</h2>
+  <h2 class="en hidden">PADI Scuba Courses</h2>
   <table>
-    <thead>
-      <tr>
-        <th>课程 / Course</th>
-        <th>价格 / Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr onclick="openWechat()">
-        <td><span class="cn">2N / PADI OW 初级课程</span><span class="en hidden">2N / PADI Open Water Course</span></td>
-        <td>￥3,173.49</td>
-      </tr>
-      <tr onclick="openWechat()">
-        <td><span class="cn">6D/5N OW + AOW 连报</span><span class="en hidden">6D/5N OW + AOW Combo</span></td>
-        <td>￥6,487.45</td>
-      </tr>
+    <thead><tr><th>课程 / Course</th><th>价格 / Price</th></tr></thead>
+    <tbody onclick="openWechat()">
+      <tr><td>2N / PADI Open Water Course (OW)</td><td>￥3,149.76</td></tr>
+      <tr><td>3N / PADI OWC + 3 Fun Dive</td><td>￥4,089.53</td></tr>
+      <tr><td>2N / PADI Advanced + 3 Fun Dive (8 Dives)</td><td>￥3,289.18</td></tr>
+      <tr><td>2N / PADI Advanced + Sipadan (9 Dives)</td><td>￥4,526.71</td></tr>
+      <tr><td>3N / PADI Rescue + EFR</td><td>￥4,173.87</td></tr>
+      <tr><td>6D/5N OW + AOW Combo</td><td>￥6,438.95</td></tr>
     </tbody>
   </table>
 
-  <p class="cn" style="font-style: italic; color: #666;">* 以上价格包含相应天数的餐饮与住宿。价格可能随季节波动，请以微信实时咨询为准。</p>
-  <p class="en hidden" style="font-style: italic; color: #666;">* All prices include meals and accommodation for the stated duration. Prices may vary by season.</p>
+  <h2 class="cn">附加费用与说明</h2>
+  <h2 class="en hidden">Surcharges & Extras</h2>
+  <div class="surcharge-box">
+    <div class="surcharge-item">
+      <span><strong class="cn">7月-9月 旺季附加费</strong><strong class="en hidden">July – September Surcharge</strong></span>
+      <span>RM 40 <small>/ night / pax</small></span>
+    </div>
+    <div class="surcharge-item">
+      <span><strong class="cn">额外续住 (每晚)</strong><strong class="en hidden">Extra Night Stay</strong></span>
+      <span>RM 195 <small>/ pax</small></span>
+    </div>
+    <div class="surcharge-item">
+      <span><strong class="cn">非潜水员价 (双人分享房)</strong><strong class="en hidden">Non-diver Room Rate</strong></span>
+      <span>RM 195 <small>/ night / pax</small></span>
+    </div>
+    <div class="surcharge-item">
+      <span><strong class="cn">单人房附加费</strong><strong class="en hidden">Single Occupancy Surcharge</strong></span>
+      <span>RM 135 <small>/ night</small></span>
+    </div>
+  </div>
+
+  <div style="text-align:center;">
+    <button onclick="openWechat()" class="btn">立即咨询教练预订 / Book via WeChat</button>
+  </div>
 </section>
 
-<footer style="text-align:center; padding:40px 20px; background: #eee;">
-  <p>© Semporna Tours - Coach Deso_89</p>
-</footer>
-
-<div class="floating-wechat" onclick="openWechat()">
-  <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
-</div>
-
-<div id="wechatPopup" class="wechat-popup">
-  <div class="wechat-box">
-    <p class="cn">扫码添加微信获取最新报价</p>
-    <p class="en hidden">Scan to get the latest quote</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR">
-    <br><strong>教练 Deso_89</strong><br>
-    <button onclick="closeWechat()" class="btn" style="width:100%; margin-top:15px;">关闭 / Close</button>
+<div id="wechatPopup" class="wechat-popup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
+  <div class="wechat-box" style="background:#fff; padding:30px; border-radius:24px; text-align:center;">
+    <img src="wechat-qr.jpg" alt="QR" style="width:200px;">
+    <p>WeChat: Deso_89</p>
+    <button onclick="closeWechat()">Close</button>
   </div>
 </div>
 
 <script>
-// Mobile menu
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
 
-// Language switch
 function toggleLang() {
   document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
   document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
@@ -256,10 +178,8 @@ function toggleLang() {
 document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
 document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
 
-// WeChat Popups
-const popup = document.getElementById('wechatPopup');
-function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
-function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
+function openWechat(){ document.getElementById('wechatPopup').style.display='flex'; }
+function closeWechat(){ document.getElementById('wechatPopup').style.display='none'; }
 </script>
 
 </body>
