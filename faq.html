@@ -16,7 +16,7 @@
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
 a{text-decoration:none;color:inherit}
 
-/* --- INTEGRATED HEADER STYLES --- */
+/* NEW INTEGRATED HEADER */
 header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
 .nav-container{
   max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
@@ -43,22 +43,26 @@ header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rg
 .mobile-menu button.lang-btn{background:var(--main);color:#fff;padding:8px 12px;border-radius:12px;align-self: flex-start;}
 .hidden{display:none !important;}
 
-/* --- FAQ CONTENT STYLES --- */
+/* Hero Section */
+.hero{position:relative;min-height:30vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;overflow: hidden;}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity: 0.6;}
+.hero-content{position:relative; z-index: 2; max-width:900px;padding:20px;}
+
+/* FAQ Styling */
 section{max-width:900px;margin:auto;padding:60px 20px;}
 .faq-header{text-align:center; margin-bottom: 50px;}
 .faq-item{background:var(--card);padding:25px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px;cursor:pointer;transition: 0.3s;}
 .faq-item:hover{transform: translateY(-2px);}
 .faq-question{margin:0;color:var(--main);font-size:1.1rem;display:flex;justify-content:space-between;align-items:center;font-weight: 700;}
 .faq-answer{margin-top:15px;display:none;border-top:1px solid #eee;padding-top:15px;color:#555;animation: fadeIn 0.4s ease;}
-.icon-toggle{font-size: 1.2rem; transition: 0.3s;}
-.active .icon-toggle{transform: rotate(45deg);}
 
 .cta-box{text-align:center; margin-top: 60px; padding: 40px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);}
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;margin-top:15px;cursor:pointer;text-decoration:none;}
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;}
+.btn:hover{background:#0096a6; transform: scale(1.05);}
 
 @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
 
-@media(max-width:1100px){
+@media(max-width:992px){
   .nav-links{display:none;}
   .hamburger{display:block;}
 }
@@ -69,7 +73,6 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
-
     <div class="nav-links">
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
@@ -81,8 +84,7 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
-    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+    <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
 
   <div class="mobile-menu hidden" id="mobileMenu">
@@ -98,23 +100,26 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
   </div>
 </header>
 
-<section>
-  <div class="faq-header">
-    <h2 class="cn">常见问题解答</h2>
-    <h2 class="en hidden">Frequently Asked Questions</h2>
-    <p class="cn">关于仙本那旅行的一切，您都可以在这里找到答案</p>
-    <p class="en hidden">Find answers to common questions about your Semporna trip</p>
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200" alt="Semporna FAQ">
+  <div class="hero-content">
+    <h1 class="cn">常见问题解答</h1>
+    <h1 class="en hidden">Frequently Asked Questions</h1>
+    <p class="cn">透明、专业、贴心的行程说明</p>
+    <p class="en hidden">Professional guidance for your Semporna journey</p>
   </div>
-  
+</section>
+
+<section>
   <div class="faq-item" onclick="toggleFAQ(this)">
     <div class="faq-question">
       <span class="cn">1. 仙本那最佳旅行时间是几月？</span>
       <span class="en hidden">1. When is the best time to visit Semporna?</span> 
-      <span class="icon-toggle">+</span>
+      <span>+</span>
     </div>
     <div class="faq-answer">
-      <p class="cn">仙本那全年都适合潜水。最佳天气通常在 3月至 10月。雨季（11月-2月）通常是短暂阵雨，基本不影响行程。</p>
-      <p class="en hidden">Semporna is a year-round destination. Peak season is March-October. Rainy season (Nov-Feb) features quick tropical showers that rarely cancel trips.</p>
+      <p class="cn">仙本那全年适合潜水。最佳天气通常在 3月至 10月。11月至 2月会有偶发降雨，但不影响出海。</p>
+      <p class="en hidden">Diving is possible year-round. Best weather is usually March to October. Brief rains in Nov-Feb rarely affect boat trips.</p>
     </div>
   </div>
 
@@ -122,11 +127,11 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
     <div class="faq-question">
       <span class="cn">2. 考证或行程需要提前多久预订？</span>
       <span class="en hidden">2. How far in advance should I book?</span> 
-      <span class="icon-toggle">+</span>
+      <span>+</span>
     </div>
     <div class="faq-answer">
-      <p class="cn">诗巴丹名额建议提前 1-2 个月。普通课程或跳岛游建议至少提前 2 周，以确保有名额。</p>
-      <p class="en hidden">For Sipadan permits, book 1-2 months ahead. For courses and standard island hopping, we recommend 2 weeks in advance.</p>
+      <p class="cn">特别是诗巴丹 (Sipadan) 名额，建议提前 1-2 个月预订。普通考证和跳岛建议提前 2 周。</p>
+      <p class="en hidden">For Sipadan permits, book 1-2 months ahead. For PADI courses and island hopping, 2 weeks is usually sufficient.</p>
     </div>
   </div>
 
@@ -134,32 +139,42 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
     <div class="faq-question">
       <span class="cn">3. 潜水后多久可以坐飞机？</span>
       <span class="en hidden">3. How long after diving can I fly?</span> 
-      <span class="icon-toggle">+</span>
+      <span>+</span>
     </div>
     <div class="faq-answer">
-      <p class="cn">单次潜水后建议 12 小时内不要飞行；多次潜水建议 18-24 小时内不要飞行。请合理规划您的离境机票。</p>
-      <p class="en hidden">Wait 12 hours after a single dive and 18-24 hours after multiple dives before flying. Please plan your flights accordingly.</p>
+      <p class="cn">单次潜水后建议 12 小时内不要飞行；多次潜水建议 18-24 小时内不要飞行。请合理规划离境机票。</p>
+      <p class="en hidden">Wait 12 hours after a single dive and 18-24 hours after multiple dives before flying. Plan your return flights accordingly.</p>
     </div>
   </div>
 
   <div class="faq-item" onclick="toggleFAQ(this)">
     <div class="faq-question">
-      <span class="cn">4. 不会游泳可以参加体验潜水 (DSD) 吗？</span>
-      <span class="en hidden">4. Can I try Scuba Diving if I can't swim?</span> 
-      <span class="icon-toggle">+</span>
+      <span class="cn">4. 如何从机场到达仙本那？</span>
+      <span class="en hidden">4. How do I get to Semporna from the airport?</span> 
+      <span>+</span>
     </div>
     <div class="faq-answer">
-      <p class="cn">可以！体验潜水不需要会游泳，全程有专业教练带领。您只需放松呼吸，感受海洋。</p>
-      <p class="en hidden">Yes! Discover Scuba Diving doesn't require swimming skills. You'll be closely guided by a professional instructor.</p>
+      <p class="cn">您需要飞往斗湖 (Tawau, TWU) 机场。从斗湖机场乘车到仙本那镇约 70-90 分钟。我们可以为您安排接机。</p>
+      <p class="en hidden">Fly into Tawau (TWU). It is a 70-90 minute car ride to Semporna town. We can arrange transfers for you.</p>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">
+      <span class="cn">5. 不会游泳可以参加体验潜水 (DSD) 吗？</span>
+      <span class="en hidden">5. Can I join DSD if I can't swim?</span> 
+      <span>+</span>
+    </div>
+    <div class="faq-answer">
+      <p class="cn">可以！全程会有教练 1对1 或 1对2 带领，您只需放松呼吸，在教练帮助下欣赏海底美景。</p>
+      <p class="en hidden">Yes! You will be guided 1-on-1 or 1-on-2 by an instructor. Just focus on breathing and enjoying the underwater view.</p>
     </div>
   </div>
 
   <div class="cta-box">
-    <h3 class="cn">还有其他问题？</h3>
-    <h3 class="en hidden">Still have questions?</h3>
-    <p class="cn">直接咨询教练，获取个性化建议</p>
-    <p class="en hidden">Contact the coach directly for personalized advice</p>
-    <a href="contact.html" class="btn">立即咨询 / Contact Us</a>
+    <h3 class="cn">还有更多疑问？</h3>
+    <h3 class="en hidden">Have more questions?</h3>
+    <a href="contact.html" class="btn">立即咨询教练 / Contact Coach</a>
   </div>
 </section>
 
@@ -168,32 +183,25 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
 </footer>
 
 <script>
-// Menu Toggle
+// Mobile menu toggle
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
 
-// Lang Toggle
+// FAQ Toggle
+function toggleFAQ(el){
+  const ans = el.querySelector('.faq-answer');
+  const isVisible = ans.style.display === 'block';
+  document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+  if(!isVisible) ans.style.display = 'block';
+}
+
+// Language Logic
 function toggleLang() {
   document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
 }
 document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
 document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
-
-// FAQ Logic
-function toggleFAQ(el){
-  const ans = el.querySelector('.faq-answer');
-  const isVisible = (ans.style.display === 'block');
-  
-  // Reset others
-  document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-  
-  if(!isVisible){
-    ans.style.display = 'block';
-    el.classList.add('active');
-  }
-}
 </script>
 
 </body>
