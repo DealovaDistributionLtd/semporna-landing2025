@@ -5,93 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>仙本那潜水与跳岛 | Semporna Diving & Island Hopping</title>
 <meta name="description" content="仙本那跳岛游、深潜体验、PADI 潜水课程及价格表。当地向导，小团出海，安全专业。">
+<link rel="stylesheet" href="style.css">
 <style>
-:root{
-  --main:#00c2d1;
-  --bg:#f6fbfc;
-  --card:#fff;
-  --radius:16px;
-  --shadow:0 16px 34px rgba(0,0,0,.08);
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
-a{text-decoration:none;color:inherit}
-img{width:100%;display:block}
-
-/* Header/Nav */
-header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
-.nav-container{
-  max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
-}
-.nav-container b.logo{color:var(--main);font-size:1.3rem;}
-.nav-links{display:flex;gap:15px;align-items:center;}
-.nav-links a, .nav-links button{
-  font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;transition: 0.2s;
-}
-.nav-links a:hover{color:var(--main);}
-.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;margin-left:5px;}
-
-/* Hamburger */
-.hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
-
-/* Mobile menu */
-.mobile-menu{
-  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
-  display:flex;flex-direction:column;padding:20px;transition: 0.3s;
-}
-.mobile-menu a, .mobile-menu button{
-  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
-}
-.mobile-menu button.lang-btn{background:var(--main);color:#fff;padding:8px 12px;border-radius:12px;align-self: flex-start;}
-.hidden{display:none !important;}
-
-/* Hero */
-.hero{position:relative;min-height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow: hidden;}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;animation: zoom 20s infinite alternate;}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.6));z-index:-1;}
-.hero-content{max-width:900px;padding:20px;animation:fadeUp 1s ease;}
-.hero h1{font-size:clamp(2rem,6vw,3.5rem);margin-bottom:14px;text-shadow: 0 4px 10px rgba(0,0,0,0.3);}
-.hero p{font-size:1.3rem;opacity:.95;margin-bottom:25px;}
-
-/* Sections */
-section{max-width:1100px;margin:auto;padding:80px 20px;}
-h2{text-align:center;margin-bottom:40px;font-size: 1.8rem;}
-
-.grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-.card{background:var(--card);padding:35px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;transition:.35s;display: flex;flex-direction: column;justify-content: space-between;}
-.card:hover{transform:translateY(-10px)}
-
-/* Gallery */
-.gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom: 40px;}
-.gallery img{height:220px;border-radius:16px;object-fit:cover;transition: 0.3s;}
-.gallery img:hover{transform: scale(1.02);}
-
-/* CTA & Buttons */
-.cta{background:linear-gradient(135deg,#00c2d1,#0096a6);color:#fff;text-align:center;border-radius:26px;padding:80px 20px;margin: 40px auto;}
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;margin-top:15px;border:none;cursor:pointer;}
-.btn:hover{background:#0096a6;transform: scale(1.05);}
-.btn-outline{background: transparent; border: 2px solid #fff;}
-
-/* Floating WeChat */
-.floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
-.floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
-.floating-wechat:hover{transform: scale(1.1);}
-
-/* WeChat popup */
-.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:1000;display:none;}
-.wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:90%;width:350px;position:relative;}
-.wechat-box img{width:220px;height:220px;border-radius:16px;margin:0 auto 15px;display: block;}
-.wechat-box button{background:var(--main);color:#fff;border:none;padding:10px 25px;border-radius:24px;margin-top:15px;cursor:pointer;width: 100%;}
-
-/* Animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-@keyframes zoom{from{transform: scale(1);}to{transform: scale(1.1);}}
-
-/* Responsive */
-@media(max-width:992px){
-  .nav-links{display:none;}
-  .hamburger{display:block;}
-}
+  /* Page Specific Animation for Hero */
+  @keyframes zoom { from{transform: scale(1);} to{transform: scale(1.1);} }
+  .hero img { animation: zoom 20s infinite alternate; }
+  .hero { min-height: 85vh; }
+  
+  /* Page Specific Gallery/Grid Styles */
+  .grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+  .card{background:var(--card);padding:35px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;transition:.35s;display: flex;flex-direction: column;justify-content: space-between;}
+  .card:hover{transform:translateY(-10px)}
+  .gallery-preview{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom: 40px;}
+  .gallery-preview img{height:220px;border-radius:16px;object-fit:cover;transition: 0.3s;}
+  .cta{background:linear-gradient(135deg,#00c2d1,#0096a6);color:#fff;text-align:center;border-radius:26px;padding:80px 20px;margin: 40px auto;}
 </style>
 </head>
 <body>
@@ -99,9 +26,8 @@ h2{text-align:center;margin-bottom:40px;font-size: 1.8rem;}
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
-
     <div class="nav-links">
-      <a href="index.html">首页 / Home</a>
+      <a href="index.html" class="active">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
       <a href="accommodation.html">住宿 / Accommodation</a>
       <a href="gallery.html">相册 / Gallery</a>
@@ -111,12 +37,11 @@ h2{text-align:center;margin-bottom:40px;font-size: 1.8rem;}
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
     <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
   </nav>
 
   <div class="mobile-menu hidden" id="mobileMenu">
-    <a href="index.html">首页 / Home</a>
+    <a href="index.html" class="active">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
     <a href="accommodation.html">住宿 / Accommodation</a>
     <a href="gallery.html">相册 / Gallery</a>
@@ -124,7 +49,7 @@ h2{text-align:center;margin-bottom:40px;font-size: 1.8rem;}
     <a href="about.html">关于 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
     <a href="contact.html">联系 / Contact</a>
-    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧 中英切换</button>
+    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
@@ -178,22 +103,22 @@ h2{text-align:center;margin-bottom:40px;font-size: 1.8rem;}
 <section id="gallery">
   <h2 class="cn">实拍美景</h2>
   <h2 class="en hidden">Real Photos</h2>
-  <div class="gallery">
+  <div class="gallery-preview">
     <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna 1">
     <img src="https://mediaim.expedia.com/destination/1/1fae69e907143c28cc0ea9771f67f041.jpg" alt="Semporna 2">
     <img src="https://mediaim.expedia.com/destination/1/1a7a27e1c53e3f8e6786e7f02b6f92f7.jpg" alt="Semporna 3">
     <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg" alt="Semporna 4">
   </div>
   <div style="text-align: center;">
-      <a href="gallery.html" class="btn btn-outline">查看更多相册 / View Full Gallery</a>
+      <a href="gallery.html" class="btn" style="background:transparent; border: 2px solid var(--main); color: var(--main);">查看更多相册 / View Full Gallery</a>
   </div>
 </section>
 
-  <section id="videos">
+<section id="videos" style="text-align:center;">
   <h2 class="cn">精彩视频 / TikTok & 小红书</h2>
   <h2 class="en hidden">Exciting Videos / TikTok & Redbook</h2>
-  <div style="text-align:center; margin-top:20px;">
-    <a class="btn" href="https://www.tiktok.com/@deso__89" target="_blank">查看 TikTok / TikTok</a><br>
+  <div style="margin-top:20px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+    <a class="btn" href="https://www.tiktok.com/@deso__89" target="_blank">查看 TikTok / TikTok</a>
     <a class="btn" href="https://xhslink.com/m/2nU4fzy4Tf" target="_blank">查看小红书 / Redbook</a>
   </div>
 </section>
@@ -204,7 +129,7 @@ h2{text-align:center;margin-bottom:40px;font-size: 1.8rem;}
   <p class="cn">不套路 · 不赶行程 · 真正看海</p>
   <p class="en hidden">No gimmicks · No rushed itinerary · Truly enjoy the sea</p>
   <div style="margin-top:30px;">
-    <a onclick="openWechat()" class="btn" style="background: #fff; color: var(--main);">立即添加微信 / Add WeChat</a>
+    <button onclick="openWechat()" class="btn" style="background: #fff; color: var(--main);">立即添加微信 / Add WeChat</button>
   </div>
 </section>
 
@@ -221,48 +146,12 @@ h2{text-align:center;margin-bottom:40px;font-size: 1.8rem;}
   <div class="wechat-box">
     <p class="cn">扫码添加微信，获取行程建议</p>
     <p class="en hidden">Scan to add WeChat for advice</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR Code" onerror="this.alt='QR Code Placeholder'">
-    <strong>教练 Deso_89</strong>
-    <br>
+    <img src="wechat-qr.jpg" alt="WeChat QR Code">
+    <strong>教练 Deso_89</strong><br>
     <button onclick="closeWechat()">关闭 / Close</button>
   </div>
 </div>
 
-<script>
-// Mobile menu toggle
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', ()=>{
-  mobileMenu.classList.toggle('hidden');
-});
-
-// Language toggle logic
-function toggleLanguage() {
-  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
-  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
-}
-
-document.getElementById('langToggleDesktop').addEventListener('click', toggleLanguage);
-document.getElementById('langToggleMobile').addEventListener('click', toggleLanguage);
-
-// WeChat popup logic
-const popup = document.getElementById('wechatPopup');
-function openWechat(){ 
-    popup.style.display='flex'; 
-    document.body.style.overflow='hidden'; 
-}
-function closeWechat(){ 
-    popup.style.display='none'; 
-    document.body.style.overflow=''; 
-}
-
-// Close mobile menu when a link is clicked
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-    });
-});
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>
