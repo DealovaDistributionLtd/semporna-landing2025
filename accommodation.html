@@ -6,19 +6,76 @@
     <title>住宿预订 | Accommodation - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .rooms-grid { max-width: 1200px; margin: 40px auto; padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .room-card { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: 0.3s; }
-        .room-card:hover { transform: translateY(-10px); }
-        .room-img { height: 250px; background: #eee; overflow: hidden; }
-        .room-img img { width: 100%; height: 100%; object-fit: cover; }
-        .room-info { padding: 25px; }
-        .room-tag { display: inline-block; background: var(--main); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 10px; font-weight: 700; }
-        .room-title { font-size: 1.4rem; margin-bottom: 10px; color: #0e2a33; }
-        .room-desc { font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 20px; }
-        .room-amenities { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; border-top: 1px solid #eee; padding-top: 15px; }
-        .amenity { font-size: 0.85rem; color: #444; display: flex; align-items: center; gap: 5px; }
-        .btn-book { display: block; width: 100%; background: var(--main); color: #fff; text-align: center; padding: 12px; border-radius: 30px; font-weight: 700; text-decoration: none; transition: 0.3s; }
-        .btn-book:hover { background: #00aab8; }
+        section { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        
+        .room-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Slider Container */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: #eee;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .slider-track img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+        .btn-next { right: 0; }
+        .btn-prev { left: 0; }
+
+        .room-info { padding: 30px; }
+        .room-info h2 { color: var(--main); margin-top: 0; }
+        .room-info p { color: #555; line-height: 1.8; margin-bottom: 20px; }
+        
+        .amenities {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        .amenity-tag {
+            background: #f0fbfc;
+            color: var(--main);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .slider-container { height: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -44,105 +101,147 @@
 </header>
 
 <section class="hero">
-    <img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Semporna Water Villa">
+    <img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Semporna Resort">
     <div class="hero-content">
         <h1 class="cn">水上屋住宿</h1>
         <h1 class="en hidden">Water Chalet Accommodation</h1>
-        <p class="cn">推窗即见敦沙卡兰海洋公园美景</p>
-        <p class="en hidden">Stunning views over Tun Sakaran Marine Park</p>
+        <p class="cn">推窗见海，伴着浪声入眠</p>
+        <p class="en hidden">Wake up to the ocean, sleep with the waves</p>
     </div>
 </section>
 
-<div class="rooms-grid">
+<section>
     <div class="room-card">
-        <div class="room-img"><img src="images/8a80818a9392f1f5019394dd1d654120_534811.jpg" alt="Standard Room"></div>
-        <div class="room-info">
-            <div class="room-tag">Queen Bed</div>
-            <h3 class="room-title">
-                <span class="cn">标准间</span><span class="en hidden">Standard Room</span>
-            </h3>
-            <p class="room-desc">
-                <span class="cn">独立水上包间，配有大床、空调及私人卫浴。房间直通宽阔的共享甲板，配有日光椅和吊篮，可欣赏海洋公园全景。注：此房型无阳台及窗外海景。</span>
-                <span class="en hidden">Detached private room on stilts over water with 1x Queen bed. A/C & private bathroom included. Directly attached to a large shared deck area with stunning ocean views. Note: No balcony/view from inside the room.</span>
-            </p>
-            <div class="room-amenities">
-                <span class="amenity">❄️ A/C</span> <span class="amenity">🚿 Cold Shower</span> <span class="amenity">🛏️ Bedding</span>
+        <div class="slider-container" id="slider1">
+            <div class="slider-track">
+                <img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg">
+                <img src="images/8a80818a9392f1f5019394dd1d654120_534811.jpg">
             </div>
-            <a href="#" class="btn-book" onclick="openWechat()">Book Now</a>
+            <button class="slider-btn btn-prev" onclick="moveSlide('slider1', -1)">&#10094;</button>
+            <button class="slider-btn btn-next" onclick="moveSlide('slider1', 1)">&#10095;</button>
+        </div>
+        <div class="room-info">
+            <h2 class="cn">标准间 (无海景)</h2>
+            <h2 class="en hidden">Standard Room</h2>
+            <div class="amenities">
+                <span class="amenity-tag">Queen Bed</span>
+                <span class="amenity-tag">AC</span>
+                <span class="amenity-tag">Private Bathroom</span>
+            </div>
+            <p class="cn">独立水上私密客房，配有 1 张大床。空调、带西式马桶和冷水淋浴的独立浴室。提供床上用品和毛巾。注意：此房型无阳台及景观。紧邻宽敞的公共平台，设有日光椅和吊床，可欣赏敦沙卡兰海洋公园景观。</p>
+            <p class="en hidden">Detached private room built on stilts over the water, with 1x QUEEN bed. Air conditioning, private bathroom with western toilet and cold water shower. Bedding & towels provided. Note: NO BALCONY and NO VIEW. Directly attached to a large SHARED deck area with stunning ocean views.</p>
+            <button onclick="openWechat()" class="btn-about" style="background:var(--main); color:#fff; border:none; padding:10px 25px; border-radius:24px; cursor:pointer; font-weight:700;">立即咨询 / Inquire Now</button>
         </div>
     </div>
 
     <div class="room-card">
-        <div class="room-img"><img src="images/8a80818a9392f1f5019394dd1d654120_613304.jpg" alt="Detached Ocean View"></div>
-        <div class="room-info">
-            <div class="room-tag">Queen Bed + View</div>
-            <h3 class="room-title">
-                <span class="cn">独立海景房</span><span class="en hidden">Detached Ocean View</span>
-            </h3>
-            <p class="room-desc">
-                <span class="cn">独立水上大床房，设有可观看海景的窗口。配有空调及私人卫浴。房间直通共享甲板区。注：此房型内部不带阳台。</span>
-                <span class="en hidden">Detached private room with 1x Queen bed. A/C and window with ocean view. Attached private bathroom. Attached to shared deck area. Note: No private balcony.</span>
-            </p>
-            <div class="room-amenities">
-                <span class="amenity">🌊 Window View</span> <span class="amenity">❄️ A/C</span> <span class="amenity">🚿 Private Bath</span>
+        <div class="slider-container" id="slider2">
+            <div class="slider-track">
+                <img src="images/8a80818a9418d64501941b6475e034a0_144557.jpg">
+                <img src="images/8a80818a9418d64501941b6475e034a0_43838.jpg">
             </div>
-            <a href="#" class="btn-book" onclick="openWechat()">Book Now</a>
+            <button class="slider-btn btn-prev" onclick="moveSlide('slider2', -1)">&#10094;</button>
+            <button class="slider-btn btn-next" onclick="moveSlide('slider2', 1)">&#10095;</button>
+        </div>
+        <div class="room-info">
+            <h2 class="cn">独立海景房</h2>
+            <h2 class="en hidden">Detached Ocean View Room</h2>
+            <div class="amenities">
+                <span class="amenity-tag">Queen Bed</span>
+                <span class="amenity-tag">Ocean View Window</span>
+                <span class="amenity-tag">AC</span>
+            </div>
+            <p class="cn">独立水上私密客房，配有 1 张大床。空调、海景窗以及带西式马桶和冷水淋浴的独立浴室。提供床上用品和毛巾。注意：此房型无阳台。紧邻大型公共露台，可直达日光浴区欣赏美景。</p>
+            <p class="en hidden">Detached private room built on stilts over the water, with 1x QUEEN bed. Air conditioning, window with ocean view and private bathroom. Note: NO BALCONY. It is directly attached to a large SHARED deck area with ocean views over the Tun Sakaran Marine park.</p>
+            <button onclick="openWechat()" class="btn-about" style="background:var(--main); color:#fff; border:none; padding:10px 25px; border-radius:24px; cursor:pointer; font-weight:700;">立即咨询 / Inquire Now</button>
         </div>
     </div>
 
     <div class="room-card">
-        <div class="room-img"><img src="images/8a80818a97ad823d0197aec033d73f77_153709.jpg" alt="Ocean View with Balcony"></div>
-        <div class="room-info">
-            <div class="room-tag">Queen Bed + Balcony</div>
-            <h3 class="room-title">
-                <span class="cn">海景阳台房</span><span class="en hidden">Ocean View Room</span>
-            </h3>
-            <p class="room-desc">
-                <span class="cn">配有私人海景阳台。阳台视野极佳，可俯瞰珍珠岛（Bohey Dulang）和敦沙卡兰海洋公园。房间设施齐全，配有空调和风扇。</span>
-                <span class="en hidden">Private room with 1x Queen bed and private ocean view balcony. Stunning views overlook Bohey Dulang Island. Includes A/C, fan, and private bathroom.</span>
-            </p>
-            <div class="room-amenities">
-                <span class="amenity">🌅 Private Balcony</span> <span class="amenity">❄️ A/C + Fan</span> <span class="amenity">🚿 Cold Shower</span>
+        <div class="slider-container" id="slider3">
+            <div class="slider-track">
+                <img src="images/8a80818a97ad823d0197aec033d73f77_153709.jpg">
+                <img src="images/8a80818a97ad823d0197aec033d73f77_488649.jpg">
             </div>
-            <a href="#" class="btn-book" onclick="openWechat()">Book Now</a>
+            <button class="slider-btn btn-prev" onclick="moveSlide('slider3', -1)">&#10094;</button>
+            <button class="slider-btn btn-next" onclick="moveSlide('slider3', 1)">&#10095;</button>
+        </div>
+        <div class="room-info">
+            <h2 class="cn">豪华海景阳台房 (大床)</h2>
+            <h2 class="en hidden">Ocean View Room (Balcony)</h2>
+            <div class="amenities">
+                <span class="amenity-tag">Queen Bed</span>
+                <span class="amenity-tag">Private Balcony</span>
+                <span class="amenity-tag">Stunning View</span>
+            </div>
+            <p class="cn">水上私密大床房，拥有私人海景阳台。所有房间均配有空调、风扇和独立卫浴。阳台可俯瞰 Bohey Dulang 岛和海洋公园的震撼美景。</p>
+            <p class="en hidden">Private room built on stilts over the water, with 1x QUEEN bed. All rooms have AC, fan, ocean view balcony and private bathroom. Stunning views from the balcony overlook Bohey Dulang Island.</p>
+            <button onclick="openWechat()" class="btn-about" style="background:var(--main); color:#fff; border:none; padding:10px 25px; border-radius:24px; cursor:pointer; font-weight:700;">立即咨询 / Inquire Now</button>
         </div>
     </div>
 
     <div class="room-card">
-        <div class="room-img"><img src="images/8a80818a9418d64501941b6475e034a0_144557.jpg" alt="Ocean View Twin"></div>
-        <div class="room-info">
-            <div class="room-tag">Twin Single Bed</div>
-            <h3 class="room-title">
-                <span class="cn">海景双人间</span><span class="en hidden">Ocean View Twin Room</span>
-            </h3>
-            <p class="room-desc">
-                <span class="cn">配有两张单人床，适合朋友同行。拥有私人海景阳台，视野开阔，可欣赏珍珠岛美景。配备空调、风扇及私人卫浴。</span>
-                <span class="en hidden">Private room with 2x Single beds. Features a private ocean view balcony overlooking Bohey Dulang Island. Equipped with A/C, fan, and towels.</span>
-            </p>
-            <div class="room-amenities">
-                <span class="amenity">👯 2x Singles</span> <span class="amenity">🌅 Private Balcony</span> <span class="amenity">❄️ A/C</span>
+        <div class="slider-container" id="slider4">
+            <div class="slider-track">
+                <img src="images/8a80818a97ad823d0197aec033d73f77_577868.jpg">
+                <img src="images/8a80818a9392f1f5019394dd1d654120_613304.jpg">
             </div>
-            <a href="#" class="btn-book" onclick="openWechat()">Book Now</a>
+            <button class="slider-btn btn-prev" onclick="moveSlide('slider4', -1)">&#10094;</button>
+            <button class="slider-btn btn-next" onclick="moveSlide('slider4', 1)">&#10095;</button>
+        </div>
+        <div class="room-info">
+            <h2 class="cn">豪华海景阳台房 (双床)</h2>
+            <h2 class="en hidden">Ocean View Twin Room</h2>
+            <div class="amenities">
+                <span class="amenity-tag">2x Single Beds</span>
+                <span class="amenity-tag">Private Balcony</span>
+                <span class="amenity-tag">AC</span>
+            </div>
+            <p class="cn">水上私密双床房，适合朋友同行。配有 2 张单人床，空调，海景阳台和独立卫浴。可欣赏 Bohey Dulang 绝佳海景。</p>
+            <p class="en hidden">Private room built on stilts over the water, with 2x SINGLE beds. All rooms have AC, fan, ocean view balcony and private bathroom. Views overlook Bohey Dulang Island and the Marine Park.</p>
+            <button onclick="openWechat()" class="btn-about" style="background:var(--main); color:#fff; border:none; padding:10px 25px; border-radius:24px; cursor:pointer; font-weight:700;">立即咨询 / Inquire Now</button>
         </div>
     </div>
-</div>
+</section>
 
-<footer style="text-align:center; padding:40px 20px; background: #eee;"><p>© Semporna Tours - Coach Deso_89</p></footer>
+<footer style="text-align:center; padding:40px 20px; background: #eee;">
+    <p>© Semporna Tours - Coach Deso_89</p>
+</footer>
 
 <div class="floating-wechat" onclick="openWechat()">
     <img src="images/wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
 </div>
-
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
-        <p class="cn">扫码添加微信预订</p>
+        <p class="cn">扫码添加微信咨询预订</p>
         <p class="en hidden">Scan WeChat to Book</p>
-        <img src="images/wechat-qr.jpg" alt="QR">
-        <br><strong>Coach Deso_89</strong><br>
-        <button onclick="closeWechat()" class="btn-pricing" style="width:100%;"><span class="cn">关闭</span><span class="en hidden">Close</span></button>
+        <img src="images/wechat-qr.jpg" alt="WeChat QR">
+        <br><strong>Deso_89</strong><br>
+        <button onclick="closeWechat()" style="background:#666; color:#fff; border:none; padding:10px 20px; border-radius:20px; margin-top:10px; cursor:pointer;">Close</button>
     </div>
 </div>
 
 <script src="main.js"></script>
+<script>
+    // Slider Logic
+    const sliders = {};
+
+    function moveSlide(sliderId, direction) {
+        if (!sliders[sliderId]) sliders[sliderId] = 0;
+        
+        const container = document.getElementById(sliderId);
+        const track = container.querySelector('.slider-track');
+        const slides = track.querySelectorAll('img');
+        
+        sliders[sliderId] += direction;
+
+        if (sliders[sliderId] >= slides.length) sliders[sliderId] = 0;
+        if (sliders[sliderId] < 0) sliders[sliderId] = slides.length - 1;
+
+        const offset = -sliders[sliderId] * 100;
+        track.style.transform = `translateX(${offset}%)`;
+    }
+</script>
+
 </body>
 </html>
