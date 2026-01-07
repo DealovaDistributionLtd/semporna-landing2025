@@ -1,30 +1,140 @@
-<header>
-  <nav class="nav-container">
-    <b class="logo">Semporna · 仙本那</b>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>仙本那潜水与跳岛 | Semporna Diving & Island Hopping</title>
 
-    <div class="nav-links">
-      <a href="index.html">首页 / Home</a>
-      <a href="pricing.html">价格 / Pricing</a>
-      <a href="accommodation.html">住宿 / Accommodation</a>
-      <a href="gallery.html">图库 / Gallery</a>
-      <a href="island-hopping.html">跳岛游 / Island</a>
-      <a href="diving.html">潜水 / Diving</a>
-      <a href="contact.html">联系 / Contact</a>
-      <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/main.js" defer></script>
+</head>
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <b>Semporna</b>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="accommodation.html">Accommodation</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Semporna Sea">
+  <div class="hero-content">
+    <h1 class="cn">探索仙本那的海底世界</h1>
+    <h1 class="en hidden">Explore Semporna’s Underwater World</h1>
+
+    <p class="cn">潜水 · 跳岛 · 海上住宿</p>
+    <p class="en hidden">Diving · Island Hopping · Sea Stays</p>
+
+    <a href="pricing.html" class="btn">查看价格 / Pricing</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <h2 class="cn">我们的服务</h2>
+  <h2 class="en hidden">Our Services</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3 class="cn">跳岛游</h3>
+      <h3 class="en hidden">Island Hopping</h3>
+      <p class="cn">敦沙卡兰海洋公园、玻璃海</p>
+      <p class="en hidden">Tun Sakaran Marine Park & crystal waters</p>
+      <a href="pricing.html" class="btn">了解更多</a>
     </div>
 
-    <button class="hamburger" id="hamburger">&#9776;</button>
-  </nav>
+    <div class="card">
+      <h3 class="cn">潜水体验</h3>
+      <h3 class="en hidden">Scuba Diving</h3>
+      <p class="cn">适合初学者与持证潜水员</p>
+      <p class="en hidden">For beginners & certified divers</p>
+      <a href="pricing.html" class="btn">了解更多</a>
+    </div>
 
-  <div class="mobile-menu hidden" id="mobileMenu">
-    <a href="index.html">首页 / Home</a>
-    <a href="pricing.html">价格 / Pricing</a>
-    <a href="accommodation.html">住宿 / Accommodation</a>
-    <a href="gallery.html">图库 / Gallery</a>
-    <a href="island-hopping.html">跳岛游 / Island</a>
-    <a href="diving.html">潜水 / Diving</a>
-    <a href="contact.html">联系 / Contact</a>
-
-    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
+    <div class="card">
+      <h3 class="cn">住宿安排</h3>
+      <h3 class="en hidden">Accommodation</h3>
+      <p class="cn">水上屋 · 海景房 · 私人房</p>
+      <p class="en hidden">Overwater & ocean view rooms</p>
+      <a href="accommodation.html" class="btn">查看住宿</a>
+    </div>
   </div>
-</header>
+</section>
+
+<!-- GALLERY SLIDER -->
+<section>
+  <h2 class="cn">仙本那美景</h2>
+  <h2 class="en hidden">Semporna Views</h2>
+
+  <div class="slider" data-images='[
+    "https://images.unsplash.com/photo-1544551763-ceda4b3b79c8",
+    "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    "https://images.unsplash.com/photo-1520975916090-3105956dac38"
+  ]'>
+    <img src="https://images.unsplash.com/photo-1544551763-ceda4b3b79c8">
+    <button class="prev" onclick="prevSlide(this)">‹</button>
+    <button class="next" onclick="nextSlide(this)">›</button>
+  </div>
+
+  <a href="gallery.html" class="btn">查看全部 / View Gallery</a>
+</section>
+
+<!-- WHY US -->
+<section>
+  <h2 class="cn">为什么选择我们</h2>
+  <h2 class="en hidden">Why Choose Us</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3 class="cn">安全第一</h3>
+      <h3 class="en hidden">Safety First</h3>
+      <p class="cn">持证教练与正规设备</p>
+      <p class="en hidden">Licensed instructors & equipment</p>
+    </div>
+
+    <div class="card">
+      <h3 class="cn">本地团队</h3>
+      <h3 class="en hidden">Local Experts</h3>
+      <p class="cn">熟悉每一个潜点</p>
+      <p class="en hidden">Deep local knowledge</p>
+    </div>
+
+    <div class="card">
+      <h3 class="cn">小团体验</h3>
+      <h3 class="en hidden">Small Groups</h3>
+      <p class="cn">更舒适，更安全</p>
+      <p class="en hidden">Comfort & attention</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING WECHAT -->
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat">
+</div>
+
+<!-- WECHAT POPUP -->
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p>扫码添加微信咨询 / Add WeChat</p>
+    <img src="wechat-qr.jpg">
+    <strong>Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
+  </div>
+</div>
+
+</body>
+</html>
