@@ -9,7 +9,7 @@
         section { max-width: 1100px; margin: auto; padding: 40px 20px; }
         h2 { margin: 40px auto 20px; color: var(--main); border-left: 5px solid var(--main); padding-left: 15px; font-size: 1.5rem; }
         h3 { margin-top: 30px; color: #0e2a33; border-bottom: 2px solid #eee; padding-bottom: 5px; }
-        
+
         .price-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .tab-btn { 
             background: #fff; border: 2px solid var(--main); color: var(--main); 
@@ -69,10 +69,12 @@
 </header>
 
 <section class="hero">
-    <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna Pricing">
+    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5" alt="Pricing">
     <div class="hero-content">
-        <h1 class="cn">2026 仙本那行程价格表</h1>
-        <h1 class="en hidden">2026 Semporna Price List</h1>
+        <h1 class="cn">透明价格，无隐形消费</h1>
+        <h1 class="en hidden">Transparent Pricing, No Hidden Fees</h1>
+        <p class="cn">潜水考证、一日游、度假村预订一站式报价</p>
+        <p class="en hidden">One-stop pricing for dive courses, daily tours, and resorts</p>
     </div>
 </section>
 
@@ -190,7 +192,7 @@
 
     <h2 class="cn">附加费用与包含项目</h2>
     <h2 class="en hidden">Surcharges & Inclusions</h2>
-    
+
     <div class="surcharge-box">
         <div style="margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
             <h4 class="cn" style="margin-top:0; color:var(--main);">✅ 费用包含：</h4>
@@ -249,7 +251,10 @@
 
 <footer style="text-align:center; padding:40px 20px; background: #eee;"><p>© Semporna Tours - Coach Deso_89</p></footer>
 
-<div class="floating-wechat" onclick="openWechat()"><img src="wechat-icon.png" alt="WeChat"></div>
+<div class="floating-wechat" onclick="openWechat()">
+    <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+</div>
+
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
         <p class="cn">扫码添加微信获取行程建议</p>
@@ -262,7 +267,7 @@
 
 <script src="main.js"></script>
 <script>
-    // 1. Keep your working switchTab function exactly as it is
+    // Tab switching logic
     function switchTab(tabId) {
         document.querySelectorAll('.price-content').forEach(c => c.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
@@ -272,16 +277,11 @@
         else if(tabId === 'transport') document.getElementById('tab-transport-btn').classList.add('active');
     }
 
-    // 2. Add this logic to "listen" for the #hopping from the home page
+    // Auto-switch based on URL hash (e.g., #hopping)
     document.addEventListener('DOMContentLoaded', () => {
-        // Get the hash from the URL (e.g., #hopping)
         const hash = window.location.hash.replace('#', '');
-        
-        // If it matches one of your tabs, trigger the switch automatically
         if (hash === 'hopping' || hash === 'transport' || hash === 'diving') {
             switchTab(hash);
-            
-            // Optional: Smoothly scroll down so the user sees the table immediately
             setTimeout(() => {
                 document.querySelector('.price-tabs').scrollIntoView({ behavior: 'smooth' });
             }, 100);
