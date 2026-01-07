@@ -44,17 +44,6 @@
         </div>
         <button class="hamburger" id="hamburger">&#9776;</button>
     </nav>
-    <div class="mobile-menu hidden" id="mobileMenu">
-        <a href="index.html">首页 / Home</a>
-        <a href="pricing.html" class="active">价格 / Pricing</a>
-        <a href="accommodation.html">住宿 / Accommodation</a>
-        <a href="gallery.html">相册 / Gallery</a>
-        <a href="reviews.html">评价 / Reviews</a>
-        <a href="about.html">关于 / About</a>
-        <a href="faq.html">常见问题 / FAQ</a>
-        <a href="contact.html">联系 / Contact</a>
-        <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
-    </div>
 </header>
 
 <section class="hero">
@@ -62,8 +51,6 @@
     <div class="hero-content">
         <h1 class="cn">透明价格，无隐形消费</h1>
         <h1 class="en hidden">Transparent Pricing, No Hidden Fees</h1>
-        <p class="cn">12年专业品质 · 潜水考证、一日游、度假村预订一站式报价</p>
-        <p class="en hidden">12 Years Expertise · One-stop pricing for dive courses, tours, and resorts</p>
     </div>
 </section>
 
@@ -81,7 +68,7 @@
             <tbody onclick="openWechat()">
                 <tr><td><span class="cn">1天/2次深潜 (Bum Bum岛)</span><span class="en hidden">1 Day/2 Dives (Bum Bum Island)</span></td><td>￥1,150</td></tr>
                 <tr><td><span class="cn">1天/3次深潜 (外海日游)</span><span class="en hidden">1 Day/3 Dives (Outer Reef)</span></td><td>￥1,380</td></tr>
-                <tr><td><span class="cn">1天/3次深潜 + 浮潜与徒步 (敦沙卡兰)</span><span class="en hidden">1 Day/3 Dives + Hike (Tun Sakaran)</span></td><td>￥1,750</td></tr>
+                <tr><td><span class="cn">1天/3次深潜 + 徒步 (敦沙卡兰)</span><span class="en hidden">1 Day/3 Dives + Hike (Tun Sakaran)</span></td><td>￥1,750</td></tr>
             </tbody>
         </table>
 
@@ -89,9 +76,11 @@
         <h2 class="en hidden">Fun Dive (Certified Divers)</h2>
         <table><thead><tr><th><span class="cn">天数 / 潜数</span><span class="en hidden">Days / Dives</span></th><th><span class="cn">价格 (不含诗巴丹)</span><span class="en hidden">No Sipadan</span></th><th><span class="cn">含1天诗巴丹</span><span class="en hidden">w/ 1D Sipadan</span></th></tr></thead>
             <tbody onclick="openWechat()">
+                <tr><td><span class="cn">1天 / 3潜 (日游)</span><span class="en hidden">1 Day / 3 Dives</span></td><td>￥1,100</td><td>-</td></tr>
                 <tr><td><span class="cn">2天 / 6潜</span><span class="en hidden">2 Days / 6 Dives</span></td><td>￥1,800</td><td>-</td></tr>
                 <tr><td><span class="cn">3天 / 9潜</span><span class="en hidden">3 Days / 9 Dives</span></td><td>￥2,650</td><td>￥3,850</td></tr>
                 <tr><td><span class="cn">4天 / 12潜</span><span class="en hidden">4 Days / 12 Dives</span></td><td>￥3,500</td><td>￥4,700</td></tr>
+                <tr><td><span class="cn">5天 / 15潜</span><span class="en hidden">5 Days / 15 Dives</span></td><td>￥4,300</td><td>￥5,500</td></tr>
             </tbody>
         </table>
 
@@ -101,6 +90,7 @@
             <tbody onclick="openWechat()">
                 <tr><td><span class="cn">3天 PADI OW 初级潜水员</span><span class="en hidden">3 Days PADI Open Water</span></td><td>￥3,450</td></tr>
                 <tr><td><span class="cn">2天 PADI AOW 进阶潜水员</span><span class="en hidden">2 Days PADI Advanced OW</span></td><td>￥3,150</td></tr>
+                <tr><td><span class="cn">3天 PADI 救援潜水员 + EFR</span><span class="en hidden">3 Days PADI Rescue + EFR</span></td><td>￥4,200</td></tr>
                 <tr><td><span class="cn">5天 OW + AOW 连报套餐</span><span class="en hidden">5 Days OW + AOW Combo</span></td><td>￥6,200</td></tr>
             </tbody>
         </table>
@@ -109,8 +99,6 @@
     <div id="hopping" class="price-content">
         <h2 class="cn">跳岛游路线报价 (RMB)</h2>
         <h2 class="en hidden">Island Hopping Rates (RMB)</h2>
-        <span class="currency-note cn">* 价格基于 Agent Rate 转换</span>
-        <span class="currency-note en hidden">* Prices based on Agent Rate conversion</span>
         
         <h3 class="cn">路线 A — TSMP 敦沙卡兰</h3>
         <h3 class="en hidden">Route A — Tun Sakaran Marine Park</h3>
@@ -122,8 +110,17 @@
             </tbody>
         </table>
 
-        <h3 class="cn">路线 B/C — 马布岛 / 马达京</h3>
-        <h3 class="en hidden">Route B/C — Mabul / Mataking</h3>
+        <h3 class="cn">路线 B — 马布岛 & 卡帕莱</h3>
+        <h3 class="en hidden">Route B — Mabul & Kapalai</h3>
+        <table><thead><tr><th><span class="cn">项目 (分类)</span><span class="en hidden">Activity (Market)</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 成人 (国际)</span><span class="en hidden">Snorkeling Adult (Intl)</span></td><td>¥ 181</td></tr>
+                <tr><td><span class="cn">深潜体验 DSD (国际)</span><span class="en hidden">Scuba DSD (Intl)</span></td><td>¥ 593</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="cn">路线 C — 马达京 / 邦邦岛 / 汀巴汀巴</h3>
+        <h3 class="en hidden">Route C — Mataking / Timba-Timba</h3>
         <table><thead><tr><th><span class="cn">项目 (分类)</span><span class="en hidden">Activity (Market)</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
                 <tr><td><span class="cn">浮潜 成人 (国际)</span><span class="en hidden">Snorkeling Adult (Intl)</span></td><td>¥ 181</td></tr>
@@ -137,7 +134,7 @@
         <h2 class="en hidden">Airport Transfers (One Way)</h2>
         <table><thead><tr><th><span class="cn">服务项目</span><span class="en hidden">Service Item</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">机场拼车 (单程/每人)</span><span class="en hidden">Shared Shuttle (One Way/pax)</span></td><td>RM 40</td></tr>
+                <tr><td><span class="cn">机场拼车 (每人)</span><span class="en hidden">Shared Shuttle (One Way/pax)</span></td><td>RM 40</td></tr>
                 <tr><td><span class="cn">私家包车 (4人座轿车)</span><span class="en hidden">Private Car (4 Seats)</span></td><td>RM 150</td></tr>
                 <tr><td><span class="cn">商务包车 (9人面包车)</span><span class="en hidden">Private Van (9 Seats)</span></td><td>RM 230</td></tr>
             </tbody>
@@ -151,34 +148,27 @@
             <h4 class="cn" style="margin-top:0; color:var(--main);">✅ 多日/过夜套餐包含：</h4>
             <h4 class="en hidden" style="margin-top:0; color:var(--main);">✅ Overnight Packages Include:</h4>
             <ul class="cn" style="padding-left: 20px; font-size: 0.95rem;">
-                <li>全餐 (早餐、午餐、晚餐、下午茶)、饮用水、茶及咖啡</li>
-                <li>全套潜水/浮潜装备 (潜服、面镜、鳍、气瓶、配重)</li>
-                <li>专业 PADI 教练或向导随行</li>
-                <li>出海船只及码头费用</li>
+                <li>全餐 (早午晚+下午茶)、饮用水、茶及咖啡</li>
+                <li>全套装备 (潜服、面镜、鳍、气瓶、配重)</li>
+                <li>专业 PADI 教练或向导随行、船只及码头费用</li>
             </ul>
             <ul class="en hidden" style="padding-left: 20px; font-size: 0.95rem;">
-                <li>Full board meals (Breakfast, Lunch, Dinner, High Tea), Drinking water, Tea & Coffee</li>
+                <li>Full board meals, drinking water, tea and coffee</li>
                 <li>Full Diving/Snorkeling Gear (Wetsuit, Mask, Fins, Tanks, Weights)</li>
-                <li>Professional PADI Instructor or Guide</li>
-                <li>Boat transfers & Jetty fees</li>
+                <li>Professional PADI Instructor or Guide & Boat transfers</li>
             </ul>
         </div>
 
         <div style="margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
             <h4 class="cn" style="margin-top:0; color:var(--main);">✅ 单日行程包含：</h4>
             <h4 class="en hidden" style="margin-top:0; color:var(--main);">✅ Day Trip Packages Include:</h4>
-            <ul class="cn" style="padding-left: 20px; font-size: 0.95rem;">
-                <li>午餐、出海船只及基础潜水/浮潜装备</li>
-            </ul>
-            <ul class="en hidden" style="padding-left: 20px; font-size: 0.95rem;">
-                <li>Lunch, Boat transfers and basic equipment</li>
-            </ul>
+            <ul class="cn" style="padding-left: 20px; font-size: 0.95rem;"><li>午餐、出海船只及基础潜水/浮潜装备</li></ul>
+            <ul class="en hidden" style="padding-left: 20px; font-size: 0.95rem;"><li>Lunch, Boat transfers and basic equipment</li></ul>
         </div>
 
-        <div class="surcharge-item"><span><strong class="cn">7月 - 9月 旺季附加费</strong><strong class="en hidden">July - Sept Peak Season</strong></span><span>RM 40 <small class="cn">/人/晚</small><small class="en hidden">/pax/night</small></span></div>
-        <div class="surcharge-item"><span><strong class="cn">额外续住 (包含全天餐食)</strong><strong class="en hidden">Extra Night (Includes All Meals)</strong></span><span>RM 195 <small class="cn">/人</small><small class="en hidden">/pax</small></span></div>
-        <div class="surcharge-item"><span><strong class="cn">单人房差价</strong><strong class="en hidden">Single Room Surcharge</strong></span><span>RM 135 <small class="cn">/晚</small><small class="en hidden">/night</small></span></div>
-        <div style="margin-top: 20px; font-size: 0.85rem; background: #f9f9f9; padding: 15px; border-radius: 8px; color: #666;"><p class="cn">⚠️ <strong>温馨提示：</strong>建议提前至少30天预订以确保房源，特别是诗巴丹名额有限。</p><p class="en hidden">⚠️ <strong>Note:</strong> Booking 30 days in advance is recommended, especially for Sipadan permits which are limited.</p></div>
+        <div class="surcharge-item"><span><strong class="cn">7月 - 9月 旺季附加费</strong><strong class="en hidden">July - Sept Peak Season</strong></span><span>RM 40 <small class="cn">/人/晚</small></span></div>
+        <div class="surcharge-item"><span><strong class="cn">额外续住 (包含全天餐食)</strong><strong class="en hidden">Extra Night (Includes All Meals)</strong></span><span>RM 195 <small class="cn">/人</small></span></div>
+        <div class="surcharge-item"><span><strong class="cn">单人房差价</strong><strong class="en hidden">Single Room Surcharge</strong></span><span>RM 135 <small class="cn">/晚</small></span></div>
     </div>
     
     <div style="text-align:center;"><button onclick="openWechat()" class="btn-pricing"><span class="cn">立即添加微信咨询</span><span class="en hidden">Contact via WeChat</span></button></div>
@@ -188,31 +178,19 @@
 
 <div class="floating-wechat" onclick="openWechat()"><img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'"></div>
 
-<div id="wechatPopup" class="wechat-popup">
-    <div class="wechat-box">
-        <p class="cn">扫码添加微信获取行程建议</p>
-        <p class="en hidden">Scan WeChat for Advice</p>
-        <img src="wechat-qr.jpg" alt="QR">
-        <br><strong>Coach Deso_89</strong><br>
-        <button onclick="closeWechat()" class="btn-pricing" style="width:100%;"><span class="cn">关闭</span><span class="en hidden">Close</span></button>
-    </div>
-</div>
-
 <script src="main.js"></script>
 <script>
     function switchTab(tabId) {
         document.querySelectorAll('.price-content').forEach(c => c.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        if(tabId === 'diving') document.getElementById('tab-diving-btn').classList.add('active');
-        else if(tabId === 'hopping') document.getElementById('tab-hopping-btn').classList.add('active');
-        else if(tabId === 'transport') document.getElementById('tab-transport-btn').classList.add('active');
+        document.getElementById('tab-' + tabId + '-btn').classList.add('active');
     }
+    // Handle deep linking from other pages
     document.addEventListener('DOMContentLoaded', () => {
         const hash = window.location.hash.replace('#', '');
-        if (hash === 'hopping' || hash === 'transport' || hash === 'diving') {
+        if (['diving', 'hopping', 'transport'].includes(hash)) {
             switchTab(hash);
-            setTimeout(() => { document.querySelector('.price-tabs').scrollIntoView({ behavior: 'smooth' }); }, 100);
         }
     });
 </script>
