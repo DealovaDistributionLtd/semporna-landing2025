@@ -1,129 +1,142 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>关于我们 | About Us - Semporna Tours</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  /* Page-Specific Layout for About Content */
-  section { max-width: 1000px; margin: auto; padding: 60px 20px; }
-  .profile-flex { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; margin-bottom: 60px; }
-  .profile-img { flex: 1; min-width: 300px; }
-  .profile-img img { border-radius: var(--radius); box-shadow: var(--shadow); min-height: 400px; object-fit: cover; }
-  .profile-text { flex: 1; min-width: 300px; }
-  .stats-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align: center; margin-top: 40px; }
-  .stat-card { background: var(--card); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-bottom: 4px solid var(--main); }
-  .stat-card h4 { font-size: 2.5rem; color: var(--main); margin: 0; }
-  .btn-about { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 30px; transition: .3s; cursor: pointer; border: none; text-align: center; }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关于我们 | About Us - Semporna Tours</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-Specific Layout */
+        section { max-width: 1100px; margin: auto; padding: 60px 20px; }
+        
+        /* Profile Section */
+        .profile-container { display: flex; gap: 50px; align-items: center; margin-bottom: 60px; }
+        .profile-img { flex: 1; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 4/5; }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .profile-img:hover img { transform: scale(1.05); }
+        .profile-text { flex: 1.2; }
+        .profile-text h2 { color: var(--main); margin-bottom: 20px; font-size: 2rem; }
+        .profile-text p { margin-bottom: 15px; font-size: 1.05rem; color: #555; }
 
-  @media(max-width: 992px) {
-    .profile-flex { flex-direction: column; text-align: center; }
-  }
-</style>
+        /* Stats Grid */
+        .stats-grid { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); margin-top: 40px; text-align: center; }
+        .stat-card { background: #fff; padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-bottom: 4px solid var(--main); }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--main); margin-bottom: 5px; }
+        .stat-label { font-weight: 600; color: #333; }
+
+        .btn-about { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 30px; border-radius: 30px; border: none; cursor: pointer; text-decoration: none; margin-top: 20px; transition: 0.3s; }
+        .btn-about:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,194,209,0.3); }
+
+        @media(max-width: 900px) {
+            .profile-container { flex-direction: column; text-align: center; }
+            .profile-img { width: 100%; max-width: 400px; margin: auto; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <nav class="nav-container">
-    <b class="logo">Semporna Tours</b>
-    <div class="nav-links">
-      <a href="index.html">首页 / Home</a>
-      <a href="pricing.html">价格 / Pricing</a>
-      <a href="accommodation.html">住宿 / Accommodation</a>
-      <a href="island-hopping.html">跳岛 / Island Hopping</a>
-      <a href="gallery.html">相册 / Gallery</a>
-      <a href="reviews.html">评价 / Reviews</a>
-      <a href="about.html" class="active">关于 / About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">联系 / Contact</a>
-      <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
-    </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu Switch">&#9776;</button>
-  </nav>
+    <nav class="nav-container">
+        <b class="logo">Semporna Tours</b>
+        <div class="nav-links">
+            <a href="index.html">首页 / Home</a>
+            <a href="pricing.html">价格 / Pricing</a>
+            <a href="accommodation.html">住宿 / Accommodation</a>
+            <a href="island-hopping.html">跳岛 / Island Hopping</a>
+            <a href="gallery.html">相册 / Gallery</a>
+            <a href="reviews.html">评价 / Reviews</a>
+            <a href="about.html" class="active">关于 / About</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">联系 / Contact</a>
+            <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+    </nav>
 
-  <div class="mobile-menu hidden" id="mobileMenu">
-    <a href="index.html">首页 / Home</a>
-    <a href="pricing.html">价格 / Pricing</a>
-    <a href="accommodation.html">住宿 / Accommodation</a>
-    <a href="island-hopping.html">跳岛 / Island Hopping</a>
-    <a href="gallery.html">相册 / Gallery</a>
-    <a href="reviews.html">评价 / Reviews</a>
-    <a href="about.html" class="active">关于 / About</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">联系 / Contact</a>
-    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
-  </div>
+    <div class="mobile-menu hidden" id="mobileMenu">
+        <a href="index.html">首页 / Home</a>
+        <a href="pricing.html">价格 / Pricing</a>
+        <a href="accommodation.html">住宿 / Accommodation</a>
+        <a href="island-hopping.html">跳岛 / Island Hopping</a>
+        <a href="gallery.html">相册 / Gallery</a>
+        <a href="reviews.html">评价 / Reviews</a>
+        <a href="about.html" class="active">关于 / About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">联系 / Contact</a>
+        <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
+    </div>
 </header>
 
 <section class="hero">
-  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1600" alt="Semporna Diving" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600'">
-  <div class="hero-content">
-    <h1 class="cn">十二年专注，只为最美的仙本那</h1>
-    <h1 class="en hidden">12+ Years Dedicated to Semporna's Beauty</h1>
-    <p class="cn">深耕当地，为您开启专业、安全的潜水之旅</p>
-    <p class="en hidden">Expert local knowledge for a professional, safe diving journey</p>
-  </div>
+    <img src="images/IMG-20251205-WA0025.jpg" alt="About Us">
+    <div class="hero-content">
+        <h1 class="cn">12年专注，只为最美的仙本那</h1>
+        <h1 class="en hidden">12 Years Dedicated to Semporna</h1>
+        <p class="cn">本地资深团队，为您开启安全、专业的潜水之旅</p>
+        <p class="en hidden">Local expert team ensuring a safe & professional diving journey</p>
+    </div>
 </section>
 
 <section>
-  <div class="profile-flex">
-    <div class="profile-img">
-      <img src="https://images.unsplash.com/photo-1596431745483-e18e803b9b0a?q=80&w=800" alt="Coach Deso_89 Team" onerror="this.src='https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?q=80&w=800'">
+    <div class="profile-container">
+        <div class="profile-img">
+            <img src="images/IMG-20251205-WA0020.jpg" alt="Coach Deso">
+        </div>
+        <div class="profile-text">
+            <h2 class="cn">你好，我是教练 Deso_89</h2>
+            <h2 class="en hidden">Hi, I'm Coach Deso_89</h2>
+            
+            <p class="cn">我在仙本那从事潜水教学与旅游带团已经超过 12 年。作为土生土长的本地人，我对这片海域的每一个潜点、每一处洋流都了如指掌。</p>
+            <p class="en hidden">I have been teaching diving and leading tours in Semporna for over 12 years. As a local, I know every dive site and current in these waters like the back of my hand.</p>
+            
+            <p class="cn">我们拒绝走马观花的“廉价团”。无论您是想考取 PADI 潜水证，还是想去诗巴丹（Sipadan）朝圣，我的团队都会为您提供最安全、最地道的服务体验。</p>
+            <p class="en hidden">We reject rushed "budget tours". Whether you want to get your PADI license or visit the holy grail of Sipadan, my team ensures the safest and most authentic experience.</p>
+            
+            <button class="btn-about" onclick="openWechat()">
+                <span class="cn">添加微信咨询</span><span class="en hidden">Chat on WeChat</span>
+            </button>
+        </div>
     </div>
-    <div class="profile-text">
-      <h2 class="cn">你好，我是教练 Deso_89</h2>
-      <h2 class="en hidden">Hi, I'm Coach Deso_89</h2>
-      <p class="cn">拥有超过 12 年的仙本那当地带团与潜水教学经验。我在这里出生、长大，对这片海域的每一个潜点、每一处洋流都了如指掌。</p>
-      <p class="en hidden">With over 12 years of experience in Semporna local tours and dive instruction, I know every dive site and current in these waters like the back of my hand.</p>
-      <p class="cn">我们的团队拒绝廉价团的走马观花。无论您是零基础的体验潜水，还是追求极致的诗巴丹深潜，我们都能确保您在最安全的前提下，看到最震撼的海底景观。</p>
-      <p class="en hidden">Our team rejects the rushed pace of budget tours. Whether you are a total beginner or a pro seeking the depths of Sipadan, we ensure you see the most stunning sights with absolute safety.</p>
-      <div style="margin-top: 30px;">
-        <button class="btn-about" onclick="openWechat()">
-          <span class="cn">立即微信沟通</span>
-          <span class="en hidden">Chat with Me</span>
-        </button>
-      </div>
-    </div>
-  </div>
 
-  <div class="stats-grid">
-    <div class="stat-card">
-      <h4>12+</h4>
-      <p class="cn">行业经验 (年)</p>
-      <p class="en hidden">Years Experience</p>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">12+</div>
+            <div class="stat-label cn">年行业经验</div>
+            <div class="stat-label en hidden">Years Experience</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">PADI</div>
+            <div class="stat-label cn">国际认证教练</div>
+            <div class="stat-label en hidden">Certified Instructor</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label cn">安全潜水记录</div>
+            <div class="stat-label en hidden">Safety Record</div>
+        </div>
     </div>
-    <div class="stat-card">
-      <h4>5000+</h4>
-      <p class="cn">接待游客</p>
-      <p class="en hidden">Satisfied Guests</p>
-    </div>
-    <div class="stat-card">
-      <h4>PADI</h4>
-      <p class="cn">资深教练团队</p>
-      <p class="en hidden">Certified Experts</p>
-    </div>
-  </div>
 </section>
 
 <footer style="text-align:center; padding:40px 20px; background: #eee;">
-  <p>© Semporna Tours - Coach Deso_89</p>
+    <p>© Semporna Tours - Coach Deso_89</p>
 </footer>
 
 <div class="floating-wechat" onclick="openWechat()">
-  <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+    <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
 </div>
 
 <div id="wechatPopup" class="wechat-popup">
-  <div class="wechat-box">
-    <p class="cn">扫码添加微信，与 12 年经验教练对话</p>
-    <p class="en hidden">Add WeChat & chat with 12-year expert coach</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR">
-    <br><strong>Coach Deso_89</strong><br>
-    <button onclick="closeWechat()">关闭 / Close</button>
-  </div>
+    <div class="wechat-box">
+        <p class="cn">扫码添加微信，与教练直接对话</p>
+        <p class="en hidden">Scan to chat with Coach directly</p>
+        <img src="wechat-qr.jpg" alt="WeChat QR Code">
+        <br><strong>教练 Deso_89</strong><br>
+        <button onclick="closeWechat()" class="btn-about" style="margin-top:10px; width:100%;">关闭 / Close</button>
+    </div>
 </div>
 
 <script src="main.js"></script>
+
 </body>
 </html>
