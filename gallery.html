@@ -1,22 +1,16 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta name="description" content="Semporna diving, island hopping, accommodation & PADI courses">
-
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>图库 / Semporna Gallery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>相册 / Gallery | Semporna Tours</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
-
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
-
-    <!-- Desktop Menu -->
     <div class="nav-links">
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
@@ -28,12 +22,8 @@
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
-    <!-- Mobile Hamburger -->
     <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
-
-  <!-- Mobile Menu -->
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
@@ -43,45 +33,35 @@
     <a href="about.html">关于我们 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
     <a href="contact.html">联系 / Contact</a>
-
-    <!-- Language toggle always LAST -->
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
-  <section class="slider">
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80">
-  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80">
-  <img src="https://images.unsplash.com/photo-1544551763-ceda4b3b79c8?auto=format&fit=crop&w=1400&q=80">
-</section>
+<section>
+  <h2 class="cn">仙本那美景</h2>
+  <h2 class="en hidden">Semporna Views</h2>
 
-
-<section class="hero">
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-  <div class="hero-content">
-    <h1 class="cn">仙本那实景图库</h1>
-    <h1 class="en hidden">Real Semporna Gallery</h1>
-    <p class="cn">潜水 · 岛屿 · 清澈海水</p>
-    <p class="en hidden">Diving · Islands · Crystal Clear Water</p>
+  <div class="grid">
+    <a href="https://images.unsplash.com/photo-1544551763-ceda4b3b79c8" target="_blank"><img src="https://images.unsplash.com/photo-1544551763-ceda4b3b79c8"></a>
+    <a href="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1" target="_blank"><img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1"></a>
+    <a href="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" target="_blank"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"></a>
+    <a href="https://images.unsplash.com/photo-1520975916090-3105956dac38" target="_blank"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"></a>
   </div>
 </section>
 
-<section class="grid">
-  <!-- Repeat block -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1544551763-cedbce6c0d6e" style="width:100%;border-radius:16px">
-  </div>
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff" style="width:100%;border-radius:16px">
-  </div>
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1540206395-68808572332f" style="width:100%;border-radius:16px">
-  </div>
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1559583985-c80d8ad9b29f" style="width:100%;border-radius:16px">
-  </div>
-</section>
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat">
+</div>
 
-<script src="js/main.js"></script>
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p>扫码添加微信咨询 / Add WeChat</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
+  </div>
+</div>
+
+<script src="js/main.js" defer></script>
 </body>
 </html>
