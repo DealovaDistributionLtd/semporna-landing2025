@@ -2,102 +2,62 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>常见问题 / FAQ | Semporna Tours</title>
-<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>常见问题 | FAQ - Semporna Tours</title>
 <style>
-.faq-item{margin-bottom:12px;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.08);}
-.faq-item button{width:100%;background:var(--main);color:#fff;padding:12px 16px;border:none;border-radius:16px;cursor:pointer;text-align:left;font-weight:700;}
-.faq-item button:hover{background:#0096a6;}
-.faq-answer{padding:12px 16px;display:none;color:#0e2a33;}
+:root{--main:#00c2d1;--bg:#f6fbfc;--card:#fff;--radius:16px;--shadow:0 16px 34px rgba(0,0,0,.08);}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:var(--bg);color:#0e2a33;line-height:1.75;}
+/* Header/Nav Styles same as index.html */
+header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
+.nav-container{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+.nav-container b.logo{color:var(--main);font-size:1.3rem;}
+.nav-links{display:flex;gap:15px;align-items:center;}.nav-links a{font-weight:600;font-size:0.95rem;text-decoration:none;color:#0e2a33;}
+.nav-links a.active{color:var(--main);}.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;border:none;cursor:pointer;}
+.hidden{display:none !important;}
+
+/* FAQ Content */
+section{max-width:900px;margin:auto;padding:60px 20px;}
+.faq-item{background:#fff;padding:25px;border-radius:16px;box-shadow:var(--shadow);margin-bottom:20px;cursor:pointer;}
+.faq-item h3{margin:0;color:var(--main);font-size:1.1rem;display:flex;justify-content:space-between;align-items:center;}
+.faq-answer{margin-top:15px;display:none;border-top:1px solid #eee;padding-top:15px;color:#555;}
 </style>
 </head>
 <body>
-
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
     <div class="nav-links">
-      <a href="index.html">首页 / Home</a>
-      <a href="pricing.html">价格 / Pricing</a>
-      <a href="accommodation.html">住宿 / Accommodation</a>
-      <a href="gallery.html">相册 / Gallery</a>
-      <a href="reviews.html">评价 / Reviews</a>
-      <a href="about.html">关于我们 / About</a>
-      <a href="faq.html">常见问题 / FAQ</a>
-      <a href="contact.html">联系 / Contact</a>
-      <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
+      <a href="index.html">首页 / Home</a> <a href="pricing.html">价格 / Pricing</a> <a href="accommodation.html">住宿 / Accommodation</a>
+      <a href="gallery.html">相册 / Gallery</a> <a href="faq.html" class="active">FAQ</a> <button id="langToggle" class="lang-btn">🇨🇳/🇬🇧</button>
     </div>
-    <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
-  <div class="mobile-menu hidden" id="mobileMenu">
-    <a href="index.html">首页 / Home</a>
-    <a href="pricing.html">价格 / Pricing</a>
-    <a href="accommodation.html">住宿 / Accommodation</a>
-    <a href="gallery.html">相册 / Gallery</a>
-    <a href="reviews.html">评价 / Reviews</a>
-    <a href="about.html">关于我们 / About</a>
-    <a href="faq.html">常见问题 / FAQ</a>
-    <a href="contact.html">联系 / Contact</a>
-    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
-  </div>
 </header>
 
 <section>
-  <h2 class="cn">常见问题</h2>
-  <h2 class="en hidden">Frequently Asked Questions</h2>
-
-  <div class="faq-item">
-    <button class="cn">是否提供浮潜装备？</button>
-    <button class="en hidden">Is snorkel gear provided?</button>
+  <h2 class="cn" style="text-align:center">常见问题</h2><h2 class="en hidden" style="text-align:center">Frequently Asked Questions</h2>
+  
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <h3><span class="cn">1. 什么时候是最佳潜水季节？</span><span class="en hidden">1. When is the best diving season?</span> <span>+</span></h3>
     <div class="faq-answer">
-      <p class="cn">所有跳岛套餐都提供浮潜装备，包括面镜、呼吸管和救生衣。</p>
-      <p class="en hidden">All island hopping packages include snorkel gear, mask, snorkel & life jacket.</p>
+      <p class="cn">仙本那全年都适合潜水。最佳天气通常在 3 月至 10 月。11 月至 2 月会有偶发降雨，但不影响出海。</p>
+      <p class="en hidden">Semporna is a year-round destination. Peak weather is March-October. Nov-Feb may have brief rains but trips still run.</p>
     </div>
   </div>
 
-  <div class="faq-item">
-    <button class="cn">适合初学者潜水吗？</button>
-    <button class="en hidden">Is it suitable for beginner divers?</button>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <h3><span class="cn">2. 考证需要提前多久预订？</span><span class="en hidden">2. How far in advance should I book?</span> <span>+</span></h3>
     <div class="faq-answer">
-      <p class="cn">是的，我们提供体验潜水课程和持证教练指导。</p>
-      <p class="en hidden">Yes, we provide discover dives and guidance from certified instructors.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="cn">如何预订？</button>
-    <button class="en hidden">How to book?</button>
-    <div class="faq-answer">
-      <p class="cn">请通过微信联系教练或使用网站联系表单预订。</p>
-      <p class="en hidden">Contact the instructor via WeChat or use the website contact form to book.</p>
+      <p class="cn">特别是诗巴丹名额，建议提前 1-2 个月预订。普通考证和跳岛建议提前 2 周。</p>
+      <p class="en hidden">For Sipadan permits, book 1-2 months ahead. For courses and island hopping, 2 weeks is usually enough.</p>
     </div>
   </div>
 </section>
 
-<div class="floating-wechat" onclick="openWechat()">
-  <img src="wechat-icon.png" alt="WeChat">
-</div>
-
-<div id="wechatPopup" class="wechat-popup">
-  <div class="wechat-box">
-    <p>扫码添加微信咨询 / Add WeChat</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR">
-    <strong>Deso_89</strong><br>
-    <button onclick="closeWechat()">关闭 / Close</button>
-  </div>
-</div>
-
 <script>
-document.querySelectorAll('.faq-item').forEach(item=>{
-  item.querySelectorAll('button').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      let answer = item.querySelector('.faq-answer');
-      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    });
-  });
+function toggleFAQ(el){const ans=el.querySelector('.faq-answer');ans.style.display=ans.style.display==='block'?'none':'block';}
+document.getElementById('langToggle').addEventListener('click',()=>{
+  document.querySelectorAll('.cn,.en').forEach(e=>e.classList.toggle('hidden'));
 });
 </script>
-<script src="js/main.js" defer></script>
 </body>
 </html>
