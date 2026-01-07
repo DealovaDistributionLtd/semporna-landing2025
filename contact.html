@@ -51,15 +51,24 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
 .contact-grid{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
 
 .contact-card{background:var(--card);padding:40px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;}
-.qr-code{width:200px;margin:0 auto 20px;border-radius: 12px;border: 1px solid #eee;}
+.qr-code{width:200px;margin:0 auto 20px;border-radius: 12px;border: 1px solid #eee; cursor: pointer;}
 
 .info-list{text-align: left; margin-top: 30px;}
 .info-item{display: flex; align-items: center; margin-bottom: 20px; gap: 15px;}
-.info-item i{font-size: 1.5rem; color: var(--main); width: 30px;}
+.info-item span{font-size: 1.5rem; color: var(--main); width: 30px;}
 
 .social-links{display: flex; gap: 15px; justify-content: center; margin-top: 25px;}
 .social-btn{background: #f0f8fa; padding: 12px; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: 0.3s;}
 .social-btn:hover{background: var(--main); color: #fff;}
+
+/* Floating WeChat */
+.floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
+.floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
+
+/* WeChat Popup */
+.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:1000;}
+.wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:350px;}
+.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin-bottom:15px;}
 
 /* Buttons */
 .btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;width: 100%;}
@@ -121,11 +130,10 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
     <div class="contact-card">
       <h3 class="cn">微信咨询</h3>
       <h3 class="en hidden">WeChat Inquiry</h3>
-      <p class="cn">扫码添加教练，获取实时出海时间与天气建议</p>
-      <p class="en hidden">Scan to chat with the coach for real-time trip schedules</p>
-      
-      <img src="wechat-qr.jpg" alt="WeChat QR Code" class="qr-code">
-      
+      <p class="cn">扫描二维码或复制ID添加教练</p>
+      <p class="en hidden">Scan QR or copy ID to add coach</p>
+      <br>
+      <img src="wechat-qr.jpg" alt="WeChat QR Code" class="qr-code" onclick="openWechat()">
       <p><strong>ID: Deso_89</strong></p>
       <button onclick="copyID()" class="btn">
         <span class="cn">复制微信号</span>
@@ -134,8 +142,8 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
     </div>
 
     <div class="contact-card">
-      <h3 class="cn">其他联系方式</h3>
-      <h3 class="en hidden">Other Contacts</h3>
+      <h3 class="cn">当地信息</h3>
+      <h3 class="en hidden">Local Info</h3>
       
       <div class="info-list">
         <div class="info-item">
@@ -148,17 +156,25 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
         <div class="info-item">
           <span>⏰</span>
           <div>
-            <strong class="cn">营业时间</strong><strong class="en hidden">Hours</strong><br>
-            08:00 - 22:00 (Daily)
+            <strong class="cn">咨询时间</strong><strong class="en hidden">Consulting Hours</strong><br>
+            08:00 - 22:00 (GMT+8)
+          </div>
+        </div>
+        <div class="info-item">
+          <span>📢</span>
+          <div>
+            <strong class="cn">温馨提示</strong><strong class="en hidden">Note</strong><br>
+            <span class="cn">建议提前2周预约行程</span>
+            <span class="en hidden">Book 2 weeks in advance</span>
           </div>
         </div>
       </div>
 
-      <h4 class="cn" style="margin-top:30px;">社交媒体</h4>
+      <h4 class="cn" style="margin-top:30px;">关注动态</h4>
       <h4 class="en hidden" style="margin-top:30px;">Follow Us</h4>
       <div class="social-links">
-        <a href="https://www.tiktok.com/@deso__89" target="_blank" class="social-btn">TikTok</a>
-        <a href="https://xhslink.com/m/2nU4fzy4Tf" target="_blank" class="social-btn" style="font-size: 0.8rem;">小红书</a>
+        <a href="https://www.tiktok.com/@deso__89" target="_blank" class="social-btn" title="TikTok">TK</a>
+        <a href="https://xhslink.com/m/2nU4fzy4Tf" target="_blank" class="social-btn" title="Little Red Book" style="font-size: 0.8rem;">XHS</a>
       </div>
     </div>
 
@@ -169,20 +185,51 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
   <p>© Semporna Tours - Coach Deso_89</p>
 </footer>
 
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+</div>
+
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p class="cn">扫码添加微信获取详细行程</p>
+    <p class="en hidden">Scan to get itinerary details</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>Coach Deso_89</strong><br>
+    <button onclick="closeWechat()" class="btn" style="width:100%; margin-top:15px;">关闭 / Close</button>
+  </div>
+</div>
+
 <script>
+// Menu logic
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
 
+// Language Logic
 function toggleLang() {
-  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
-  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
 }
 document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
 document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
 
+// WeChat Logic
+function openWechat(){ 
+    document.getElementById('wechatPopup').style.display='flex'; 
+    document.body.style.overflow='hidden'; 
+}
+function closeWechat(){ 
+    document.getElementById('wechatPopup').style.display='none'; 
+    document.body.style.overflow=''; 
+}
+
+// Copy ID Function
 function copyID() {
-  navigator.clipboard.writeText("Deso_89");
+  const el = document.createElement('textarea');
+  el.value = "Deso_89";
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
   alert("WeChat ID copied: Deso_89");
 }
 </script>
