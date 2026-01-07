@@ -13,19 +13,43 @@
 <!-- LANGUAGE TOGGLE -->
 <div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
 
-<!-- HEADER -->
 <header>
-  <nav>
-    <b>Semporna</b>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="accommodation.html">Accommodation</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
+  <nav class="nav-container">
+    <b class="logo">Semporna Tours</b>
+
+    <!-- Desktop Menu -->
+    <div class="nav-links">
+      <a href="index.html">首页 / Home</a>
+      <a href="pricing.html">价格 / Pricing</a>
+      <a href="accommodation.html">住宿 / Accommodation</a>
+      <a href="gallery.html">相册 / Gallery</a>
+      <a href="reviews.html">评价 / Reviews</a>
+      <a href="about.html">关于我们 / About</a>
+      <a href="faq.html">常见问题 / FAQ</a>
+      <a href="contact.html">联系 / Contact</a>
+      <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu hidden" id="mobileMenu">
+    <a href="index.html">首页 / Home</a>
+    <a href="pricing.html">价格 / Pricing</a>
+    <a href="accommodation.html">住宿 / Accommodation</a>
+    <a href="gallery.html">相册 / Gallery</a>
+    <a href="reviews.html">评价 / Reviews</a>
+    <a href="about.html">关于我们 / About</a>
+    <a href="faq.html">常见问题 / FAQ</a>
+    <a href="contact.html">联系 / Contact</a>
+
+    <!-- Language toggle always LAST -->
+    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
+  </div>
 </header>
+
 
 <!-- HERO -->
 <section class="hero">
