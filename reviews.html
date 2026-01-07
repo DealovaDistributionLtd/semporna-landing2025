@@ -2,9 +2,74 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>评价 / Reviews | Semporna Tours</title>
-<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>客户评价 | Reviews - Semporna Tours</title>
+<style>
+:root{
+  --main:#00c2d1;
+  --bg:#f6fbfc;
+  --card:#fff;
+  --radius:16px;
+  --shadow:0 16px 34px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
+a{text-decoration:none;color:inherit}
+img{width:100%;display:block}
+
+/* Header/Nav - Persistent */
+header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
+.nav-container{
+  max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
+}
+.nav-container b.logo{color:var(--main);font-size:1.3rem;}
+.nav-links{display:flex;gap:15px;align-items:center;}
+.nav-links a, .nav-links button{
+  font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;transition: 0.2s;
+}
+.nav-links a:hover, .nav-links a.active{color:var(--main);}
+.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;margin-left:5px;}
+
+/* Hamburger */
+.hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
+.mobile-menu{
+  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
+  display:flex;flex-direction:column;padding:20px;z-index:100;
+}
+.mobile-menu a, .mobile-menu button{
+  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
+}
+.hidden{display:none !important;}
+
+/* Hero */
+.hero{position:relative;min-height:30vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;overflow: hidden;}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity: 0.5;}
+.hero-content{position:relative; z-index: 2; max-width:900px;padding:20px; animation:fadeUp 1s ease;}
+
+/* Grid & Cards */
+section{max-width:1100px;margin:auto;padding:40px 20px;}
+.grid{display:grid;gap:25px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.card{background:var(--card);padding:30px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s;display: flex;flex-direction: column;}
+.card:hover{transform:translateY(-5px);}
+.stars{color: #ffcc00; font-size: 1.2rem; margin-bottom: 10px;}
+.card p{font-style: italic; color: #444; margin-bottom: 15px; flex-grow: 1;}
+.card strong{color: var(--main); font-size: 1rem;}
+
+/* Floating WeChat & Popup */
+.floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
+.floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
+.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:1000;display:none;}
+.wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:350px;}
+.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin-bottom:15px;}
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 24px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+
+@media(max-width:992px){
+  .nav-links{display:none;}
+  .hamburger{display:block;}
+}
+</style>
 </head>
 <body>
 
@@ -16,63 +81,113 @@
       <a href="pricing.html">价格 / Pricing</a>
       <a href="accommodation.html">住宿 / Accommodation</a>
       <a href="gallery.html">相册 / Gallery</a>
-      <a href="reviews.html">评价 / Reviews</a>
-      <a href="about.html">关于我们 / About</a>
+      <a href="reviews.html" class="active">评价 / Reviews</a>
+      <a href="about.html">关于 / About</a>
       <a href="faq.html">常见问题 / FAQ</a>
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
     <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
+
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
     <a href="accommodation.html">住宿 / Accommodation</a>
     <a href="gallery.html">相册 / Gallery</a>
-    <a href="reviews.html">评价 / Reviews</a>
-    <a href="about.html">关于我们 / About</a>
+    <a href="reviews.html" class="active">评价 / Reviews</a>
+    <a href="about.html">关于 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
     <a href="contact.html">联系 / Contact</a>
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
-<section>
-  <h2 class="cn">客户评价</h2>
-  <h2 class="en hidden">Customer Reviews</h2>
-
-  <div class="grid">
-    <div class="card">
-      <p class="cn">“服务非常专业，潜水体验超棒！”</p>
-      <p class="en hidden">"Amazing service and diving experience!"</p>
-      <strong>- 李小姐 / Miss Li</strong>
-    </div>
-    <div class="card">
-      <p class="cn">“小团体体验让我们非常舒适。”</p>
-      <p class="en hidden">"Small group made everything very comfortable."</p>
-      <strong>- John D.</strong>
-    </div>
-    <div class="card">
-      <p class="cn">“住宿环境美丽，水上屋超赞！”</p>
-      <p class="en hidden">"Beautiful rooms and overwater house was amazing!"</p>
-      <strong>- 王先生 / Mr. Wang</strong>
-    </div>
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000" alt="Customer Happy Faces">
+  <div class="hero-content">
+    <h1 class="cn">来自真实的旅行心声</h1>
+    <h1 class="en hidden">Voices from Real Travelers</h1>
+    <p class="cn">数千名游客的信任，是我们不断前进的动力</p>
+    <p class="en hidden">Trusted by thousands of divers and ocean lovers</p>
   </div>
 </section>
 
+<section>
+  <div class="grid">
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <p class="cn">“服务非常专业，潜水体验超棒！Deso 教练很有耐心，第一次深潜完全不紧张。”</p>
+      <p class="en hidden">"Amazing service and diving experience! Coach Deso was so patient, I wasn't nervous at all for my first dive."</p>
+      <strong>- 李小姐 / Miss Li</strong>
+    </div>
+
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <p class="cn">“小团体体验让我们非常舒适，不会像大团那样赶时间。海景阳台房美哭了！”</p>
+      <p class="en hidden">"Small group made everything very comfortable. No rushing like big tours. The ocean view room was stunning!"</p>
+      <strong>- John D.</strong>
+    </div>
+
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <p class="cn">“住宿环境美丽，水上屋超赞！每天早上醒来就是大海，这就是我梦想的假期。”</p>
+      <p class="en hidden">"Beautiful rooms and overwater house was amazing! Waking up to the sea every morning was a dream come true."</p>
+      <strong>- 王先生 / Mr. Wang</strong>
+    </div>
+
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <p class="cn">“诗巴丹的名额帮我拿到了，圆了我的潜水梦。专业的团队，行程安排非常合理。”</p>
+      <p class="en hidden">"They secured my Sipadan permit and fulfilled my diving dream. Professional team and perfectly planned itinerary."</p>
+      <strong>- Sarah Chen</strong>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 50px;">
+    <p class="cn">也想分享您的故事？</p>
+    <p class="en hidden">Want to share your story?</p>
+    <button class="btn" onclick="openWechat()">
+      <span class="cn">立即联系 / Contact Us</span>
+      <span class="en hidden">Contact Now</span>
+    </button>
+  </div>
+</section>
+
+<footer style="text-align:center; padding:40px 20px; background: #eee;">
+  <p>© Semporna Tours - Coach Deso_89</p>
+</footer>
+
 <div class="floating-wechat" onclick="openWechat()">
-  <img src="wechat-icon.png" alt="WeChat">
+  <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
 </div>
 
 <div id="wechatPopup" class="wechat-popup">
   <div class="wechat-box">
-    <p>扫码添加微信咨询 / Add WeChat</p>
+    <p class="cn">扫码添加微信分享您的评价</p>
+    <p class="en hidden">Add WeChat to share your review</p>
     <img src="wechat-qr.jpg" alt="WeChat QR">
     <strong>Deso_89</strong><br>
-    <button onclick="closeWechat()">关闭 / Close</button>
+    <button onclick="closeWechat()" class="btn" style="width: 100%; margin-top: 15px;">关闭 / Close</button>
   </div>
 </div>
 
-<script src="js/main.js" defer></script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
+
+function toggleLang() {
+  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+}
+document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
+document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
+
+const popup = document.getElementById('wechatPopup');
+function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
+function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
+</script>
+
 </body>
 </html>
