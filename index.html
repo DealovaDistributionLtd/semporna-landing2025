@@ -10,8 +10,13 @@
         .grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
         .card { background: var(--card); padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; transition: .35s; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { transform: translateY(-10px); }
-        .btn { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 30px; border: none; cursor: pointer; margin-top: 15px; }
-        .cta-section { background: linear-gradient(135deg, #00c2d1, #0096a6); color: #fff; text-align: center; border-radius: 26px; padding: 80px 20px; margin: 40px auto; }
+        .card-btn { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 30px; border: none; cursor: pointer; margin-top: 15px; text-decoration: none; }
+        
+        /* Special Home Page UI Elements */
+        .cta-section { background: linear-gradient(135deg, #00c2d1, #0096a6); color: #fff; text-align: center; border-radius: 26px; padding: 80px 20px; margin: 40px auto; max-width: 1100px; }
+        .cta-section .btn-white { background: #fff; color: var(--main); padding: 14px 32px; border-radius: 30px; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; }
+        .cta-section .btn-white:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
         @keyframes zoom { from { transform: scale(1); } to { transform: scale(1.1); } }
         .hero-zoom img { animation: zoom 20s infinite alternate; }
     </style>
@@ -25,6 +30,7 @@
             <a href="index.html" class="active">首页 / Home</a>
             <a href="pricing.html">价格 / Pricing</a>
             <a href="accommodation.html">住宿 / Accommodation</a>
+            <a href="island-hopping.html">跳岛 / Island Hopping</a>
             <a href="gallery.html">相册 / Gallery</a>
             <a href="reviews.html">评价 / Reviews</a>
             <a href="about.html">关于 / About</a>
@@ -39,6 +45,7 @@
         <a href="index.html" class="active">首页 / Home</a>
         <a href="pricing.html">价格 / Pricing</a>
         <a href="accommodation.html">住宿 / Accommodation</a>
+        <a href="island-hopping.html">跳岛 / Island Hopping</a>
         <a href="gallery.html">相册 / Gallery</a>
         <a href="reviews.html">评价 / Reviews</a>
         <a href="about.html">关于 / About</a>
@@ -55,40 +62,42 @@
         <h1 class="en hidden">Explore Semporna - 12 Years of Expertise</h1>
         <p class="cn">果冻海 × 世界级潜点 × 当地专业向导</p>
         <p class="en hidden">Jelly-like waters × World-class dive sites × Local guides</p>
-        <a href="pricing.html" class="btn">查看价格 / See Pricing</a>
+        <a href="pricing.html" class="card-btn" style="padding: 15px 40px;">查看价格 / See Pricing</a>
     </div>
 </section>
 
-<section>
-    <h2 class="cn" style="text-align:center; margin-bottom:40px;">我们的服务</h2>
-    <h2 class="en hidden" style="text-align:center; margin-bottom:40px;">Our Services</h2>
+<section style="max-width: 1100px; margin: auto; padding: 60px 20px;">
+    <h2 class="cn" style="text-align:center; margin-bottom:40px;">我们的专业服务</h2>
+    <h2 class="en hidden" style="text-align:center; margin-bottom:40px;">Our Professional Services</h2>
     <div class="grid">
         <div class="card">
             <div>
-                <h3 class="cn">🏝️ 跳岛游</h3>
+                <h3 class="cn">🏝️ 跳岛游路线</h3>
                 <h3 class="en hidden">🏝️ Island Hopping</h3>
-                <p class="cn">波德伦岛、曼达布安岛，海水清到不真实。</p>
-                <p class="en hidden">Bohey Dulang, Mantabuan & Sipuan Islands.</p>
+                <p class="cn">敦沙卡兰、马布岛、马达京。包含餐饮与接送。</p>
+                <p class="en hidden">Route A, B, and C. Includes lunch & transfers.</p>
             </div>
-            <a href="pricing.html" class="btn">了解更多 / More</a>
+            <a href="pricing.html#hopping" class="card-btn">了解价格 / View Rates</a>
         </div>
+
         <div class="card">
             <div>
                 <h3 class="cn">🤿 考证与深潜</h3>
                 <h3 class="en hidden">🤿 Scuba Diving</h3>
-                <p class="cn">PADI 专业课程，12年教练经验确保安全。</p>
-                <p class="en hidden">PADI Courses with 12 years of coaching experience.</p>
+                <p class="cn">PADI OW/AOW 课程，资深教练 1:1 或小班授课。</p>
+                <p class="en hidden">PADI OW/AOW Courses. Small groups for maximum safety.</p>
             </div>
-            <a href="pricing.html" class="btn">了解更多 / More</a>
+            <a href="pricing.html#diving" class="card-btn">了解课程 / Courses</a>
         </div>
+
         <div class="card">
             <div>
-                <h3 class="cn">🏠 梦幻住宿</h3>
-                <h3 class="en hidden">🏠 Accommodation</h3>
-                <p class="cn">为您精选最美水上屋与海景房。</p>
-                <p class="en hidden">Handpicked overwater villas and ocean views.</p>
+                <h3 class="cn">🏠 梦幻水上屋</h3>
+                <h3 class="en hidden">🏠 Overwater Stay</h3>
+                <p class="cn">为您挑选视野最佳的度假村，推窗即是大海。</p>
+                <p class="en hidden">Best ocean-view villas and overwater house selections.</p>
             </div>
-            <a href="accommodation.html" class="btn">查看住宿 / View</a>
+            <a href="accommodation.html" class="card-btn">查看住宿 / View Stay</a>
         </div>
     </div>
 </section>
@@ -96,9 +105,9 @@
 <section class="cta-section">
     <h2 class="cn">想来仙本那？现在就联系我</h2>
     <h2 class="en hidden">Ready for Semporna? Contact Me Now</h2>
-    <div style="margin-top:30px;">
-        <button onclick="openWechat()" class="btn" style="background:#fff; color:var(--main);">立即添加微信 / Add WeChat</button>
-    </div>
+    <p class="cn" style="margin-bottom: 30px; opacity: 0.9;">12年经验资深教练，为您定制专属行程</p>
+    <p class="en hidden" style="margin-bottom: 30px; opacity: 0.9;">12 years of local expertise. Let us plan your perfect trip.</p>
+    <button onclick="openWechat()" class="btn-white">立即添加微信 / Add WeChat</button>
 </section>
 
 <footer style="text-align:center; padding:40px 20px; background: #eee;">
@@ -115,10 +124,11 @@
         <p class="en hidden">Scan WeChat for Itinerary Advice</p>
         <img src="wechat-qr.jpg" alt="WeChat QR">
         <br><strong>教练 Deso_89</strong><br>
-        <button onclick="closeWechat()">关闭 / Close</button>
+        <button onclick="closeWechat()" class="card-btn" style="width:100%; background: #666;">关闭 / Close</button>
     </div>
 </div>
 
 <script src="main.js"></script>
+
 </body>
 </html>
