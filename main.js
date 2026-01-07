@@ -3,7 +3,11 @@
 // 1. Define the HTML for the Header (Navigation)
 const headerHTML = `
     <nav class="nav-container">
-        <b class="logo">Semporna Tours</b>
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.png" class="nav-logo" alt="Semporna Tours" 
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='<b style=\'color:#00c2d1; font-size:1.3rem;\'>Semporna Tours</b>'"> 
+        </a>
+
         <div class="nav-links">
             <a href="index.html" data-page="index.html">首页 / Home</a>
             <a href="pricing.html" data-page="pricing.html">价格 / Pricing</a>
@@ -36,7 +40,7 @@ function loadHeader() {
     const headerElement = document.querySelector('header');
     if (headerElement) {
         headerElement.innerHTML = headerHTML;
-        
+
         // Auto-highlight the active page
         const currentPage = window.location.pathname.split("/").pop() || "index.html";
         const allLinks = document.querySelectorAll(`a[data-page="${currentPage}"]`);
@@ -51,7 +55,7 @@ function updateLanguage() {
     // Desktop & Mobile Toggle Button Text
     const desktopBtn = document.getElementById('langToggleDesktop');
     const mobileBtn = document.getElementById('langToggleMobile');
-    
+
     // Toggle Button Text
     const btnText = currentLang === 'cn' ? '🇨🇳 / 🇬🇧' : '🇬🇧 / 🇨🇳';
     if(desktopBtn) desktopBtn.textContent = btnText;
@@ -77,7 +81,7 @@ function toggleLanguage() {
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
     if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
