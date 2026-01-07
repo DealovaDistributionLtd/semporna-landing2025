@@ -18,18 +18,41 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Micros
 a{text-decoration:none;color:inherit}
 img{width:100%;display:block}
 
+/* Header/Nav */
 header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
-nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
-nav b{color:var(--main);font-size:1.1rem}
-nav a{margin-left:18px;font-weight:600;cursor:pointer}
+.nav-container{
+  max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
+}
+.nav-container b.logo{color:var(--main);font-size:1.2rem;}
+.nav-links{display:flex;gap:18px;align-items:center;}
+.nav-links a, .nav-links button{
+  font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:1rem;
+}
+.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;}
 
-.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+/* Hamburger for mobile */
+.hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
+
+/* Mobile menu */
+.mobile-menu{
+  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
+  display:flex;flex-direction:column;padding:20px;
+}
+.mobile-menu a, .mobile-menu button{
+  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
+}
+.mobile-menu button.lang-btn{background:var(--main);color:#fff;padding:8px 12px;border-radius:12px;}
+.hidden{display:none !important;}
+
+/* Hero */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;margin-bottom:40px;}
 .hero img{position:absolute;inset:0;height:100%;object-fit:cover;z-index:-2;}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65));z-index:-1;}
 .hero-content{max-width:900px;padding:20px;animation:fadeUp 1s ease;}
 .hero h1{font-size:clamp(2.3rem,5vw,3.3rem);margin-bottom:14px;}
 .hero p{font-size:1.2rem;opacity:.95;}
 
+/* Sections */
 section{max-width:1100px;margin:auto;padding:80px 20px;}
 h2{text-align:center;margin-bottom:36px}
 
@@ -40,29 +63,37 @@ h2{text-align:center;margin-bottom:36px}
 .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
 .gallery img{height:200px;border-radius:16px;object-fit:cover;}
 
-/* WeChat popup */
+/* CTA */
+.cta{background:linear-gradient(135deg,#00c2d1,#0096a6);color:#fff;text-align:center;border-radius:26px;padding:90px 20px;}
+
+/* Floating WeChat */
 .floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;transition:0.3s;}
 .floating-wechat img{width:70px;height:70px;border-radius:16px;box-shadow:var(--shadow);}
+
+/* WeChat popup */
 .wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;justify-content:center;align-items:center;z-index:1000;display:none;}
 .wechat-popup .wechat-box{background:#fff;padding:30px;border-radius:24px;text-align:center;max-width:400px;position:relative;}
 .wechat-popup .wechat-box img{max-width:220px;border-radius:16px;margin:0 auto 12px;}
 .wechat-popup .wechat-box button{background:var(--main);color:#fff;border:none;padding:10px 20px;border-radius:24px;margin-top:12px;cursor:pointer;}
 .wechat-popup .wechat-box button:hover{background:#0096a6;}
 
-.cta{background:linear-gradient(135deg,#00c2d1,#0096a6);color:#fff;text-align:center;border-radius:26px;padding:90px 20px;}
-
+/* Language Toggle */
 .language-toggle{position:fixed;top:20px;right:20px;background:var(--main);color:#fff;padding:10px 14px;border-radius:14px;cursor:pointer;z-index:999;font-weight:700;}
-.hidden{display:none;}
 
+/* Buttons */
 .btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;transition:.3s;margin-top:10px;}
 .btn:hover{background:#0096a6;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:block;}
+}
 </style>
 </head>
 <body>
-
-<div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
 
 <header>
   <nav class="nav-container">
@@ -88,58 +119,6 @@ h2{text-align:center;margin-bottom:36px}
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
-
-<style>
-.nav-container{
-  max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
-}
-.nav-container b.logo{color:var(--main);font-size:1.2rem;}
-.nav-links a, .nav-links button{
-  margin-left:18px;font-weight:600;text-decoration:none;color:#0e2a33;
-  background:none;border:none;cursor:pointer;font-size:1rem;
-}
-.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;}
-.hamburger{
-  display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;
-}
-.mobile-menu{
-  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
-  display:flex;flex-direction:column;padding:20px;
-}
-.mobile-menu a, .mobile-menu button{
-  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
-}
-.mobile-menu button.lang-btn{background:var(--main);color:#fff;padding:8px 12px;border-radius:12px;}
-.hidden{display:none !important;}
-
-/* Responsive */
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .hamburger{display:block;}
-}
-</style>
-
-<script>
-// Mobile menu toggle
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', ()=>{
-  mobileMenu.classList.toggle('hidden');
-});
-
-// Language toggle
-function setupLangToggle(toggleId){
-  const toggle = document.getElementById(toggleId);
-  toggle.addEventListener('click', ()=>{
-    document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
-    document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
-  });
-}
-setupLangToggle('langToggleDesktop');
-setupLangToggle('langToggleMobile');
-</script>
-
-
 
 <section class="hero">
   <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna Island">
@@ -229,26 +208,32 @@ setupLangToggle('langToggleMobile');
 </div>
 
 <script>
-const toggle = document.getElementById('langToggle');
-toggle.addEventListener('click',()=>{
-  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
-  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+// Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', ()=>{
+  mobileMenu.classList.toggle('hidden');
 });
 
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+// Language toggle for desktop & mobile
+function setupLangToggle(toggleId){
+  const toggle = document.getElementById(toggleId);
+  toggle.addEventListener('click', ()=>{
+    document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+    document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+  });
 }
+setupLangToggle('langToggleDesktop');
+setupLangToggle('langToggleMobile');
 
 // WeChat popup
 const popup = document.getElementById('wechatPopup');
-popup.style.display='none';
-function openWechat(){
-  popup.style.display='flex';
-  document.body.style.overflow='hidden';
-}
-function closeWechat(){
-  popup.style.display='none';
-  document.body.style.overflow='';
+function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
+function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
+
+// Scroll to section (if needed)
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 </script>
 
