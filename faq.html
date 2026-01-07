@@ -5,59 +5,171 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>常见问题 | FAQ - Semporna Tours</title>
 <style>
-:root{--main:#00c2d1;--bg:#f6fbfc;--card:#fff;--radius:16px;--shadow:0 16px 34px rgba(0,0,0,.08);}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:var(--bg);color:#0e2a33;line-height:1.75;}
-/* Header/Nav Styles same as index.html */
+:root{
+  --main:#00c2d1;
+  --bg:#f6fbfc;
+  --card:#fff;
+  --radius:16px;
+  --shadow:0 16px 34px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
+a{text-decoration:none;color:inherit}
+
+/* Header/Nav */
 header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
 .nav-container{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
 .nav-container b.logo{color:var(--main);font-size:1.3rem;}
-.nav-links{display:flex;gap:15px;align-items:center;}.nav-links a{font-weight:600;font-size:0.95rem;text-decoration:none;color:#0e2a33;}
-.nav-links a.active{color:var(--main);}.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;border:none;cursor:pointer;}
+.nav-links{display:flex;gap:15px;align-items:center;}
+.nav-links a{font-weight:600;font-size:0.95rem;color:#0e2a33;}
+.nav-links a.active{color:var(--main);}
+.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;border:none;cursor:pointer;font-weight:600;}
+
+/* FAQ Styling */
+section{max-width:900px;margin:auto;padding:60px 20px;}
+.faq-header{text-align:center; margin-bottom: 50px;}
+.faq-item{background:var(--card);padding:25px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px;cursor:pointer;transition: 0.3s;}
+.faq-item:hover{transform: translateY(-2px);}
+.faq-question{margin:0;color:var(--main);font-size:1.1rem;display:flex;justify-content:space-between;align-items:center;font-weight: 700;}
+.faq-answer{margin-top:15px;display:none;border-top:1px solid #eee;padding-top:15px;color:#555;animation: fadeIn 0.4s ease;}
+.icon-toggle{font-size: 1.2rem; transition: 0.3s;}
+.active .icon-toggle{transform: rotate(45deg);}
+
+.cta-box{text-align:center; margin-top: 60px; padding: 40px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);}
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;margin-top:15px;cursor:pointer;}
+
+@keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
 .hidden{display:none !important;}
 
-/* FAQ Content */
-section{max-width:900px;margin:auto;padding:60px 20px;}
-.faq-item{background:#fff;padding:25px;border-radius:16px;box-shadow:var(--shadow);margin-bottom:20px;cursor:pointer;}
-.faq-item h3{margin:0;color:var(--main);font-size:1.1rem;display:flex;justify-content:space-between;align-items:center;}
-.faq-answer{margin-top:15px;display:none;border-top:1px solid #eee;padding-top:15px;color:#555;}
+@media(max-width:768px){
+  .nav-links a:not(.active){display:none;} /* Simplified for small screens */
+}
 </style>
 </head>
 <body>
+
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
     <div class="nav-links">
-      <a href="index.html">首页 / Home</a> <a href="pricing.html">价格 / Pricing</a> <a href="accommodation.html">住宿 / Accommodation</a>
-      <a href="gallery.html">相册 / Gallery</a> <a href="faq.html" class="active">FAQ</a> <button id="langToggle" class="lang-btn">🇨🇳/🇬🇧</button>
+      <a href="index.html">首页 / Home</a> 
+      <a href="pricing.html">价格 / Pricing</a> 
+      <a href="accommodation.html">住宿 / Accommodation</a>
+      <a href="gallery.html">相册 / Gallery</a> 
+      <a href="faq.html" class="active">FAQ</a> 
+      <button id="langToggle" class="lang-btn">🇨🇳/🇬🇧</button>
     </div>
   </nav>
 </header>
 
 <section>
-  <h2 class="cn" style="text-align:center">常见问题</h2><h2 class="en hidden" style="text-align:center">Frequently Asked Questions</h2>
+  <div class="faq-header">
+    <h2 class="cn">常见问题解答</h2>
+    <h2 class="en hidden">Frequently Asked Questions</h2>
+    <p class="cn">关于仙本那旅行的一切，您都可以在这里找到答案</p>
+    <p class="en hidden">Find answers to common questions about your Semporna trip</p>
+  </div>
   
   <div class="faq-item" onclick="toggleFAQ(this)">
-    <h3><span class="cn">1. 什么时候是最佳潜水季节？</span><span class="en hidden">1. When is the best diving season?</span> <span>+</span></h3>
+    <div class="faq-question">
+      <span class="cn">1. 仙本那最佳旅行时间是几月？</span>
+      <span class="en hidden">1. When is the best time to visit Semporna?</span> 
+      <span class="icon-toggle">+</span>
+    </div>
     <div class="faq-answer">
-      <p class="cn">仙本那全年都适合潜水。最佳天气通常在 3 月至 10 月。11 月至 2 月会有偶发降雨，但不影响出海。</p>
-      <p class="en hidden">Semporna is a year-round destination. Peak weather is March-October. Nov-Feb may have brief rains but trips still run.</p>
+      <p class="cn">仙本那位于赤道附近，全年都适合潜水。最佳天气通常在 3月至 10月。11月至 2月是雨季，但降雨通常来得快去得快，基本不影响出海。</p>
+      <p class="en hidden">Located near the equator, Semporna is a year-round destination. Peak season is March-October. Rainy season (Nov-Feb) features quick tropical showers that rarely cancel boat trips.</p>
     </div>
   </div>
 
   <div class="faq-item" onclick="toggleFAQ(this)">
-    <h3><span class="cn">2. 考证需要提前多久预订？</span><span class="en hidden">2. How far in advance should I book?</span> <span>+</span></h3>
-    <div class="faq-answer">
-      <p class="cn">特别是诗巴丹名额，建议提前 1-2 个月预订。普通考证和跳岛建议提前 2 周。</p>
-      <p class="en hidden">For Sipadan permits, book 1-2 months ahead. For courses and island hopping, 2 weeks is usually enough.</p>
+    <div class="faq-question">
+      <span class="cn">2. 考证或行程需要提前多久预订？</span>
+      <span class="en hidden">2. How far in advance should I book?</span> 
+      <span class="icon-toggle">+</span>
     </div>
+    <div class="faq-answer">
+      <p class="cn">如果是诗巴丹 (Sipadan) 名额，建议提前 1-2 个月。普通 PADI 考证、跳岛游建议至少提前 2 周预订以确保有名额。</p>
+      <p class="en hidden">For Sipadan permits, book 1-2 months ahead. For PADI courses and standard island hopping, we recommend booking at least 2 weeks in advance.</p>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">
+      <span class="cn">3. 潜水后多久可以坐飞机？</span>
+      <span class="en hidden">3. How long after diving can I fly?</span> 
+      <span class="icon-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <p class="cn">为了您的安全，单次潜水后建议 12 小时内不要飞行；多次潜水（如 2-3 天行程）建议 18-24 小时内不要飞行。请合理安排离境机票。</p>
+      <p class="en hidden">For safety, wait 12 hours after a single dive and 18-24 hours after multiple dives (typical of our packages) before flying. Please plan your return flights accordingly.</p>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">
+      <span class="cn">4. 如何到达仙本那？</span>
+      <span class="en hidden">4. How do I get to Semporna?</span> 
+      <span class="icon-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <p class="cn">您需要先飞往**斗湖 (Tawau, TWU)** 机场。从斗湖机场乘车到仙本那镇大约需要 70-90 分钟。我们可以为您安排接机服务。</p>
+      <p class="en hidden">You need to fly into **Tawau (TWU)** airport. From there, it's a 70-90 minute car ride to Semporna town. We can arrange airport transfers for you.</p>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">
+      <span class="cn">5. 不会游泳可以参加体验潜水 (DSD) 吗？</span>
+      <span class="en hidden">5. Can I try Scuba Diving if I can't swim?</span> 
+      <span class="icon-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <p class="cn">可以！体验潜水 (Discover Scuba Diving) 不需要您会游泳，全程会有专业教练一对一或一对二带领。您只需要放松呼吸，欣赏海底美景。</p>
+      <p class="en hidden">Yes! Discover Scuba Diving doesn't require swimming skills. You'll be closely guided by a professional instructor. Just focus on breathing and enjoying the view.</p>
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">
+      <span class="cn">6. 行程包含潜水装备吗？</span>
+      <span class="en hidden">6. Is diving equipment included?</span> 
+      <span class="icon-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      <p class="cn">是的，我们的 DSD 体验潜水和 PADI 课程费用已包含全套装备租赁。持证 Fun Dive 潜水员如自带装备可享受相应折扣。</p>
+      <p class="en hidden">Yes, our DSD and PADI course prices include full gear rental. Certified Fun Divers who bring their own gear may receive a discount.</p>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3 class="cn">还有其他问题？</h3>
+    <h3 class="en hidden">Still have questions?</h3>
+    <p class="cn">直接微信联系我，获取更详细的建议</p>
+    <p class="en hidden">Contact me directly on WeChat for personalized advice</p>
+    <a href="contact.html" class="btn">立即咨询 / Contact Us</a>
   </div>
 </section>
 
 <script>
-function toggleFAQ(el){const ans=el.querySelector('.faq-answer');ans.style.display=ans.style.display==='block'?'none':'block';}
+function toggleFAQ(el){
+  const ans = el.querySelector('.faq-answer');
+  const isVisible = ans.style.display === 'block';
+  
+  // Close all others (optional, for accordion effect)
+  document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+  
+  if(!isVisible){
+    ans.style.display = 'block';
+    el.classList.add('active');
+  }
+}
+
 document.getElementById('langToggle').addEventListener('click',()=>{
-  document.querySelectorAll('.cn,.en').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
 });
 </script>
+
 </body>
 </html>
