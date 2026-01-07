@@ -1,29 +1,29 @@
 /* main.js */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Language Toggle
-    const toggleButtons = [document.getElementById('langToggleDesktop'), document.getElementById('langToggleMobile')];
-    toggleButtons.forEach(btn => {
-        if(btn) {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.cn, .en').forEach(el => el.classList.toggle('hidden'));
-            });
-        }
-    });
-
-    // 2. Mobile Menu Toggle
+    // 1. Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    if(hamburger && mobileMenu) {
+    if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
     }
+
+    // 2. Language switch logic
+    const langBtnDesktop = document.getElementById('langToggleDesktop');
+    const langBtnMobile = document.getElementById('langToggleMobile');
+    const toggleFunc = () => {
+        document.querySelectorAll('.cn, .en').forEach(e => e.classList.toggle('hidden'));
+    };
+
+    if (langBtnDesktop) langBtnDesktop.addEventListener('click', toggleFunc);
+    if (langBtnMobile) langBtnMobile.addEventListener('click', toggleFunc);
 });
 
-// 3. WeChat Popup Logic (Global Functions)
+// 3. WeChat Popup Functions (Global)
 function openWechat() {
     const popup = document.getElementById('wechatPopup');
-    if(popup) {
+    if (popup) {
         popup.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
@@ -31,7 +31,7 @@ function openWechat() {
 
 function closeWechat() {
     const popup = document.getElementById('wechatPopup');
-    if(popup) {
+    if (popup) {
         popup.style.display = 'none';
         document.body.style.overflow = '';
     }
