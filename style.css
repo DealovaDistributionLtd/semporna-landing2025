@@ -1,0 +1,57 @@
+/* style.css - MASTER STYLES */
+:root {
+  --main: #00c2d1;
+  --bg: #f6fbfc;
+  --card: #fff;
+  --radius: 16px;
+  --shadow: 0 16px 34px rgba(0,0,0,.08);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Segoe UI, Roboto, Arial;
+  background: var(--bg); color: #0e2a33; line-height: 1.75;
+}
+a { text-decoration: none; color: inherit; }
+img { width: 100%; display: block; }
+.hidden { display: none !important; }
+
+/* Header/Nav - Master Style */
+header { position: sticky; top: 0; z-index: 99; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.05); }
+.nav-container {
+  max-width: 1200px; margin: auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; position: relative;
+}
+.nav-container b.logo { color: var(--main); font-size: 1.3rem; }
+.nav-links { display: flex; gap: 15px; align-items: center; }
+.nav-links a, .nav-links button {
+  font-weight: 600; background: none; border: none; cursor: pointer; color: #0e2a33; font-size: 0.95rem; transition: 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--main); }
+.nav-links button.lang-btn { background: var(--main); color: #fff; padding: 6px 12px; border-radius: 12px; margin-left: 5px; }
+
+/* Mobile Menu Logic */
+.hamburger { display: none; font-size: 1.6rem; background: none; border: none; cursor: pointer; color: var(--main); }
+.mobile-menu {
+  position: absolute; top: 100%; left: 0; width: 100%; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  display: flex; flex-direction: column; padding: 20px; z-index: 100;
+}
+.mobile-menu a, .mobile-menu button { margin-bottom: 14px; font-weight: 600; text-align: left; font-size: 1.1rem; }
+.mobile-menu button.lang-btn { background: var(--main); color: #fff; padding: 8px 12px; border-radius: 12px; align-self: flex-start; }
+
+/* Hero Global */
+.hero { position: relative; min-height: 35vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; background: #000; overflow: hidden; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6; }
+.hero-content { position: relative; z-index: 2; max-width: 900px; padding: 20px; animation: fadeUp 1s ease; }
+
+/* Floating WeChat */
+.floating-wechat { position: fixed; bottom: 25px; right: 25px; z-index: 999; cursor: pointer; transition: 0.3s; }
+.floating-wechat img { width: 65px; height: 65px; border-radius: 16px; box-shadow: var(--shadow); }
+
+/* WeChat Popup - Master Style */
+.wechat-popup { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000; }
+.wechat-box { background: #fff; padding: 35px; border-radius: 24px; text-align: center; max-width: 350px; }
+.wechat-box img { width: 100%; max-width: 220px; border-radius: 16px; margin: 0 auto 15px; }
+.wechat-box button { background: var(--main); color: #fff; border: none; padding: 10px 20px; border-radius: 24px; margin-top: 12px; cursor: pointer; font-weight: 700; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+@media(max-width: 992px) { .nav-links { display: none; } .hamburger { display: block; } }
