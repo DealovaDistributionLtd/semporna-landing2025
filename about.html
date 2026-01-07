@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>关于我们 / About</title>
+<title>关于我们 / About | Semporna Tours</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,8 +11,6 @@
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
-
-    <!-- Desktop Menu -->
     <div class="nav-links">
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
@@ -24,12 +22,8 @@
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
-    <!-- Mobile Hamburger -->
     <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
-
-  <!-- Mobile Menu -->
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
@@ -39,38 +33,51 @@
     <a href="about.html">关于我们 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
     <a href="contact.html">联系 / Contact</a>
-
-    <!-- Language toggle always LAST -->
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
+<section>
+  <h2 class="cn">关于我们</h2>
+  <h2 class="en hidden">About Us</h2>
 
-<section class="hero">
-  <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
-  <div class="hero-content">
-    <h1 class="cn">我们的故事</h1>
-    <h1 class="en hidden">Our Story</h1>
+  <p class="cn">我们是一支经验丰富的本地团队，专注于仙本那潜水与跳岛体验。每一次旅行都由持证教练带队，确保安全与乐趣。</p>
+  <p class="en hidden">We are an experienced local team specializing in diving & island hopping tours in Semporna. Every trip is led by licensed instructors to ensure safety and fun.</p>
+</section>
+
+<section>
+  <h2 class="cn">我们的团队</h2>
+  <h2 class="en hidden">Our Team</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3 class="cn">教练 Deso_89</h3>
+      <h3 class="en hidden">Instructor Deso_89</h3>
+      <p class="cn">持证潜水教练，超过10年经验</p>
+      <p class="en hidden">Certified diving instructor with 10+ years experience</p>
+    </div>
+    <div class="card">
+      <h3 class="cn">本地向导团队</h3>
+      <h3 class="en hidden">Local Guides</h3>
+      <p class="cn">熟悉每一个潜点与岛屿</p>
+      <p class="en hidden">Expertise of every dive spot & island</p>
+    </div>
   </div>
 </section>
 
-<section class="grid">
-  <div class="card">
-    <h3 class="cn">本地团队</h3>
-    <h3 class="en hidden">Local Team</h3>
-    <p class="cn">多年仙本那经验，熟悉每一片海域</p>
-    <p class="en hidden">Years of experience in Semporna waters</p>
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat">
+</div>
+
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p>扫码添加微信咨询 / Add WeChat</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
   </div>
+</div>
 
-  <div class="card">
-    <h3 class="cn">安全第一</h3>
-    <h3 class="en hidden">Safety First</h3>
-    <p class="cn">持证教练，定期设备检查</p>
-    <p class="en hidden">Licensed instructors & regular equipment checks</p>
-  </div>
-</section>
-
-<!-- WECHAT -->
-
+<script src="js/main.js" defer></script>
 </body>
 </html>
