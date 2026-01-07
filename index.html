@@ -65,81 +65,80 @@ h2{text-align:center;margin-bottom:36px}
 <div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
 
 <header>
-  <nav>
-    <b>仙本那 · 海岛之旅 / Semporna Tours</b>
-    <div class="nav-links" id="navLinks">
+  <nav class="nav-container">
+    <b class="logo">仙本那 · 海岛 / Semporna Tours</b>
+
+    <!-- Desktop Menu -->
+    <div class="nav-links">
       <a href="index.html">首页 / Home</a>
-      <a href="accommodation.html">住宿 / Accommodation</a>
       <a href="pricing.html">行程价格 / Pricing</a>
-      <a onclick="openWechat()">微信 / WeChat</a>
+      <a href="accommodation.html">住宿 / Accommodation</a>
+      <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-    <div class="nav-toggle" id="navToggle">☰</div>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu hidden" id="mobileMenu">
+    <a href="index.html">首页 / Home</a>
+    <a href="pricing.html">行程价格 / Pricing</a>
+    <a href="accommodation.html">住宿 / Accommodation</a>
+    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
+  </div>
 </header>
 
 <style>
-/* Nav styles */
-nav {
-  max-width:1100px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:relative;
+.nav-container{
+  max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
 }
-nav b{color:var(--main);font-size:1.2rem;cursor:pointer}
-.nav-links{
-  display:flex;
-  gap:18px;
+.nav-container b.logo{color:var(--main);font-size:1.2rem;}
+.nav-links a, .nav-links button{
+  margin-left:18px;font-weight:600;text-decoration:none;color:#0e2a33;
+  background:none;border:none;cursor:pointer;font-size:1rem;
 }
-.nav-links a{
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
+.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;}
+.hamburger{
+  display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;
 }
-.nav-links a:hover{color:#0096a6;}
-.nav-toggle{
-  display:none;
-  font-size:1.8rem;
-  cursor:pointer;
-  user-select:none;
+.mobile-menu{
+  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
+  display:flex;flex-direction:column;padding:20px;
 }
+.mobile-menu a, .mobile-menu button{
+  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
+}
+.mobile-menu button.lang-btn{background:var(--main);color:#fff;padding:8px 12px;border-radius:12px;}
+.hidden{display:none !important;}
 
-/* Mobile responsive */
-@media screen and (max-width:768px){
-  .nav-links{
-    position:absolute;
-    top:60px;
-    right:0;
-    background:#fff;
-    flex-direction:column;
-    width:200px;
-    padding:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
-    border-radius:0 0 16px 16px;
-    transform:translateX(100%);
-    transition:transform .3s ease;
-    z-index:99;
-  }
-  .nav-links.active{transform:translateX(0);}
-  .nav-toggle{display:block;}
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:block;}
 }
 </style>
 
 <script>
-// Mobile nav toggle
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', ()=>{
-  navLinks.classList.toggle('active');
+// Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', ()=>{
+  mobileMenu.classList.toggle('hidden');
 });
 
-// Optional: close nav when link clicked
-document.querySelectorAll('.nav-links a').forEach(link=>{
-  link.addEventListener('click', ()=>{ navLinks.classList.remove('active'); });
-});
+// Language toggle
+function setupLangToggle(toggleId){
+  const toggle = document.getElementById(toggleId);
+  toggle.addEventListener('click', ()=>{
+    document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+    document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+  });
+}
+setupLangToggle('langToggleDesktop');
+setupLangToggle('langToggleMobile');
 </script>
+
 
 
 <section class="hero">
