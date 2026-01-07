@@ -3,20 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>旅行评价 | Customer Stories - Semporna Tours</title>
+<title>客户评价 | Reviews - Semporna Tours</title>
 <style>
 :root{
   --main:#00c2d1;
   --bg:#f6fbfc;
   --card:#fff;
-  --radius:20px;
+  --radius:16px;
   --shadow:0 16px 34px rgba(0,0,0,.08);
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
 a{text-decoration:none;color:inherit}
+img{width:100%;display:block}
 
-/* HEADER / NAV - FIXED */
+/* Header/Nav - Fixed Logic */
 header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
 .nav-container{
   max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
@@ -29,7 +30,7 @@ header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rg
 .nav-links a:hover, .nav-links a.active{color:var(--main);}
 .nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;margin-left:5px;}
 
-/* Mobile Menu Logic */
+/* Hamburger */
 .hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
 .mobile-menu{
   position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
@@ -42,39 +43,36 @@ header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rg
 .hidden{display:none !important;}
 
 /* Hero */
-.hero{position:relative;min-height:35vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200'); background-size: cover; background-position: center;}
-.hero h1{font-size:clamp(1.8rem,5vw,2.8rem);margin:0; animation:fadeUp 1s ease;}
+.hero{position:relative;min-height:30vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;overflow: hidden;}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity: 0.5;}
+.hero-content{position:relative; z-index: 2; max-width:900px;padding:20px; animation:fadeUp 1s ease;}
 
-/* Stats Bar */
-.stats-bar{background:#fff; padding:30px; border-radius:var(--radius); box-shadow:var(--shadow); display:flex; justify-content:space-around; align-items:center; margin-top:-40px; position:relative; z-index:5; max-width:1000px; margin: 0 auto; border: 1px solid #f0f0f0;}
-.stat-item{text-align:center;}
-.stat-item h4{font-size:1.8rem; margin:0; color:var(--main);}
-
-/* Reviews */
-section{max-width:1100px;margin:auto;padding:60px 20px;}
-.review-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
-.review-card{background:var(--card);padding:35px;border-radius:var(--radius);box-shadow:var(--shadow);border-left: 5px solid transparent;transition:.3s;}
-.review-card:hover{transform:translateY(-5px); border-left-color: var(--main);}
-.stars{color: #ffcc00; font-size: 1rem; margin-bottom: 12px;}
-.user-info{border-top: 1px solid #f0f0f0; padding-top: 15px; margin-top: 20px; font-weight: 700; color: var(--main);}
-
-/* WECHAT POPUP - RESTORED STRUCTURE */
-.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:1000;}
-.wechat-box{background:#fff;padding:40px;border-radius:24px;text-align:center;max-width:380px;position:relative;}
-.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin:0 auto 15px;display:block;}
+/* Grid & Cards */
+section{max-width:1100px;margin:auto;padding:40px 20px;}
+.grid{display:grid;gap:25px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.card{background:var(--card);padding:30px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s;display: flex;flex-direction: column;}
+.card:hover{transform:translateY(-5px);}
+.stars{color: #ffcc00; font-size: 1.2rem; margin-bottom: 10px;}
+.card p{font-style: italic; color: #444; margin-bottom: 15px; flex-grow: 1;}
+.card strong{color: var(--main); font-size: 1rem;}
 
 /* Floating WeChat */
 .floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
-.floating-wechat img{width:65px;height:65px;border-radius:18px;box-shadow:var(--shadow);}
+.floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
 
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;}
+/* WeChat Popup - RESTORED ORIGINAL STRUCTURE */
+.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:1000;display:none;}
+.wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:350px;position:relative;}
+.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin:0 auto 15px;}
+.wechat-box button{background:var(--main);color:#fff;border:none;padding:10px 20px;border-radius:24px;margin-top:12px;cursor:pointer;}
+
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 24px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 
 @media(max-width:992px){
   .nav-links{display:none;}
   .hamburger{display:block;}
-  .stats-bar{flex-direction:column; gap:20px; margin: 0 20px;}
 }
 </style>
 </head>
@@ -111,53 +109,71 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
 </header>
 
 <section class="hero">
+  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000" alt="Reviews Hero">
   <div class="hero-content">
-    <h1 class="cn">真实的旅行评价</h1>
-    <h1 class="en hidden">Real Travel Reviews</h1>
+    <h1 class="cn">来自真实的旅行心声</h1>
+    <h1 class="en hidden">Voices from Real Travelers</h1>
+    <p class="cn">12年坚持，只为换来您的一句“值得”</p>
+    <p class="en hidden">12 years of passion, all for your "worth it" moment</p>
   </div>
 </section>
 
-<div class="stats-bar">
-  <div class="stat-item">
-    <h4>100+</h4>
-    <p class="cn">真实好评</p><p class="en hidden">Real Reviews</p>
-  </div>
-  <div class="stat-item">
-    <h4>4.9/5</h4>
-    <p class="cn">满意度</p><p class="en hidden">Satisfaction</p>
-  </div>
-  <div class="stat-item">
-    <h4>12年</h4>
-    <p class="cn">本地经验</p><p class="en hidden">Local Experience</p>
-  </div>
-</div>
-
 <section>
-  <div class="review-grid">
-    <div class="review-card">
+  <div class="grid">
+    <div class="card">
       <div class="stars">★★★★★</div>
-      <p class="cn">“Deso教练非常有耐心，特别是带老人深潜，全程一对一盯着，一点都不用担心。看到大海龟那一刻真的值了！”</p>
-      <p class="en hidden">"Coach Deso is so patient. He guided my parents 1-on-1 the whole time. Seeing the turtle was an unforgettable moment!"</p>
-      <div class="user-info">@成都张女士 / Ms. Zhang</div>
+      <p class="cn">“服务非常专业，潜水体验超棒！Deso 教练很有耐心，第一次深潜完全不紧张。”</p>
+      <p class="en hidden">"Amazing service and diving experience! Coach Deso was so patient, I wasn't nervous at all for my first dive."</p>
+      <strong>- 李小姐 / Miss Li</strong>
     </div>
 
-    <div class="review-card">
+    <div class="card">
       <div class="stars">★★★★★</div>
-      <p class="cn">“对比了几家最后还是选了Deso。没选错！没有购物套路，船很干净，特别是诗巴丹名额真的帮我圆梦了。”</p>
-      <p class="en hidden">"Chose Deso after much research. No regrets! Clean boats, no tourist traps, and he got me that Sipadan permit!"</p>
-      <div class="user-info">@潜客小王 / Mr. Wang</div>
+      <p class="cn">“小团体体验让我们非常舒适，不会像大团那样赶时间。海景阳台房美哭了！”</p>
+      <p class="en hidden">"Small group made everything very comfortable. No rushing like big tours. The ocean view room was stunning!"</p>
+      <strong>- John D.</strong>
+    </div>
+
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <p class="cn">“以前总觉得潜水很难，这次带我妈来体验，Deso教练全程一对一带着，老人一点都不害怕。钱花得值！”</p>
+      <p class="en hidden">"I thought diving was hard, but Deso guided my mother 1-on-1 and she wasn't scared. Worth every penny!"</p>
+      <strong>- 成都张女士 / Ms. Zhang</strong>
+    </div>
+
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <p class="cn">“住宿环境美丽，水上屋超赞！每天早上醒来就是大海，这就是我梦想的假期。”</p>
+      <p class="en hidden">"Beautiful rooms and overwater house was amazing! Waking up to the sea every morning was a dream."</p>
+      <strong>- 王先生 / Mr. Wang</strong>
+    </div>
+
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <p class="cn">“对比了好几家，最后选了Deso。没有购物套路，出海的小船很干净，特别是诗巴丹名额真的靠谱！”</p>
+      <p class="en hidden">"No tourist traps, clean boat, and most importantly, he secured the Sipadan permit for me!"</p>
+      <strong>- 潜水爱好者小王 / Mr. Wang</strong>
+    </div>
+
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <p class="cn">“诗巴丹的名额帮我拿到了，圆了我的潜水梦。专业的团队，行程安排非常合理。”</p>
+      <p class="en hidden">"They secured my Sipadan permit and fulfilled my diving dream. Perfectly planned itinerary."</p>
+      <strong>- Sarah Chen</strong>
     </div>
   </div>
 
-  <div style="text-align: center; margin-top: 60px;">
+  <div style="text-align: center; margin-top: 50px;">
+    <p class="cn">也想分享您的故事？</p>
+    <p class="en hidden">Want to share your story?</p>
     <button class="btn" onclick="openWechat()">
-      <span class="cn">咨询最新行程建议</span>
-      <span class="en hidden">Inquire Latest Itinerary</span>
+      <span class="cn">立即联系 / Contact Us</span>
+      <span class="en hidden">Contact Now</span>
     </button>
   </div>
 </section>
 
-<footer style="text-align:center; padding:40px 20px; border-top: 1px solid #eee;">
+<footer style="text-align:center; padding:40px 20px; background: #eee;">
   <p>© Semporna Tours - Coach Deso_89</p>
 </footer>
 
@@ -167,37 +183,31 @@ section{max-width:1100px;margin:auto;padding:60px 20px;}
 
 <div id="wechatPopup" class="wechat-popup">
   <div class="wechat-box">
-    <p class="cn">扫码添加微信分享评价<br>咨询行程建议</p>
-    <p class="en hidden">Add WeChat to share feedback<br>or inquire itinerary</p>
+    <p class="cn">扫码添加微信分享您的评价</p>
+    <p class="en hidden">Add WeChat to share your review</p>
     <img src="wechat-qr.jpg" alt="WeChat QR">
-    <br><strong>ID: Deso_89</strong><br>
-    <button onclick="closeWechat()" class="btn" style="width: 100%; margin-top: 20px;">关闭 / Close</button>
+    <strong>ID: Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
   </div>
 </div>
 
 <script>
-// Menu logic
+// Header Logic
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
 
-// Language Switch
+// Language Logic
 function toggleLang() {
   document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
 }
 document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
 document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
 
-// WeChat Popup Logic
+// WeChat Logic
 const popup = document.getElementById('wechatPopup');
-function openWechat(){ 
-  popup.style.display='flex'; 
-  document.body.style.overflow='hidden'; 
-}
-function closeWechat(){ 
-  popup.style.display='none'; 
-  document.body.style.overflow=''; 
-}
+function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
+function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
 </script>
 
 </body>
