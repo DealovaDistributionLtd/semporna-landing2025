@@ -19,15 +19,35 @@ img { width: 100%; display: block; }
 /* Header/Nav - Master Style */
 header { position: sticky; top: 0; z-index: 99; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.05); }
 .nav-container {
-  max-width: 1200px; margin: auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; position: relative;
+  max-width: 1200px; margin: auto; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: relative;
 }
-.nav-container b.logo { color: var(--main); font-size: 1.3rem; }
+
+/* NEW: Logo Image Styles */
+.nav-logo {
+  height: 50px;       /* Adjust height as needed */
+  width: auto;        /* Maintains aspect ratio */
+  display: block;
+  object-fit: contain;
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links { display: flex; gap: 15px; align-items: center; }
 .nav-links a, .nav-links button {
   font-weight: 600; background: none; border: none; cursor: pointer; color: #0e2a33; font-size: 0.95rem; transition: 0.2s;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--main); }
-.nav-links button.lang-btn { background: var(--main); color: #fff; padding: 6px 12px; border-radius: 12px; margin-left: 5px; }
+
+/* Updated: Pill-shaped Language Button */
+.nav-links button.lang-btn { 
+  background: var(--main); 
+  color: #fff; 
+  padding: 8px 16px; 
+  border-radius: 24px; 
+  margin-left: 5px; 
+}
 
 /* Mobile Menu Logic */
 .hamburger { display: none; font-size: 1.6rem; background: none; border: none; cursor: pointer; color: var(--main); }
@@ -36,22 +56,85 @@ header { position: sticky; top: 0; z-index: 99; background: #fff; box-shadow: 0 
   display: flex; flex-direction: column; padding: 20px; z-index: 100;
 }
 .mobile-menu a, .mobile-menu button { margin-bottom: 14px; font-weight: 600; text-align: left; font-size: 1.1rem; }
-.mobile-menu button.lang-btn { background: var(--main); color: #fff; padding: 8px 12px; border-radius: 12px; align-self: flex-start; }
 
-/* Hero Global */
-.hero { position: relative; min-height: 35vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; background: #000; overflow: hidden; }
-.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6; }
-.hero-content { position: relative; z-index: 2; max-width: 900px; padding: 20px; animation: fadeUp 1s ease; }
+/* Updated: Pill-shaped Language Button (Mobile) */
+.mobile-menu button.lang-btn { 
+  background: var(--main); 
+  color: #fff; 
+  padding: 10px 20px; 
+  border-radius: 24px; 
+  align-self: flex-start; 
+}
+
+/* HERO GLOBAL - Standardized */
+.hero { 
+  position: relative; 
+  min-height: 60vh; /* Standard height for all pages */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  color: #fff; 
+  background: #000; 
+  overflow: hidden; 
+}
+
+/* Gradient Overlay for Text Readability */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+  z-index: 2;
+}
+
+.hero img { 
+  position: absolute; 
+  inset: 0; 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  z-index: 1; 
+}
+
+.hero-content { 
+  position: relative; 
+  z-index: 3; 
+  max-width: 900px; 
+  padding: 20px; 
+  animation: fadeUp 1s ease; 
+}
+
+/* Global Card Button Style */
+.card-btn { 
+  display: inline-block; 
+  background: var(--main); 
+  color: #fff; 
+  font-weight: 700; 
+  padding: 12px 28px; 
+  border-radius: 30px; 
+  border: none; 
+  cursor: pointer; 
+  margin-top: 15px; 
+  text-decoration: none; 
+  transition: 0.3s;
+}
+.card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,194,209,0.4);
+}
 
 /* Floating WeChat */
 .floating-wechat { position: fixed; bottom: 25px; right: 25px; z-index: 999; cursor: pointer; transition: 0.3s; }
 .floating-wechat img { width: 65px; height: 65px; border-radius: 16px; box-shadow: var(--shadow); }
+.floating-wechat:hover { transform: scale(1.1); }
 
 /* WeChat Popup - Master Style */
 .wechat-popup { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000; }
-.wechat-box { background: #fff; padding: 35px; border-radius: 24px; text-align: center; max-width: 350px; }
+.wechat-box { background: #fff; padding: 35px; border-radius: 24px; text-align: center; max-width: 350px; position: relative; animation: fadeUp 0.3s ease; }
 .wechat-box img { width: 100%; max-width: 220px; border-radius: 16px; margin: 0 auto 15px; }
-.wechat-box button { background: var(--main); color: #fff; border: none; padding: 10px 20px; border-radius: 24px; margin-top: 12px; cursor: pointer; font-weight: 700; }
+.wechat-box button { background: var(--main); color: #fff; border: none; padding: 10px 25px; border-radius: 24px; margin-top: 12px; cursor: pointer; font-weight: 700; transition: 0.3s; }
+.wechat-box button:hover { opacity: 0.9; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
 @media(max-width: 992px) { .nav-links { display: none; } .hamburger { display: block; } }
