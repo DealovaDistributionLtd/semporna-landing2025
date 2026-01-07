@@ -7,35 +7,89 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* Page-Specific Layout */
-        section { max-width: 1100px; margin: auto; padding: 60px 20px; }
-        .grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-        .card { background: var(--card); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); transition: .3s; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-8px); }
-        .card h3 { margin: 15px 0 10px; color: var(--main); font-size: 1.4rem; }
-        .card ul { padding-left: 20px; flex-grow: 1; margin-bottom: 20px; }
-        .card li { margin-bottom: 8px; line-height: 1.5; font-size: 0.95rem; }
+        section { max-width: 1200px; margin: auto; padding: 60px 20px; }
+        
+        .grid { display: grid; gap: 35px; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+        
+        /* Modernized Cards */
+        .card { 
+            background: var(--card); 
+            border-radius: var(--radius); 
+            box-shadow: var(--shadow); 
+            transition: .35s cubic-bezier(0.4, 0, 0.2, 1); 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
 
-        /* Slider Styles - Page Specific */
-        .slider { position: relative; overflow: hidden; border-radius: 12px; aspect-ratio: 3 / 2; background: #eee; }
-        .slider img { width: 100%; height: 100%; object-fit: cover; display: none; transition: opacity 0.3s ease; }
-        .slider img.active { display: block; }
+        /* Badge Styles */
+        .card-badge {
+            position: absolute; top: 15px; left: 15px; z-index: 10;
+            background: var(--main); color: #fff; padding: 5px 12px;
+            border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        
+        .card h3 { margin: 0 0 10px; color: #0e2a33; font-size: 1.5rem; }
+        
+        .amenities { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+            margin: 15px 0 25px; padding: 0; list-style: none;
+        }
+        .amenities li { font-size: 0.85rem; color: #555; display: flex; align-items: center; gap: 8px; }
+
+        /* Slider Enhancements */
+        .slider { position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: #f0f0f0; }
+        .slider img { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .slider img.active { display: block; animation: fadeEffect 0.5s; }
+        @keyframes fadeEffect { from { opacity: 0.5; } to { opacity: 1; } }
+        
+        .slider-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 40%; background: linear-gradient(transparent, rgba(0,0,0,0.4));
+            pointer-events: none;
+        }
+
         .slider button { 
             position: absolute; top: 50%; transform: translateY(-50%); 
-            background: rgba(0,0,0,0.5); color: #fff; border: none; padding: 10px 15px; 
+            background: rgba(255,255,255,0.9); color: #333; border: none; width: 35px; height: 35px;
             border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.2s;
         }
-        .slider button:hover { background: var(--main); }
-        .slider .prev { left: 10px; }
-        .slider .next { right: 10px; }
+        .slider button:hover { background: var(--main); color: #fff; }
+        .slider .prev { left: 15px; }
+        .slider .next { right: 15px; }
 
-        .btn-card { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 24px; border-radius: 30px; transition: .3s; text-align: center; border: none; cursor: pointer; width: 100%; }
+        .btn-card { 
+            display: inline-block; background: var(--main); color: #fff; 
+            font-weight: 700; padding: 14px; border-radius: 12px; 
+            transition: .3s; text-align: center; border: none; cursor: pointer; 
+            width: 100%; font-size: 1rem;
+        }
+        .btn-card:hover { filter: brightness(1.1); }
+
+        /* Trust Section */
+        .trust-banner {
+            background: #fff; border-radius: var(--radius); padding: 30px;
+            margin-top: 50px; display: flex; flex-wrap: wrap; gap: 20px;
+            justify-content: space-around; text-align: center; box-shadow: var(--shadow);
+        }
+        .trust-item b { display: block; color: var(--main); font-size: 1.2rem; margin-bottom: 5px; }
+        .trust-item span { font-size: 0.9rem; color: #666; }
     </style>
 </head>
 <body>
 
 <header>
     <nav class="nav-container">
-        <b class="logo">Semporna Tours</b>
+        <a href="index.html" class="logo-box">
+            <img src="images/logo.jpg" alt="Logo" class="site-logo">
+        </a>
         <div class="nav-links">
             <a href="index.html">首页 / Home</a>
             <a href="pricing.html">价格 / Pricing</a>
@@ -47,57 +101,52 @@
             <a href="contact.html">联系 / Contact</a>
             <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
         </div>
-        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        <button class="hamburger" id="hamburger">&#9776;</button>
     </nav>
-
-    <div class="mobile-menu hidden" id="mobileMenu">
-        <a href="index.html">首页 / Home</a>
-        <a href="pricing.html">价格 / Pricing</a>
-        <a href="accommodation.html" class="active">住宿 / Accommodation</a>
-        <a href="gallery.html">相册 / Gallery</a>
-        <a href="reviews.html">评价 / Reviews</a>
-        <a href="about.html">关于 / About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">联系 / Contact</a>
-        <button id="langToggleMobile" class="lang-btn">🇨🇳 /🇬🇧</button>
-    </div>
 </header>
 
-<section class="hero">
+<section class="hero" style="min-height: 45vh;">
     <img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Stay">
     <div class="hero-content">
         <h1 class="cn">枕着海浪声入眠</h1>
         <h1 class="en hidden">Sleep with the Sound of Waves</h1>
-        <p class="cn">从梦幻水上屋到高性价比潜服中心，为您精选避世居所</p>
-        <p class="en hidden">From overwater villas to cozy dive centers - handpicked for you</p>
+        <p class="cn">12年专业品质 · 为您精选仙本那高性价比避世居所</p>
+        <p class="en hidden">12 Years Expertise · Handpicked premium stays in Semporna</p>
     </div>
 </section>
 
 <section id="rooms">
     <div class="grid">
         <div class="card">
+            <div class="card-badge">Top Choice / 热门推荐</div>
             <div class="slider" data-current="0">
                 <img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg" class="active" alt="Room 1A">
                 <img src="images/8a80818a9392f1f5019394dd1d654120_534811.jpg" alt="Room 1B">
                 <img src="images/8a80818a9392f1f5019394dd1d654120_613304.jpg" alt="Room 1C">
+                <div class="slider-overlay"></div>
                 <button class="prev" onclick="changeSlide(this, -1)">‹</button>
                 <button class="next" onclick="changeSlide(this, 1)">›</button>
             </div>
-            <h3 class="cn">海景大床房</h3>
-            <h3 class="en hidden">Ocean View Room</h3>
-            <ul class="cn">
-                <li>水上私人房，1 张大床 (Queen Bed)</li>
-                <li>配备空调和风扇</li>
-                <li>独立浴室，配备冷水淋浴</li>
-                <li>私人海景阳台</li>
-            </ul>
-            <ul class="en hidden">
-                <li>Overwater private room, 1× Queen bed</li>
-                <li>Air-conditioning & fan</li>
-                <li>Private bathroom & cold shower</li>
-                <li>Private ocean-view balcony</li>
-            </ul>
-            <button class="btn-card" onclick="openWechat()">立即咨询 / Contact</button>
+            <div class="card-content">
+                <h3 class="cn">海景大床房</h3>
+                <h3 class="en hidden">Premium Ocean King</h3>
+                <ul class="amenities cn">
+                    <li>🌅 私人阳台</li>
+                    <li>❄️ 空调/风扇</li>
+                    <li>🚿 独立卫浴</li>
+                    <li>🛏️ 大床房</li>
+                </ul>
+                <ul class="amenities en hidden">
+                    <li>🌅 Private Balcony</li>
+                    <li>❄️ AC & Fan</li>
+                    <li>🚿 En-suite Bath</li>
+                    <li>🛏️ Queen Bed</li>
+                </ul>
+                <button class="btn-card" onclick="openWechat()">
+                    <span class="cn">查看详情 / 立即咨询</span>
+                    <span class="en hidden">View Details / Contact</span>
+                </button>
+            </div>
         </div>
 
         <div class="card">
@@ -105,24 +154,30 @@
                 <img src="images/8a80818a97ad823d0197aec033d73f77_153709.jpg" class="active" alt="Room 2A">
                 <img src="images/8a80818a97ad823d0197aec033d73f77_488649.jpg" alt="Room 2B">
                 <img src="images/8a80818a97ad823d0197aec033d73f77_577868.jpg" alt="Room 2C">
+                <div class="slider-overlay"></div>
                 <button class="prev" onclick="changeSlide(this, -1)">‹</button>
                 <button class="next" onclick="changeSlide(this, 1)">›</button>
             </div>
-            <h3 class="cn">独立水上房</h3>
-            <h3 class="en hidden">Detached Overwater Room</h3>
-            <ul class="cn">
-                <li>水上私人房，1 张大床 (Queen Bed)</li>
-                <li>全空调覆盖</li>
-                <li>独立浴室</li>
-                <li>直接通往共享甲板</li>
-            </ul>
-            <ul class="en hidden">
-                <li>Overwater private room, 1× Queen bed</li>
-                <li>Air-conditioning throughout</li>
-                <li>Private bathroom</li>
-                <li>Direct access to shared deck</li>
-            </ul>
-            <button class="btn-card" onclick="openWechat()">立即咨询 / Contact</button>
+            <div class="card-content">
+                <h3 class="cn">独立水上房</h3>
+                <h3 class="en hidden">Detached Water Villa</h3>
+                <ul class="amenities cn">
+                    <li>🏠 独立空间</li>
+                    <li>❄️ 全空调覆盖</li>
+                    <li>🚿 独立卫浴</li>
+                    <li>🌊 共享露台</li>
+                </ul>
+                <ul class="amenities en hidden">
+                    <li>🏠 Detached Unit</li>
+                    <li>❄️ Full AC</li>
+                    <li>🚿 Private Bath</li>
+                    <li>🌊 Shared Deck</li>
+                </ul>
+                <button class="btn-card" onclick="openWechat()">
+                    <span class="cn">查看详情 / 立即咨询</span>
+                    <span class="en hidden">View Details / Contact</span>
+                </button>
+            </div>
         </div>
 
         <div class="card">
@@ -130,24 +185,45 @@
                 <img src="images/8a80818a9418d64501941b6475e034a0_144557.jpg" class="active" alt="Room 3A">
                 <img src="images/8a80818a9418d64501941b6475e034a0_43838.jpg" alt="Room 3B">
                 <img src="images/8a80818a9418d64501941b6475e034a0_455578.jpg" alt="Room 3C">
+                <div class="slider-overlay"></div>
                 <button class="prev" onclick="changeSlide(this, -1)">‹</button>
                 <button class="next" onclick="changeSlide(this, 1)">›</button>
             </div>
-            <h3 class="cn">海景双床房</h3>
-            <h3 class="en hidden">Ocean View Twin Room</h3>
-            <ul class="cn">
-                <li>水上私人房，2 张单人床</li>
-                <li>空调和风扇</li>
-                <li>独立浴室</li>
-                <li>私人阳台</li>
-            </ul>
-            <ul class="en hidden">
-                <li>Overwater private room, 2× Single beds</li>
-                <li>Air-conditioning & fan</li>
-                <li>Private bathroom</li>
-                <li>Private balcony</li>
-            </ul>
-            <button class="btn-card" onclick="openWechat()">立即咨询 / Contact</button>
+            <div class="card-content">
+                <h3 class="cn">海景双床房</h3>
+                <h3 class="en hidden">Ocean Twin Room</h3>
+                <ul class="amenities cn">
+                    <li>👯 双人间</li>
+                    <li>❄️ 空调/风扇</li>
+                    <li>🌅 私人阳台</li>
+                    <li>🚿 独立卫浴</li>
+                </ul>
+                <ul class="amenities en hidden">
+                    <li>👯 Twin Beds</li>
+                    <li>❄️ AC & Fan</li>
+                    <li>🌅 Private Balcony</li>
+                    <li>🚿 Private Bath</li>
+                </ul>
+                <button class="btn-card" onclick="openWechat()">
+                    <span class="cn">查看详情 / 立即咨询</span>
+                    <span class="en hidden">View Details / Contact</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="trust-banner">
+        <div class="trust-item">
+            <b class="cn">透明报价</b><b class="en hidden">Best Price</b>
+            <span class="cn">无隐形消费，当地直采</span><span class="en hidden">Local rates, no hidden fees</span>
+        </div>
+        <div class="trust-item">
+            <b class="cn">安全保障</b><b class="en hidden">Safe Stay</b>
+            <span class="cn">精选合法合规度假村</span><span class="en hidden">Strictly verified resorts</span>
+        </div>
+        <div class="trust-item">
+            <b class="cn">中文服务</b><b class="en hidden">24/7 Support</b>
+            <span class="cn">教练一对一微信对接</span><span class="en hidden">One-on-one WeChat service</span>
         </div>
     </div>
 </section>
@@ -157,36 +233,29 @@
 </footer>
 
 <div class="floating-wechat" onclick="openWechat()">
-    <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+    <img src="images/wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
 </div>
 
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
         <p class="cn">扫码添加微信获取预订信息</p>
         <p class="en hidden">Scan to add WeChat for booking</p>
-        <img src="wechat-qr.jpg" alt="WeChat QR Code">
+        <img src="images/wechat-qr.jpg" alt="WeChat QR Code">
         <br><strong>教练 Deso_89</strong><br>
-        <button onclick="closeWechat()" class="btn-card" style="margin-top:10px;">关闭 / Close</button>
+        <button onclick="closeWechat()" class="btn-card" style="margin-top:10px; background: #666;">关闭 / Close</button>
     </div>
 </div>
 
 <script src="main.js"></script>
 <script>
-    // Page-Specific Multi-Slider Logic
     function changeSlide(btn, direction) {
         const slider = btn.parentElement;
         const images = slider.querySelectorAll('img');
         let index = parseInt(slider.getAttribute('data-current'));
-
-        // Hide current image
         images[index].classList.remove('active');
-
-        // Calculate new index
         index += direction;
         if (index >= images.length) index = 0;
         if (index < 0) index = images.length - 1;
-
-        // Show new image
         images[index].classList.add('active');
         slider.setAttribute('data-current', index);
     }
