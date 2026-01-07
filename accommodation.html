@@ -43,27 +43,24 @@ section{max-width:1100px;margin:auto;padding:40px 20px;}
 h2{text-align:center;margin-bottom:36px;}
 
 .grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
-.card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s;}
+.card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s;position:relative;}
 .card:hover{transform:translateY(-8px);}
 .card h3{margin-bottom:12px;color:var(--main);}
 .card ul{padding-left:20px;}
 .card li{margin-bottom:6px;line-height:1.5;}
-
-/* Slider */
-.slider{position:relative;overflow:hidden;border-radius:16px;margin-bottom:16px;}
-.slider img{width:100%;display:block;transition:.4s;}
-.slider .prev, .slider .next{
-  position:absolute;top:50%;transform:translateY(-50%);
-  background:rgba(0,0,0,0.3);color:#fff;border:none;padding:6px 12px;border-radius:12px;cursor:pointer;
-}
-.slider .prev{left:10px;}
-.slider .next{right:10px;}
 
 a.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;text-decoration:none;transition:.3s;margin-top:12px;}
 a.btn:hover{background:#0096a6;}
 
 .floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;transition:0.3s;}
 .floating-wechat img{width:70px;height:70px;border-radius:16px;box-shadow:var(--shadow);}
+
+/* Slider */
+.slider{position:relative;overflow:hidden;border-radius:16px;margin-bottom:12px;}
+.slider img{width:100%;height:200px;object-fit:cover;border-radius:16px;transition:.3s;}
+.slider button{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);color:#fff;border:none;padding:6px 12px;border-radius:12px;cursor:pointer;}
+.slider .prev{left:10px;}
+.slider .next{right:10px;}
 
 /* WeChat popup */
 .wechat-popup{
@@ -91,6 +88,7 @@ a.btn:hover{background:#0096a6;}
     <div>
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">行程价格 / Pricing</a>
+      <a href="accommodation.html">住宿 / Accommodation</a>
     </div>
   </nav>
 </header>
@@ -105,84 +103,107 @@ a.btn:hover{background:#0096a6;}
   </div>
 </section>
 
-<section id="rooms">
-  <div class="grid">
-    <!-- Ocean View Room -->
-    <div class="card">
-      <div class="slider" data-images='[
-        "8a80818a9392f1f5019394dd1d654120_449246.jpg",
-        "8a80818a9392f1f5019394dd1d654120_534811.jpg",
-        "8a80818a9392f1f5019394dd1d654120_613304.jpg",
-        "8a80818a9392f1f5019394dd1d654120_695031.jpg",
-        "8a80818a9392f1f5019394dd1d654120_753631.jpg"
-      ]'>
-        <img src="8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Ocean View Room">
-        <button class="prev" onclick="prevSlide(this)">‹</button>
-        <button class="next" onclick="nextSlide(this)">›</button>
-      </div>
-      <h3 class="cn">Ocean View Room</h3>
-      <h3 class="en hidden">Ocean View Room</h3>
-      <ul>
-        <li>Overwater private room, 1× Queen bed</li>
-        <li>Air-conditioning & fan</li>
-        <li>Private bathroom with Western toilet & cold shower</li>
-        <li>Ocean-view balcony</li>
-        <li>Bedding & towels provided</li>
-      </ul>
-      <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
-    </div>
+<section id="rooms" class="grid">
 
-    <!-- Detached Overwater Room -->
-    <div class="card">
-      <div class="slider" data-images='[
-        "8a80818a97ad823d0197aec033d73f77_153709.jpg",
-        "8a80818a97ad823d0197aec033d73f77_488649.jpg",
-        "8a80818a97ad823d0197aec033d73f77_577868.jpg",
-        "8a80818a97ad823d0197aec033d73f77_780031.jpg"
-      ]'>
-        <img src="8a80818a97ad823d0197aec033d73f77_153709.jpg" alt="Detached Overwater Room">
-        <button class="prev" onclick="prevSlide(this)">‹</button>
-        <button class="next" onclick="nextSlide(this)">›</button>
-      </div>
-      <h3 class="cn">Detached Overwater Room</h3>
-      <h3 class="en hidden">Detached Overwater Room</h3>
-      <ul>
-        <li>Overwater private room, 1× Queen bed</li>
-        <li>Air-conditioning</li>
-        <li>Private bathroom with Western toilet & cold shower</li>
-        <li>No balcony or view</li>
-        <li>Direct access to shared deck with sun chairs, hammocks & ocean views</li>
-        <li>Bedding & towels provided</li>
-      </ul>
-      <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
-    </div>
-
-    <!-- Ocean View Twin Room -->
-    <div class="card">
-      <div class="slider" data-images='[
-        "8a80818a9418d64501941b6475e034a0_144557.jpg",
-        "8a80818a9418d64501941b6475e034a0_43838.jpg",
-        "8a80818a9418d64501941b6475e034a0_455578.jpg",
-        "8a80818a9418d64501941b6475e034a0_513697.jpg",
-        "8a80818a9418d64501941b6475e034a0_712069.jpg"
-      ]'>
-        <img src="8a80818a9418d64501941b6475e034a0_144557.jpg" alt="Ocean View Twin Room">
-        <button class="prev" onclick="prevSlide(this)">‹</button>
-        <button class="next" onclick="nextSlide(this)">›</button>
-      </div>
-      <h3 class="cn">Ocean View Twin Room</h3>
-      <h3 class="en hidden">Ocean View Twin Room</h3>
-      <ul>
-        <li>Overwater private room, 2× Single beds</li>
-        <li>Air-conditioning & fan</li>
-        <li>Private bathroom with Western toilet & cold shower</li>
-        <li>Ocean-view balcony</li>
-        <li>Views of Bohey Dulang Island & Tun Sakaran Marine Park</li>
-        <li>Bedding & towels provided</li>
-      </ul>
-      <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
-    </div>
+<!-- Ocean View Room -->
+<div class="card">
+  <div class="slider" data-images='[
+    "8a80818a9392f1f5019394dd1d654120_449246.jpg",
+    "8a80818a9392f1f5019394dd1d654120_534811.jpg",
+    "8a80818a9392f1f5019394dd1d654120_613304.jpg",
+    "8a80818a9392f1f5019394dd1d654120_695031.jpg",
+    "8a80818a9392f1f5019394dd1d654120_753631.jpg"
+  ]'>
+    <img src="8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Ocean View Room">
+    <button class="prev" onclick="prevSlide(this)">‹</button>
+    <button class="next" onclick="nextSlide(this)">›</button>
   </div>
+  <h3 class="cn">海景房</h3>
+  <h3 class="en hidden">Ocean View Room</h3>
+  <ul class="cn">
+    <li>水上私人房，1 张大床</li>
+    <li>空调和风扇</li>
+    <li>私人浴室，西式马桶和冷水淋浴</li>
+    <li>海景阳台</li>
+    <li>提供床品和毛巾</li>
+  </ul>
+  <ul class="en hidden">
+    <li>Overwater private room, 1× Queen bed</li>
+    <li>Air-conditioning & fan</li>
+    <li>Private bathroom with Western toilet & cold shower</li>
+    <li>Ocean-view balcony</li>
+    <li>Bedding & towels provided</li>
+  </ul>
+  <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
+</div>
+
+<!-- Detached Overwater Room -->
+<div class="card">
+  <div class="slider" data-images='[
+    "8a80818a97ad823d0197aec033d73f77_153709.jpg",
+    "8a80818a97ad823d0197aec033d73f77_488649.jpg",
+    "8a80818a97ad823d0197aec033d73f77_577868.jpg",
+    "8a80818a97ad823d0197aec033d73f77_780031.jpg"
+  ]'>
+    <img src="8a80818a97ad823d0197aec033d73f77_153709.jpg" alt="Detached Overwater Room">
+    <button class="prev" onclick="prevSlide(this)">‹</button>
+    <button class="next" onclick="nextSlide(this)">›</button>
+  </div>
+  <h3 class="cn">独立水上房</h3>
+  <h3 class="en hidden">Detached Overwater Room</h3>
+  <ul class="cn">
+    <li>水上私人房，1 张大床</li>
+    <li>空调</li>
+    <li>私人浴室，西式马桶和冷水淋浴</li>
+    <li>无阳台和景观</li>
+    <li>直接通往共享甲板，配有躺椅、吊床和海景</li>
+    <li>提供床品和毛巾</li>
+  </ul>
+  <ul class="en hidden">
+    <li>Overwater private room, 1× Queen bed</li>
+    <li>Air-conditioning</li>
+    <li>Private bathroom with Western toilet & cold shower</li>
+    <li>No balcony or view</li>
+    <li>Direct access to shared deck with sun chairs, hammocks & ocean views</li>
+    <li>Bedding & towels provided</li>
+  </ul>
+  <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
+</div>
+
+<!-- Ocean View Twin Room -->
+<div class="card">
+  <div class="slider" data-images='[
+    "8a80818a9418d64501941b6475e034a0_144557.jpg",
+    "8a80818a9418d64501941b6475e034a0_43838.jpg",
+    "8a80818a9418d64501941b6475e034a0_455578.jpg",
+    "8a80818a9418d64501941b6475e034a0_513697.jpg",
+    "8a80818a9418d64501941b6475e034a0_712069.jpg"
+  ]'>
+    <img src="8a80818a9418d64501941b6475e034a0_144557.jpg" alt="Ocean View Twin Room">
+    <button class="prev" onclick="prevSlide(this)">‹</button>
+    <button class="next" onclick="nextSlide(this)">›</button>
+  </div>
+  <h3 class="cn">海景双床房</h3>
+  <h3 class="en hidden">Ocean View Twin Room</h3>
+  <ul class="cn">
+    <li>水上私人房，2 张单人床</li>
+    <li>空调和风扇</li>
+    <li>私人浴室，西式马桶和冷水淋浴</li>
+    <li>海景阳台</li>
+    <li>可欣赏波德伦岛和图恩萨卡兰海洋公园景色</li>
+    <li>提供床品和毛巾</li>
+  </ul>
+  <ul class="en hidden">
+    <li>Overwater private room, 2× Single beds</li>
+    <li>Air-conditioning & fan</li>
+    <li>Private bathroom with Western toilet & cold shower</li>
+    <li>Ocean-view balcony</li>
+    <li>Views of Bohey Dulang Island & Tun Sakaran Marine Park</li>
+    <li>Bedding & towels provided</li>
+  </ul>
+  <a href="#" class="btn" onclick="openWechat()">立即咨询 / Contact</a>
+</div>
+
 </section>
 
 <!-- Floating WeChat Button -->
@@ -215,21 +236,21 @@ function openWechat(){ popup.style.display='flex'; document.body.style.overflow=
 function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
 
 // Slider functionality
-function nextSlide(button){
-  const slider = button.parentElement;
+function prevSlide(btn){
+  const slider = btn.parentElement;
   const images = JSON.parse(slider.dataset.images);
   let img = slider.querySelector('img');
-  let currentIndex = images.indexOf(img.src.split('/').pop());
-  currentIndex = (currentIndex + 1) % images.length;
-  img.src = images[currentIndex];
+  let index = images.indexOf(img.src.split('/').pop());
+  index = (index-1+images.length)%images.length;
+  img.src = images[index];
 }
-function prevSlide(button){
-  const slider = button.parentElement;
+function nextSlide(btn){
+  const slider = btn.parentElement;
   const images = JSON.parse(slider.dataset.images);
   let img = slider.querySelector('img');
-  let currentIndex = images.indexOf(img.src.split('/').pop());
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  img.src = images[currentIndex];
+  let index = images.indexOf(img.src.split('/').pop());
+  index = (index+1)%images.length;
+  img.src = images[index];
 }
 </script>
 
