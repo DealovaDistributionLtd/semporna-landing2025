@@ -1,6 +1,13 @@
-/* main.js - MASTER LOGIC */
+/* main.js - MASTER LOGIC WITH MEMORY */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle
+    // --- 1. Language Memory Check ---
+    // Check if the user previously picked English
+    const savedLang = localStorage.getItem('preferredLang');
+    if (savedLang === 'en') {
+        document.querySelectorAll('.cn, .en').forEach(el => el.classList.toggle('hidden'));
+    }
+
+    // --- 2. Mobile Menu Toggle ---
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     if (hamburger && mobileMenu) {
@@ -9,18 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Language Switch
+    // --- 3. Language Switch ---
     const langBtns = [document.getElementById('langToggleDesktop'), document.getElementById('langToggleMobile')];
     langBtns.forEach(btn => {
         if (btn) {
             btn.addEventListener('click', () => {
+                // Perform the toggle
                 document.querySelectorAll('.cn, .en').forEach(el => el.classList.toggle('hidden'));
+                
+                // Save the current state to memory
+                const isEnglishNow = document.querySelector('.cn').classList.contains('hidden');
+                localStorage.setItem('preferredLang', isEnglishNow ? 'en' : 'cn');
             });
         }
     });
 });
 
-// 3. Global WeChat Functions
+// --- 4. Global WeChat Functions ---
 function openWechat() {
     const popup = document.getElementById('wechatPopup');
     if (popup) {
