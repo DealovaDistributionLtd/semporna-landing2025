@@ -6,7 +6,6 @@
     <title>常见问题 | FAQ - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* FAQ Page Specific Styles */
         section { max-width: 900px; margin: auto; padding: 60px 20px; }
         
         .faq-item {
@@ -17,9 +16,8 @@
             overflow: hidden;
         }
 
-        /* HTML5 Native Accordion Styles */
+        /* Native Accordion */
         details { width: 100%; }
-        
         summary {
             padding: 22px;
             font-weight: 700;
@@ -30,14 +28,12 @@
             justify-content: space-between;
             align-items: center;
             color: #0e2a33;
-            font-size: 1.05rem;
         }
 
         summary::after {
             content: '+';
             font-size: 1.5rem;
             color: var(--main);
-            font-weight: 400;
             transition: 0.3s;
         }
         
@@ -59,6 +55,20 @@
             animation: fadeIn 0.3s ease;
         }
 
+        /* Re-establishing the card-btn style for the popup */
+        .card-btn {
+            display: inline-block;
+            background: var(--main);
+            color: #fff;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
@@ -75,9 +85,7 @@
             <a href="accommodation.html">住宿 / Accommodation</a>
             <a href="gallery.html">相册 / Gallery</a>
             <a href="reviews.html">评价 / Reviews</a>
-            <a href="about.html">关于 / About</a>
-            <a href="faq.html" class="active">常见问题 / FAQ</a>
-            <a href="contact.html">联系 / Contact</a>
+            <a href="faq.html" class="active">FAQ</a>
             <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
         </div>
         <button class="hamburger" id="hamburger">&#9776;</button>
@@ -90,11 +98,22 @@
         <h1 class="cn">解答您的疑惑</h1>
         <h1 class="en hidden">Answering Your Questions</h1>
         <p class="cn">关于预订、行程、安全与交通的常见问题</p>
-        <p class="en hidden">FAQs about Booking, Itinerary, Safety & Logistics</p>
     </div>
 </section>
 
 <section>
+    <div class="faq-item">
+        <details open> <summary>
+                <span class="cn">7. 住宿是选镇上还是我们的水上屋？</span>
+                <span class="en hidden">7. Town hotels or our Water Bungalows?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">**强烈建议选择我们的独立水上屋！** 只有住在水上屋，您才能体验到真正的“推窗见海”和24小时的果冻海美景。镇上酒店虽然方便，但无法避开喧嚣。我们的水上屋提供极致的私人阳台观景位，伴着浪声入眠，这是仙本那之旅的灵魂所在。我们可以为您预订位置最佳的房间。**</p>
+                <p class="en hidden">**We highly recommend our Water Bungalows!** Only by staying overwater can you experience the true "ocean at your doorstep" and 24-hour crystal-clear sea views. While town hotels are convenient, they lack the peace and soul of the ocean. Our bungalows offer private balconies and the dream experience of sleeping over the waves. We can secure the best-positioned rooms for you.**</p>
+            </div>
+        </details>
+    </div>
+
     <div class="faq-item">
         <details>
             <summary>
@@ -102,135 +121,15 @@
                 <span class="en hidden">1. How to book? How far in advance?</span>
             </summary>
             <div class="answer">
-                <p class="cn">您可以直接添加我的微信 (Deso_89) 咨询。建议普通行程提前 3-5 天预订；如果您计划在旺季（7-10月）出行或需要西巴丹 (Sipadan) 名额，建议提前至少 1-2 个月沟通。</p>
-                <p class="en hidden">Contact me via WeChat (Deso_89). 3-5 days in advance for normal tours; at least 1-2 months for peak season or Sipadan permits.</p>
+                <p class="cn">添加微信 (Deso_89) 即可。建议提前 3-5 天；西巴丹名额请务必提前 1 个月确认。</p>
             </div>
         </details>
     </div>
 
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">2. 斗湖机场到仙本那镇上的交通怎么安排？</span>
-                <span class="en hidden">2. How to get from Tawau Airport to Semporna?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">斗湖机场距离仙本那镇约 70-90 分钟车程。我们可以为您安排拼车或包车接送服务，司机会在机场出口处等候，直接送您到酒店或码头。</p>
-                <p class="en hidden">Tawau Airport is about 70-90 mins away. We can arrange shared or private transfers; the driver will meet you at the exit and take you to your hotel or the jetty.</p>
-            </div>
-        </details>
-    </div>
-
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">3. 不会游泳可以参加体验深潜 (DSD) 吗？</span>
-                <span class="en hidden">3. Can I dive if I don't know how to swim?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">完全可以！体验潜水不需要会游泳。教练会进行全程一对一带领，您只需在水下保持正常呼吸，剩下的安全保障和动力由教练全程负责。</p>
-                <p class="en hidden">Yes! Swimming is not required for Discovery Scuba Diving. Coaches provide 1-on-1 guidance underwater; you just need to breathe normally.</p>
-            </div>
-        </details>
-    </div>
-
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">4. 潜水后可以直接坐飞机吗？</span>
-                <span class="en hidden">4. Can I fly immediately after diving?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">根据 PADI 安全准则，单次潜水后需要间隔 12 小时才能飞行；多次潜水（如 2 天以上的行程）需要间隔至少 18-24 小时。请据此安排您的返程航班。</p>
-                <p class="en hidden">According to PADI standards, wait 12 hours after a single dive or 18-24 hours after multiple dives before flying. Please plan your flights accordingly.</p>
-            </div>
-        </details>
-    </div>
-
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">5. 岛上可以飞无人机拍摄吗？</span>
-                <span class="en hidden">5. Can I fly a drone on the islands?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">敦沙卡兰海洋公园等部分岛屿属于受保护区域，需要提前申请许可证。如果您计划航拍，请提前告诉我们，我们会协助您了解最新的管理规定。</p>
-                <p class="en hidden">Some islands are protected and require permits. Let us know in advance if you plan to fly a drone so we can check current local regulations.</p>
-            </div>
-        </details>
-    </div>
-
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">6. 费用包含潜水装备吗？</span>
-                <span class="en hidden">6. Is diving equipment included?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">是的。我们的行程报价已包含全套装备租赁：面镜、呼吸管、救生衣、脚蹼，以及深潜所需的气瓶和配重。您只需自备泳衣和防晒用品。</p>
-                <p class="en hidden">Yes. Prices include all essential gear: mask, snorkel, life jacket, fins, tanks, and weights. Just bring your swimwear and sunscreen.</p>
-            </div>
-        </details>
-    </div>
-
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">7. 住宿是选镇上还是水上屋？</span>
-                <span class="en hidden">7. Town hotels or Overwater Chalets?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">如果您想体验极致的海景和宁静，首选水上屋；如果您希望餐饮选择丰富、晚间生活方便，住镇上酒店更合适。我们可以根据您的预算为您推荐最合适的选项。</p>
-                <p class="en hidden">Overwater chalets offer stunning views and peace; town hotels offer more food options and convenience. We can recommend based on your budget.</p>
-            </div>
-        </details>
-    </div>
-
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">8. 天气不好会取消行程吗？</span>
-                <span class="en hidden">8. Will tours be cancelled due to weather?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">如果海事局因极端天气或安全隐患发布禁令，我们会全额退款或为您调整日期。普通的小雨通常不影响出海，且雨后的果冻海依然很清澈。</p>
-                <p class="en hidden">Full refunds or rescheduling are offered if authorities ban departures for safety. Light rain usually doesn't stop the tour.</p>
-            </div>
-        </details>
-    </div>
-
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">9. 支付方式有哪些？</span>
-                <span class="en hidden">9. What payment methods are accepted?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">我们支持支付宝 (Alipay)、微信支付 (WeChat Pay)、马来西亚银行转账以及马币现金支付。预订通常需要支付一部分定金以锁定位置。</p>
-                <p class="en hidden">We accept Alipay, WeChat Pay, Bank Transfers, and MYR cash. A deposit is usually required to secure your booking.</p>
-            </div>
-        </details>
-    </div>
-
-    <div class="faq-item">
-        <details>
-            <summary>
-                <span class="cn">10. 潜水考证 (PADI) 需要几天？</span>
-                <span class="en hidden">10. How many days for PADI certification?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">OW (初级潜水员) 课程通常需要 3 天；AOW (高级潜水员) 课程需要 2 天。我们建议您至少在仙本那预留 4-5 天时间以应对理论学习和潜水训练。</p>
-                <p class="en hidden">PADI OW takes 3 days; AOW takes 2 days. We recommend staying 4-5 days in Semporna to complete the training comfortably.</p>
-            </div>
-        </details>
-    </div>
-    
     <div style="text-align: center; margin-top: 50px;">
-        <p class="cn" style="color:#666; margin-bottom: 20px;">还有疑问？点击下方按钮直接咨询教练</p>
-        <p class="en hidden" style="color:#666; margin-bottom: 20px;">Still have questions? Click below to chat with the coach.</p>
-        <button class="btn-about" onclick="openWechat()" style="background: var(--main); color: #fff; padding: 14px 35px; border:none; border-radius:30px; cursor:pointer; font-weight:700; font-size: 1rem;">
-            <span class="cn">微信直接问我</span>
-            <span class="en hidden">Ask on WeChat</span>
+        <button class="card-btn" onclick="openWechat()">
+            <span class="cn">还有疑问？微信问我</span>
+            <span class="en hidden">More Questions? Chat Now</span>
         </button>
     </div>
 </section>
@@ -239,23 +138,18 @@
     <p>© Semporna Tours - Coach Deso_89</p>
 </footer>
 
-<div class="floating-wechat" onclick="openWechat()">
-    <img src="images/wechat-icon.png" alt="WeChat">
-</div>
-
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
-        <p class="cn">添加微信咨询订位</p>
-        <p class="en hidden">Add WeChat to book</p>
+        <p class="cn">扫码添加微信咨询</p>
+        <p class="en hidden">Scan WeChat for Advice</p>
         <img src="images/wechat-qr.jpg" alt="WeChat QR">
         <br><strong>ID: Deso_89</strong><br>
-        <button onclick="closeWechat()" style="background:#666; color:#fff; border:none; padding:10px 20px; border-radius:20px; margin-top:10px; cursor:pointer;">
-            <span class="cn">关闭 / Close</span>
+        <button onclick="closeWechat()" class="card-btn" style="background:#666; margin-top:15px; width: 100%;">
+            <span class="cn">关闭</span><span class="en hidden">Close</span>
         </button>
     </div>
 </div>
 
 <script src="main.js"></script>
-
 </body>
 </html>
