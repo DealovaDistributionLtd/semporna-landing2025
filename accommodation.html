@@ -18,6 +18,7 @@
             flex-direction: column;
         }
 
+        /* Slider Styles */
         .slider-container {
             position: relative;
             width: 100%;
@@ -53,9 +54,11 @@
         .btn-prev { left: 0; }
 
         .room-info { padding: 30px; }
-        .room-info h2 { color: var(--main); margin-top: 0; }
-        .room-info p { color: #555; line-height: 1.8; margin-bottom: 20px; }
+        .room-info h2 { color: var(--main); margin-top: 0; margin-bottom: 15px; }
+        .room-info p { color: #555; line-height: 1.8; margin-bottom: 15px; }
         
+        /* Amenities Tags */
+        .amenities { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
         .amenity-tag {
             background: #f0fbfc;
             color: var(--main);
@@ -63,23 +66,31 @@
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.85rem;
-            margin-right: 8px;
-            display: inline-block;
-            margin-bottom: 10px;
         }
 
-        /* Date Checker Styling */
+        /* Important Note Styling */
+        .important-note {
+            background: #fff9db;
+            padding: 12px 15px;
+            border-left: 4px solid #fcc419;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            color: #856404;
+            border-radius: 4px;
+        }
+
+        /* Availability Checker Styling */
         .check-box {
-            background: #f8f9fa;
+            background: #f9f9f9;
             padding: 20px;
-            border-radius: 12px;
+            border-radius: var(--radius);
             margin: 20px 0;
             border: 1px solid #eee;
         }
         .check-flex { display: flex; gap: 10px; margin-top: 10px; }
         .date-input {
             padding: 10px;
-            border: 1px solid var(--main);
+            border: 1px solid #ddd;
             border-radius: 8px;
             flex: 1;
             font-family: inherit;
@@ -95,16 +106,6 @@
         .status-available { background: #e6fffa; color: #234e52; border: 1px solid #38b2ac; }
         .status-full { background: #fff5f5; color: #9b2c2c; border: 1px solid #feb2b2; }
 
-        .important-note {
-            background: #fff9db;
-            padding: 12px 15px;
-            border-left: 4px solid #fcc419;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: #856404;
-            line-height: 1.6;
-        }
-
         @media (max-width: 768px) {
             .slider-container { height: 250px; }
             .check-flex { flex-direction: column; }
@@ -116,7 +117,7 @@
 <header>
     <nav class="nav-container">
         <a href="index.html" class="logo-box">
-            <img src="images/logo.png" alt="Logo" class="site-logo">
+            <img src="images/logo.png" alt="Semporna Tours" class="site-logo">
         </a>
         <div class="nav-links">
             <a href="index.html">首页 / Home</a>
@@ -129,6 +130,16 @@
         <button class="hamburger" id="hamburger">&#9776;</button>
     </nav>
 </header>
+
+<section class="hero">
+    <img src="images/islands/dji-20241120095919-0020-d_orig.jpg" alt="Semporna Resort">
+    <div class="hero-content">
+        <h1 class="cn">水上屋住宿</h1>
+        <h1 class="en hidden">Water Chalet Accommodation</h1>
+        <p class="cn">推窗见海，伴着浪声入眠</p>
+        <p class="en hidden">Wake up to the ocean, sleep with the waves</p>
+    </div>
+</section>
 
 <section>
     <div class="room-card">
@@ -148,23 +159,23 @@
             <div class="amenities">
                 <span class="amenity-tag">1x QUEEN bed</span>
                 <span class="amenity-tag">Air conditioning</span>
-                <span class="amenity-tag">Private Bathroom</span>
+                <span class="amenity-tag">Cold water shower</span>
             </div>
-            <p class="cn">独立水上私密客房，配有 1 张大床。空调、带西式马桶和冷水淋浴的独立浴室。床上用品和毛巾。注：此房间无阳台，无景观。直接连接到大型公共甲板区域，可欣赏敦沙卡兰海洋公园景观。</p>
-            <p class="en hidden">Detached private room on stilts over water, with 1x QUEEN bed. AC, attached private bathroom with western toilet and cold water shower. NO BALCONY and NO VIEW. Directly attached to a large SHARED deck area.</p>
+            <p class="cn">独立水上私密客房，配有 1 张大床。空调、带西式马桶和冷水淋浴的独立浴室。提供床上用品和毛巾。注意：此房型无阳台及景观。直接连接到大型公共甲板区域。</p>
+            <p class="en hidden">Detached private room built on stilts over the water, with 1x QUEEN bed. Air conditioning, attached private bathroom with western toilet and cold water shower. Note, this room has NO BALCONY and NO VIEW.</p>
             
-            <div class="important-note cn">⚠️ <b>重要：</b>预订必须至少提前 1 天。下单前请务必联系教练进行最终确认。</div>
-            <div class="important-note en hidden">⚠️ <b>Important:</b> Bookings must be made at least 1 day in advance. Please contact for confirmation first.</div>
+            <div class="important-note cn">⚠️ 预订须知：必须至少提前 1 天预订。请务必在下单前联系教练确认实时房态。</div>
+            <div class="important-note en hidden">⚠️ Booking Note: Must be made at least 1 day in advance. Please contact for confirmation first.</div>
 
             <div class="check-box">
-                <label class="cn">检查此房型日期可用性：</label>
+                <label class="cn">检查此日期是否有房：</label>
                 <div class="check-flex">
                     <input type="date" class="date-input" id="date1">
-                    <button onclick="checkDate('date1', 'res1')" class="btn-about" style="margin:0;">Check</button>
+                    <button onclick="checkDate('date1', 'res1')" class="card-btn" style="padding:10px 20px;">Check</button>
                 </div>
                 <div id="res1" class="status-tag" style="display:none;"></div>
             </div>
-            <button onclick="openWechat()" class="btn-about" style="width:100%; background:var(--main); color:#fff; border:none; font-weight:700;">立即咨询预订 / Inquire Now</button>
+            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none;">立即咨询预订 / Inquire Now</button>
         </div>
     </div>
 
@@ -186,20 +197,20 @@
                 <span class="amenity-tag">Ocean view window</span>
                 <span class="amenity-tag">Air conditioning</span>
             </div>
-            <p class="cn">独立水上私密客房，配有 1 张大床。空调、带海景的窗户和独立浴室。注：此房间无阳台。</p>
-            <p class="en hidden">Detached private room with 1x QUEEN bed. AC, window with ocean view and private bathroom. Note: NO BALCONY.</p>
+            <p class="cn">独立水上私密客房，配有 1 张大床。空调、海景窗以及带西式马桶和冷水淋浴的独立浴室。注意：此房型无阳台。</p>
+            <p class="en hidden">Detached private room built on stilts over the water, with 1x QUEEN bed. Air conditioning, window with ocean view and attached private bathroom. Note, this room has NO BALCONY.</p>
             
-            <div class="important-note cn">⚠️ <b>提示：</b>如果选定日期已满，请尝试其他日期。</div>
-            <div class="important-note en hidden">⚠️ <b>Note:</b> If the selected date is busy, please try later dates for more options.</div>
+            <div class="important-note cn">⚠️ 预订须知：必须提前 1 天预订。如当前日期无房，请尝试其他日期。</div>
+            <div class="important-note en hidden">⚠️ Booking Note: Book at least 1 day in advance. Try later dates for more options.</div>
 
             <div class="check-box">
                 <div class="check-flex">
                     <input type="date" class="date-input" id="date2">
-                    <button onclick="checkDate('date2', 'res2')" class="btn-about" style="margin:0;">Check</button>
+                    <button onclick="checkDate('date2', 'res2')" class="card-btn" style="padding:10px 20px;">Check</button>
                 </div>
                 <div id="res2" class="status-tag" style="display:none;"></div>
             </div>
-            <button onclick="openWechat()" class="btn-about" style="width:100%; background:var(--main); color:#fff; border:none; font-weight:700;">立即咨询预订 / Inquire Now</button>
+            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none;">立即咨询预订 / Inquire Now</button>
         </div>
     </div>
 
@@ -208,60 +219,33 @@
             <div class="slider-track">
                 <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_449246.jpg">
                 <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_534811.jpg">
+                <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_613304.jpg">
             </div>
             <button class="slider-btn btn-prev" onclick="moveSlide('slider3', -1)">&#10094;</button>
             <button class="slider-btn btn-next" onclick="moveSlide('slider3', 1)">&#10095;</button>
         </div>
         <div class="room-info">
-            <h2 class="cn">海景阳台房 (大床)</h2>
+            <h2 class="cn">大床海景阳台房</h2>
             <h2 class="en hidden">Ocean View Room (Balcony)</h2>
             <div class="amenities">
                 <span class="amenity-tag">1x QUEEN bed</span>
-                <span class="amenity-tag">Ocean view balcony</span>
-                <span class="amenity-tag">Fan & AC</span>
+                <span class="amenity-tag">Private Balcony</span>
+                <span class="amenity-tag">Ocean View</span>
             </div>
-            <p class="cn">水上私密客房，配有 1 张大床。所有房间均配有空调、风扇、海景阳台和带西式马桶及冷水淋浴的浴室。可俯瞰 Bohey Dulang 岛。</p>
-            <p class="en hidden">Private room with 1x QUEEN bed. All rooms have AC, fan, ocean view balcony and private bathroom. Views over Bohey Dulang Island.</p>
+            <p class="cn">配有私人海景阳台，可俯瞰 Bohey Dulang 岛。所有房间均配有空调、风扇和独立卫浴。提供床上用品和毛巾。</p>
+            <p class="en hidden">Private room with 1x QUEEN bed. All rooms have air conditioning, fan, ocean view balcony and attached private bathroom.</p>
+
+            <div class="important-note cn">⚠️ 重要提示：请务必先联系确认房态再安排行程。</div>
+            <div class="important-note en hidden">⚠️ Important: Always contact for availability confirmation first.</div>
 
             <div class="check-box">
                 <div class="check-flex">
                     <input type="date" class="date-input" id="date3">
-                    <button onclick="checkDate('date3', 'res3')" class="btn-about" style="margin:0;">Check</button>
+                    <button onclick="checkDate('date3', 'res3')" class="card-btn" style="padding:10px 20px;">Check</button>
                 </div>
                 <div id="res3" class="status-tag" style="display:none;"></div>
             </div>
-            <button onclick="openWechat()" class="btn-about" style="width:100%; background:var(--main); color:#fff; border:none; font-weight:700;">立即咨询预订 / Inquire Now</button>
-        </div>
-    </div>
-
-    <div class="room-card">
-        <div class="slider-container" id="slider4">
-            <div class="slider-track">
-                <img src="images/accommodation/Ocean View Twin Room/8a80818a9418d64501941b6475e034a0_144557.jpg">
-                <img src="images/accommodation/Ocean View Twin Room/8a80818a9418d64501941b6475e034a0_43838.jpg">
-            </div>
-            <button class="slider-btn btn-prev" onclick="moveSlide('slider4', -1)">&#10094;</button>
-            <button class="slider-btn btn-next" onclick="moveSlide('slider4', 1)">&#10095;</button>
-        </div>
-        <div class="room-info">
-            <h2 class="cn">海景阳台房 (双床)</h2>
-            <h2 class="en hidden">Ocean View Twin Room</h2>
-            <div class="amenities">
-                <span class="amenity-tag">2x SINGLE bed</span>
-                <span class="amenity-tag">Ocean view balcony</span>
-                <span class="amenity-tag">AC & Fan</span>
-            </div>
-            <p class="cn">水上私密客房，配有 2 张单人床。所有房间均配有空调、风扇、海景阳台和独立浴室。可俯瞰 Tun Sakaran 海洋公园。</p>
-            <p class="en hidden">Private room with 2x SINGLE beds. All rooms have AC, fan, ocean view balcony and attached private bathroom.</p>
-
-            <div class="check-box">
-                <div class="check-flex">
-                    <input type="date" class="date-input" id="date4">
-                    <button onclick="checkDate('date4', 'res4')" class="btn-about" style="margin:0;">Check</button>
-                </div>
-                <div id="res4" class="status-tag" style="display:none;"></div>
-            </div>
-            <button onclick="openWechat()" class="btn-about" style="width:100%; background:var(--main); color:#fff; border:none; font-weight:700;">立即咨询预订 / Inquire Now</button>
+            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none;">立即咨询预订 / Inquire Now</button>
         </div>
     </div>
 </section>
@@ -271,7 +255,7 @@
 </footer>
 
 <div class="floating-wechat" onclick="openWechat()">
-    <img src="images/wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+    <img src="images/wechat-icon.png" alt="WeChat">
 </div>
 
 <div id="wechatPopup" class="wechat-popup">
@@ -280,7 +264,7 @@
         <p class="en hidden">Scan WeChat to Book</p>
         <img src="images/wechat-qr.jpg" alt="WeChat QR">
         <br><strong>Deso_89</strong><br>
-        <button onclick="closeWechat()" style="background:#666; color:#fff; border:none; padding:10px 20px; border-radius:20px; margin-top:10px; cursor:pointer;">关闭 / Close</button>
+        <button onclick="closeWechat()" class="card-btn" style="background:#666; border:none; margin-top:10px;">Close</button>
     </div>
 </div>
 
