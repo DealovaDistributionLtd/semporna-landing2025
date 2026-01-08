@@ -1,118 +1,54 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>实拍相册 | Gallery - Semporna Tours</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .filter-container { text-align:center; padding:40px 20px 20px; }
-        .filter-btn {
-            background:#fff; border:2px solid var(--main); color:var(--main); padding:8px 20px; 
-            border-radius:24px; cursor:pointer; font-weight:700; margin:5px; transition:0.3s;
-        }
-        .filter-btn.active, .filter-btn:hover { background:var(--main); color:#fff; }
-
-        .gallery-grid {
-            max-width: 1200px; margin: auto; padding: 0 20px 80px;
-            columns: 3 250px; column-gap: 20px;
-        }
-        .photo-item {
-            margin-bottom: 20px; break-inside: avoid; border-radius: var(--radius); 
-            overflow: hidden; box-shadow: var(--shadow); background: #fff; transition: 0.3s;
-            cursor: pointer; display: block;
-        }
-        .photo-item img { width: 100%; height: auto; display: block; }
-
-        .lightbox {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.9);
-            display: none; justify-content: center; align-items: center;
-            z-index: 2000; padding: 20px;
-        }
-        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; }
-
-        @media(max-width:992px) { .gallery-grid { columns: 2 200px; } }
-    </style>
-</head>
-<body>
-
-<header>
-    <nav class="nav-container">
-        <a href="index.html" class="logo-box">
-            <img src="images/logo.png" alt="Semporna Tours Logo" class="site-logo">
-        </a>
-        <div class="nav-links">
-            <a href="index.html">首页 / Home</a>
-            <a href="pricing.html">价格 / Pricing</a>
-            <a href="accommodation.html">住宿 / Accommodation</a>
-            <a href="gallery.html" class="active">相册 / Gallery</a>
-            <a href="reviews.html">评价 / Reviews</a>
-            <a href="about.html">关于 / About</a>
-            <a href="faq.html">FAQ</a>
-            <a href="contact.html">联系 / Contact</a>
-            <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
-        </div>
-        <button class="hamburger" id="hamburger">&#9776;</button>
-    </nav>
-</header>
-
-<div class="filter-container">
-    <button class="filter-btn active" onclick="filterGallery('all', this)">
-        <span class="cn">全部</span><span class="en hidden">All</span>
-    </button>
-    <button class="filter-btn" onclick="filterGallery('diving', this)">
-        <span class="cn">潜水</span><span class="en hidden">Diving</span>
-    </button>
-    <button class="filter-btn" onclick="filterGallery('islands', this)">
-        <span class="cn">跳岛游</span><span class="en hidden">Islands</span>
-    </button>
-    <button class="filter-btn" onclick="filterGallery('stay', this)">
-        <span class="cn">住宿</span><span class="en hidden">Stay</span>
-    </button>
-</div>
-
 <div class="gallery-grid" id="galleryGrid">
     </div>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="">
-</div>
-
-<script src="main.js"></script>
 <script>
-    // Configuration: Define how many images are in each folder
-    const galleryConfig = {
-        diving: 15, // Change this to the number of photos you have in images/diving
-        islands: 15, // Change this to the number of photos you have in images/islands
-        stay: 20    // Change this to the number of photos you have in images/stay
-    };
+    // 1. MAPPING YOUR FOLDERS
+    // We categorize based on your specific GitHub subfolders
+    const categories = [
+        { folder: 'diving', class: 'diving' },
+        { folder: 'islands', class: 'islands' },
+        { folder: 'stay', class: 'rooms' }
+    ];
 
     const grid = document.getElementById('galleryGrid');
 
-    function loadImages() {
-        Object.keys(galleryConfig).forEach(category => {
-            const count = galleryConfig[category];
-            for (let i = 1; i <= count; i++) {
+    function loadGallery() {
+        categories.forEach(cat => {
+            // We assume you have up to 20 images per folder. 
+            // If the image doesn't exist, the 'onerror' function hides it.
+            for (let i = 1; i <= 20; i++) {
                 const item = document.createElement('div');
-                item.className = `photo-item ${category}`;
+                item.className = `photo-item ${cat.class}`;
                 
-                // It looks for images/diving/1.jpg, images/diving/2.jpg, etc.
-                const imgSrc = `images/${category}/${i}.jpg`;
+                // PATH STRUCTURE: images/[folder]/[number].jpg
+                const imgSrc = `images/${cat.folder}/${i}.jpg`;
                 
-                item.innerHTML = `<img src="${imgSrc}" loading="lazy" onerror="this.parentElement.style.display='none'">`;
+                item.innerHTML = `
+                    <img src="${imgSrc}" 
+                         loading="lazy" 
+                         onerror="handleImageError(this)">
+                `;
+                
                 item.onclick = () => openLightbox(imgSrc);
                 grid.appendChild(item);
             }
         });
     }
 
+    // This function hides the placeholder if the image is missing from the folder
+    function handleImageError(img) {
+        img.parentElement.style.display = 'none';
+    }
+
     function filterGallery(category, btn) {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         document.querySelectorAll('.photo-item').forEach(item => {
-            item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+            if (category === 'all' || item.classList.contains(category)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
         });
     }
 
@@ -122,13 +58,5 @@
         document.body.style.overflow = 'hidden';
     }
 
-    function closeLightbox() {
-        document.getElementById('lightbox').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-
-    // Initialize
-    loadImages();
+    loadGallery();
 </script>
-</body>
-</html>
