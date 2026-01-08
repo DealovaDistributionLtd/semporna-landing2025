@@ -16,7 +16,6 @@
             overflow: hidden;
         }
 
-        /* Native Accordion */
         details { width: 100%; }
         summary {
             padding: 22px;
@@ -55,7 +54,6 @@
             animation: fadeIn 0.3s ease;
         }
 
-        /* Re-establishing the card-btn style for the popup */
         .card-btn {
             display: inline-block;
             background: var(--main);
@@ -85,10 +83,12 @@
             <a href="accommodation.html">住宿 / Accommodation</a>
             <a href="gallery.html">相册 / Gallery</a>
             <a href="reviews.html">评价 / Reviews</a>
+            <a href="about.html">关于 / About</a>
             <a href="faq.html" class="active">FAQ</a>
+            <a href="contact.html">联系 / Contact</a>
             <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
         </div>
-        <button class="hamburger" id="hamburger">&#9776;</button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
     </nav>
 </header>
 
@@ -98,22 +98,11 @@
         <h1 class="cn">解答您的疑惑</h1>
         <h1 class="en hidden">Answering Your Questions</h1>
         <p class="cn">关于预订、行程、安全与交通的常见问题</p>
+        <p class="en hidden">FAQs about Booking, Itinerary, Safety & Logistics</p>
     </div>
 </section>
 
 <section>
-    <div class="faq-item">
-        <details open> <summary>
-                <span class="cn">7. 住宿是选镇上还是我们的水上屋？</span>
-                <span class="en hidden">7. Town hotels or our Water Bungalows?</span>
-            </summary>
-            <div class="answer">
-                <p class="cn">**强烈建议选择我们的独立水上屋！** 只有住在水上屋，您才能体验到真正的“推窗见海”和24小时的果冻海美景。镇上酒店虽然方便，但无法避开喧嚣。我们的水上屋提供极致的私人阳台观景位，伴着浪声入眠，这是仙本那之旅的灵魂所在。我们可以为您预订位置最佳的房间。**</p>
-                <p class="en hidden">**We highly recommend our Water Bungalows!** Only by staying overwater can you experience the true "ocean at your doorstep" and 24-hour crystal-clear sea views. While town hotels are convenient, they lack the peace and soul of the ocean. Our bungalows offer private balconies and the dream experience of sleeping over the waves. We can secure the best-positioned rooms for you.**</p>
-            </div>
-        </details>
-    </div>
-
     <div class="faq-item">
         <details>
             <summary>
@@ -121,11 +110,129 @@
                 <span class="en hidden">1. How to book? How far in advance?</span>
             </summary>
             <div class="answer">
-                <p class="cn">添加微信 (Deso_89) 即可。建议提前 3-5 天；西巴丹名额请务必提前 1 个月确认。</p>
+                <p class="cn">添加微信 (Deso_89) 咨询。普通行程提前 3-5 天；西巴丹 (Sipadan) 名额建议提前至少 1-2 个月。</p>
+                <p class="en hidden">Contact me via WeChat (Deso_89). 3-5 days for normal tours; at least 1-2 months for Sipadan.</p>
             </div>
         </details>
     </div>
 
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">2. 斗湖机场到仙本那镇上的交通怎么安排？</span>
+                <span class="en hidden">2. Airport Transfers?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">车程约 70-90 分钟。我们可以为您安排拼车或包车接送，司机会在出口处等候。</p>
+                <p class="en hidden">70-90 mins drive. We arrange shared or private transfers; the driver will meet you at the exit.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">3. 不会游泳可以参加体验深潜 (DSD) 吗？</span>
+                <span class="en hidden">3. Dive without swimming?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">完全可以！教练会全程 1 对 1 带领。您只需放松呼吸，剩下的安全保障由教练全程负责。</p>
+                <p class="en hidden">Yes! Swimming is not required for DSD. Coaches provide 1-on-1 guidance underwater.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">4. 潜水后可以直接坐飞机吗？</span>
+                <span class="en hidden">4. Flying after diving?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">单次潜水后需间隔 12 小时；多次潜水建议间隔 18-24 小时以确保安全。</p>
+                <p class="en hidden">Wait 12 hours after a single dive, or 18-24 hours after multiple dives before flying.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">5. 岛上可以飞无人机拍摄吗？</span>
+                <span class="en hidden">5. Can I fly a drone?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">部分岛屿需要许可证。如果您计划航拍，请提前告知，我们会协助您了解规定。</p>
+                <p class="en hidden">Some islands require permits. Let us know in advance if you plan to fly a drone.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">6. 费用包含潜水装备吗？</span>
+                <span class="en hidden">6. Is equipment included?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">是的。报价包含面镜、呼吸管、救生衣、脚蹼、气瓶和配重。自备泳衣即可。</p>
+                <p class="en hidden">Yes. Prices include all essential gear. Just bring your swimwear.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details open>
+            <summary>
+                <span class="cn">7. 住宿是选镇上酒店还是水上屋？</span>
+                <span class="en hidden">7. Town hotels or Overwater Bungalows?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">**强烈推荐我们的独立水上屋！** 住在镇上固然方便，但只有水上屋能让您真正融入果冻海。推窗就是 Bohey Dulang 的震撼海景，伴着浪声入眠，这是仙本那之旅的灵魂。住镇上虽然餐厅多，但水上屋的静谧与私密性是无价的。**</p>
+                <p class="en hidden">**Highly recommend our Overwater Bungalows!** Only staying overwater allows you to truly live "on" the jelly-sea. Waking up to Bohey Dulang views is the soul of a Semporna trip. Town hotels offer more restaurants, but the peace and privacy of our bungalows are priceless.**</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">8. 天气不好会取消行程吗？</span>
+                <span class="en hidden">8. Cancel for bad weather?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">若海事局发布禁令，全额退款或调整日期。普通小雨行程通常照常进行。</p>
+                <p class="en hidden">Full refunds offered if authorities ban departures. Tours usually continue in light rain.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">9. 支付方式有哪些？</span>
+                <span class="en hidden">9. Payment methods?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">支付宝、微信支付、马来西亚银行转账。预订需支付定金锁定名额。</p>
+                <p class="en hidden">We accept Alipay, WeChat Pay, and Bank Transfers. A deposit secures your spot.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="faq-item">
+        <details>
+            <summary>
+                <span class="cn">10. 潜水考证需要几天？</span>
+                <span class="en hidden">10. How many days for PADI?</span>
+            </summary>
+            <div class="answer">
+                <p class="cn">OW 课程 3 天；AOW 课程 2 天。建议预留 4-5 天时间以便舒适完成。</p>
+                <p class="en hidden">OW takes 3 days; AOW takes 2 days. We recommend 4-5 days total.</p>
+            </div>
+        </details>
+    </div>
+    
     <div style="text-align: center; margin-top: 50px;">
         <button class="card-btn" onclick="openWechat()">
             <span class="cn">还有疑问？微信问我</span>
@@ -141,7 +248,6 @@
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
         <p class="cn">扫码添加微信咨询</p>
-        <p class="en hidden">Scan WeChat for Advice</p>
         <img src="images/wechat-qr.jpg" alt="WeChat QR">
         <br><strong>ID: Deso_89</strong><br>
         <button onclick="closeWechat()" class="card-btn" style="background:#666; margin-top:15px; width: 100%;">
